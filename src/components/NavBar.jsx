@@ -1,19 +1,35 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/auth.context";
+
 
 function NavBar(){
-    if(window.location.href.includes("login") || window.location.href.includes("signup")) {
-return null;
-    } else {
+    
+        const {isLoggedIn, user } = useContext(AuthContext)
         return  (
-            <>
-            <h1> This is the NavBar </h1>
-            <Link to={`/GuestList`}>Guest List</Link>
-            <br></br>
-            <Link to={`/VendorList`}>Vendor List</Link>
-            </>
+            <nav>
+                <Link to ="/">
+                    Home
+                </Link>
+
+                {isLoggedIn && (
+                    <>
+                    <Link to={"/GuestList"}>Guest List</Link>
+                    <br/>
+                    <Link to={"/VendorList"}>Vendor List</Link>
+                    </>
+                )}
+
+                {!isLoggedIn && (
+                    <>
+                    <Link to={"/signup"}> Sign Up</Link>
+                    <Link to={"/login"}>Login</Link>
+                    </>
+                )}
+            </nav>
             );
     }
     
-    };
+
     
     export default NavBar;
