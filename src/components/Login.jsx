@@ -30,7 +30,7 @@ function Login(props) {
             console.log("This is the JWT Token", response.data.authToken)
             storeToken(response.data.authToken)
             authenticateUser()
-            navigate("/dashboard") // --> FILL IN THE RIGHT PATH
+            navigate("/")
         })
         .catch((error) => {
             const errorDescription = error.response.data.message

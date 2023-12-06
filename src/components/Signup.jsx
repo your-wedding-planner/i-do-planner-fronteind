@@ -10,7 +10,7 @@ function Signup(props) {
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const [weddingDate, setWeddingDate] = useState(new Date())
-    const [namePartner, setNameParter] = useState("")
+    const [namePartner, setNamePartner] = useState("")
     const [errorMessage, setErrorMessage] = useState(undefined)
     //const [guestList, setGuestList] = useState([])
     //const [vendorList, setVendorList] = useState([])
@@ -21,7 +21,7 @@ function Signup(props) {
     const handlePassword = (e) => setPassword(e.target.value)
     const handleName = (e) => setName(e.target.value)
     const handleWeddingDate = (e) => setWeddingDate(e.target.value)
-    const hanleNamePartner = (e) => setNameParter(e.target.value)
+    const handleNamePartner = (e) => setNamePartner(e.target.value)
 
     const handleSignupSubmit = (e) => {
         e.preventDefault()
@@ -88,7 +88,7 @@ function Signup(props) {
              type="text"
              name="namePartner"
              value={namePartner}
-             onChange={hanleNamePartner}
+             onChange={handleNamePartner}
               />
 
               <button type="submit" className="signup-button">
