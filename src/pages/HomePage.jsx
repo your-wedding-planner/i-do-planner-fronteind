@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import guest_icon from "../assets/guest-icon.png"; 
+import Header from "../components/Header";
+import NavBar from "../components/NavBar";
+
 function HomePage(){
     return(
         <>
+         
             <h1>I do Planner</h1>
             <div>
                 <Link to={`/GuestList`}>
