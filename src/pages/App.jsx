@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Login from '../components/Login'
+import Signup from '../components/Signup'
 import NavBar from "../components/NavBar";
 import Header from "../components/Header";
 import GuestList from "../components/GuestList";
@@ -9,19 +11,21 @@ import "./index.css"
 import HomePage from "./HomePage";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <Header />
+    <Header />
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/GuestList" element={<GuestList />} />
         <Route path="/VendorList" element={<VendorList />} />
       </Routes>
     </>
   );
 }
+
 
 export default App;
