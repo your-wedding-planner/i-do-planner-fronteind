@@ -10,7 +10,6 @@ function Login(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [errorMessage, setErrorMessage] = useState(undefined)
-  console.log(window.location)
 
     const navigate = useNavigate()
 
