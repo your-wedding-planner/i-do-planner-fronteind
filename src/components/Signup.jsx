@@ -86,9 +86,10 @@ function Signup(props) {
             onChange={handleName}
             />
 
-            <label>Date of wedding</label>
+            <label for="isoDate">Date of wedding</label>
             <input 
             type="date"
+            id="isoDate"
             name="weddingDate"
             value={weddingDate}
             onChange={handleWeddingDate}
