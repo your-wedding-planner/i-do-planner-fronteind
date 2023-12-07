@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import home_icon from "../assets/home-icon.png";
 
 function Header() {
   if (
@@ -10,7 +11,9 @@ function Header() {
     return (
       <>
         <h1> This is the Header </h1>
-        <Link to={`/`}>Home</Link>
+        <Link to={`/`}>
+          <img src={home_icon} alt="Home Icon" className="home"/>
+        </Link>
       </>
     );
   }

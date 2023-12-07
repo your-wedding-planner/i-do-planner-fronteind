@@ -1,4 +1,9 @@
 img {
-   width: 50px;
-   height: auto; 
+  width: 40px;
+  height: auto;
+}
+
+.home {
+  width: 30px;
+  height: auto;
 }

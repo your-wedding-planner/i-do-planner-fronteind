@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import guest_icon from "../assets/guest-icon.png"; 
-import Header from "../components/Header";
-import NavBar from "../components/NavBar";
+import guest_icon from "../assets/guest-icon.png";
+import vendor_icon from "../assets/vendor-icon.png";
 
 function HomePage(){
     return(
@@ -11,10 +10,13 @@ function HomePage(){
             <div>
                 <Link to={`/GuestList`}>
                     <img src={guest_icon} alt="Guest Icon" />
-                    Guest Icon
+                    Guest List
                 </Link>
                 <br />
-                <Link to={`/VendorList`}>Vendor List</Link>
+                <Link to={`/VendorList`}>
+                <img src={vendor_icon} alt="Vendor Icon" />
+                Vendor List
+                </Link>
             </div>
         </>
     );
