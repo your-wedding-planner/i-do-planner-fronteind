@@ -8,6 +8,7 @@ import GuestList from "../components/GuestList";
 import VendorList from "../components/VendorList";
 import HomePage from "./HomePage";
 import IsPrivate from "../components/IsPrivate";
+import IsAnon from "../components/IsAnon";
 import "./index.css";
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
       <Header />
       <NavBar />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<IsAnon><Login /></IsAnon>} />
+        <Route path="/signup" element={<IsAnon><Signup /></IsAnon>} />
         <Route path="/" element={<IsPrivate><HomePage /></IsPrivate>} />
         <Route path="/GuestList" element={<IsPrivate><GuestList /></IsPrivate>} />
         <Route path="/VendorList" element={<IsPrivate><VendorList /></IsPrivate>} />

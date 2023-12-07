@@ -8,17 +8,14 @@ function NavBar() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const handleLogoutButton = () => {
-    logOutUser()
-  }
-
-
+    logOutUser();
+  };
 
   return (
     <nav>
-      <Link to="/">Home</Link>
-
       {isLoggedIn && (
         <>
+          <Link to="/">Home</Link>
           <Link to={"/GuestList"}>
             <img src={guest_icon} alt="Guest Icon" />
             Guest List
