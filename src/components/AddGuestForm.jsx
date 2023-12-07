@@ -25,12 +25,9 @@ function AddGuestForm() {
     e.preventDefault();
     try {
       await axios.post(API_URL, formData);
-      // Handle success upon form submission
       console.log("Form submitted successfully");
-      // Additional logic like clearing form fields can be added here
     } catch (error) {
       console.error("Error submitting form:", error);
-      // Handle errors if the request fails
     }
   };
 
@@ -43,7 +40,7 @@ function AddGuestForm() {
         <h2>Add new Guest</h2>
       </div>
 
-      <button onClick={handleButtonClick}>
+      <button onClick={handleButtonClick} className="btn">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showGuests && (
