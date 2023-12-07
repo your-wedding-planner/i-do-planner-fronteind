@@ -11,6 +11,9 @@ import IsPrivate from "../components/IsPrivate";
 import IsAnon from "../components/IsAnon";
 import GuestDetails from "../components/GuestDetails";
 import GuestEdit from "../components/GuestEdit";
+import VendorDetails from "../components/VendorDetails";
+import VendorEdit from "../components/VendorEdit";
+
 import "./index.css";
 
 function App() {
@@ -25,8 +28,9 @@ function App() {
         <Route path="/GuestList" element={<IsPrivate><GuestList /></IsPrivate>} />
         <Route path="/VendorList" element={<IsPrivate><VendorList /></IsPrivate>} />
         <Route path="/GuestDetails/:guestId" element={<IsPrivate><GuestDetails/></IsPrivate>} />
+        <Route path="/VendorDetails/:vendorId" element={<IsPrivate><VendorDetails/></IsPrivate>} />
         <Route path="/GuestEdit/:guestId" element={<IsPrivate><GuestEdit/></IsPrivate>} />
-        <Route path="/GuestEdit/:guestId" element={<GuestEdit />} />
+        <Route path="/VendorEdit/:vendorId" element={<IsPrivate><VendorEdit/></IsPrivate>} />
       </Routes>
     </>
   );
