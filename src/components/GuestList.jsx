@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddGuestForm from "./AddGuestForm";
+import GuestDetails from "./GuestDetails";
+import { Link } from "react-router-dom";
 
 function GuestList() {
   const [guestsList, setGuestsList] = useState([]);
@@ -22,11 +24,13 @@ function GuestList() {
         <h1>Guest List</h1>
         {guestsList.length > 0 ? (
           guestsList.map((guest) => (
-            <div key={guest._id}>
-              <h3 key={guest._id}>
-                {guest.firstName} {guest.lastName}
-              </h3>
-            </div>
+            <Link to={`/GuestDetails/${guest._id}`} key={guest._id}> 
+              <div>
+                <h3>
+                  {guest.firstName} {guest.lastName}
+                </h3>
+              </div>
+            </Link>
           ))
         ) : (
           <p>No guests available</p>
