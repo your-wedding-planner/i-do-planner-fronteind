@@ -11,3 +11,20 @@ img {
   width: 30px;
   height: auto;
 }
+
+.header{
+  text-align: center;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%;
+  background-image: url("src/assets/background-test.png");
+}
+

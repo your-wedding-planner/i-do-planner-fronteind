@@ -7,11 +7,12 @@ const API_URL = "http://localhost:5005/api/vendors";
 function VendorDetails() {
   const [vendor, setVendor] = useState({});
   const { vendorId } = useParams();
+  const storedToken = localStorage.getItem('authToken');
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/${vendorId}`)
+      .get(`${API_URL}/${vendorId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setVendor(response.data);
       })
@@ -22,7 +23,7 @@ function VendorDetails() {
 
   const deleteVendor = () => {
     axios
-      .delete(`${API_URL}/${vendorId}`)
+      .delete(`${API_URL}/${vendor._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then(() => {
         toast.success("Deleted succesfuly");
         console.log("Vendor deleted");

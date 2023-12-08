@@ -5,6 +5,7 @@ import AddVendorForm from "./AddVendorForm";
 
 function VendorList() {
   const [vendorsList, setVendorsList] = useState([]);
+  const storedToken = localStorage.getItem('authToken');
 
   useEffect(() => {
     loadVendors();
@@ -12,7 +13,7 @@ function VendorList() {
 
   const loadVendors = () => {
     axios
-      .get("http://localhost:5005/api/vendors")
+      .get("http://localhost:5005/api/vendors", { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setVendorsList(response.data);
       })

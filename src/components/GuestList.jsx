@@ -6,10 +6,11 @@ import { Link } from "react-router-dom";
 
 function GuestList() {
   const [guestsList, setGuestsList] = useState([]);
+  const storedToken = localStorage.getItem('authToken');
 
   useEffect(() => {
     axios
-      .get("http://localhost:5005/api/guests")
+      .get("http://localhost:5005/api/guests", { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setGuestsList(response.data);
       })

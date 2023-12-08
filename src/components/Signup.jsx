@@ -12,8 +12,6 @@ function Signup(props) {
     const [weddingDate, setWeddingDate] = useState(new Date())
     const [namePartner, setNamePartner] = useState("")
     const [errorMessage, setErrorMessage] = useState(undefined)
-    //const [guestList, setGuestList] = useState([])
-    //const [vendorList, setVendorList] = useState([])
 
     const navigate = useNavigate()
 
@@ -58,62 +56,59 @@ function Signup(props) {
     }
 
     return (
-      <div className="signup">
-        <h2>This is the Signup</h2>
-        <form className="signup-form" onSubmit={handleSignupSubmit}>
-          <div>
-            <label>Email</label>
-            <input 
+<div className="card w-96 bg-base-100 shadow-xl">
+      <form onSubmit={handleSignupSubmit}>
+        <div className="card-body items-center text-center">
+          <label className="card-actions">Email</label>
+          <input
             type="email"
             name="email"
             value={email}
             onChange={handleEmail}
-            />
-
-            <label>Password</label>
-            <input 
-            type="password" 
+          />
+          <label className="card-actions">Password</label>
+          <input
+            type="password"
             name="password"
             value={password}
             onChange={handlePassword}
-            />
-
-            <label>Name</label>
-            <input 
-            type="text" 
+          />
+          <label className="card-actions">Your first name</label>
+          <input
+            type="text"
             name="name"
             value={name}
             onChange={handleName}
-            />
-
-            <label for="isoDate">Date of wedding</label>
-            <input 
+          />
+          <label className="card-actions" for="isoDate">Date of your wedding</label>
+          <input
             type="date"
             id="isoDate"
             name="weddingDate"
             value={weddingDate}
             onChange={handleWeddingDate}
-             />
-
-            <label>Name of partner</label>
-             <input 
-             type="text"
-             name="namePartner"
-             value={namePartner}
-             onChange={handleNamePartner}
-              />
-
-              <button type="submit" className="signup-button">
-                Sign up
-              </button>
+          />
+          <label className="card-actions">Name of your partner</label>
+          <input
+            type="text"
+            name="namePartner"
+            value={namePartner}
+            onChange={handleNamePartner}
+          />
+          <div className="card-actions">
+            <button type="submit" className="btn btn-primary">
+              Sign up
+            </button>
           </div>
-        </form>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <p>Do you already have an account</p>
-        <Link to={"/login"}>Click here to go to login</Link>
+        </div>
+      </form>
+      <div className="items-center text-center">
+        {errorMessage && <p>{errorMessage}</p>}
+        <p>Do you already have an account?</p>
+        <Link to={"/signup"}>Click here to login</Link>
       </div>
-    );
-
+    </div>
+    )
 }
 
 export default Signup

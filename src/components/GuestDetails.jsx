@@ -9,11 +9,12 @@ function GuestDetails() {
   const [guest, setGuest] = useState({});
   const { guestId } = useParams(); 
   const [guestToDelete, setGuestToDelete] = useState([]);
+  const storedToken = localStorage.getItem('authToken');
   const navigate = useNavigate();
   
   useEffect(() => {
     axios
-      .get(`${API_URL}/${guestId}`)
+      .get(`${API_URL}/${guestId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setGuest(response.data);
       })
@@ -24,7 +25,7 @@ function GuestDetails() {
 
   const deleteGuest = (guest) => {
     axios
-      .delete(`${API_URL}/${guest._id}`)
+      .delete(`${API_URL}/${guest._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setGuestToDelete(response.data);
         console.log("Guest deleted")

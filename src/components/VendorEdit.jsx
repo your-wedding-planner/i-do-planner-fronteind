@@ -18,6 +18,7 @@ function VendorEdit({ handleShowSnackbar }) {
     const [vendor, setVendor] = useState({ ...DEFAULT_VENDOR_FORM_VALUES });
     const [loading, setLoading] = useState(true);
     const { vendorId } = useParams();
+    const storedToken = localStorage.getItem('authToken');
 
     const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ function VendorEdit({ handleShowSnackbar }) {
         setLoading(true);
 
         axios
-            .put(`${API_URL}/${vendor._id}`, requestBody)
+            .put(`${API_URL}/${vendor._id}`, { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
             .then(() => {
                 toast.success("Vendor edited successfully")
                 navigate(`/VendorDetails/${vendor._id}`);
@@ -58,7 +59,7 @@ function VendorEdit({ handleShowSnackbar }) {
     useEffect(() => {
         const getVendor = () => {
             axios
-                .get(`${API_URL}/${vendorId}`)
+                .get(`${API_URL}/${vendorId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
                 .then((response) => {
                     const vendorData = response.data;
                     setVendor(vendorData);

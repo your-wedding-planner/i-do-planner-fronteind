@@ -4,6 +4,7 @@ import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/guests";
+const storedToken = localStorage.getItem('authToken');
 
 function AddGuestForm() {
   const [showGuests, setShowGuests] = useState(false);
@@ -25,7 +26,7 @@ function AddGuestForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, formData);
+      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");
       toast.success("Guest created successfully")
     } catch (error) {

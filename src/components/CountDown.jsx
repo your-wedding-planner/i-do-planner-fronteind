@@ -31,33 +31,39 @@ function CountDown({ weddingDate }) {
   }, [weddingDate]);
 
   return (
-    <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-        <h1>{countDownMessage}</h1>
-      <div className="flex flex-col">
-        <span className="countdown font-mono text-5xl">
-          <span style={{ "--value": countdown[0] }}></span>
-        </span>
-        days
-      </div>
-      <div className="flex flex-col">
-        <span className="countdown font-mono text-5xl">
-          <span style={{ "--value": countdown[1] }}></span>
-        </span>
-        hours
-      </div>
-      <div className="flex flex-col">
-        <span className="countdown font-mono text-5xl">
-          <span style={{ "--value": countdown[2] }}></span>
-        </span>
-        min
-      </div>
-      <div className="flex flex-col">
-        <span className="countdown font-mono text-5xl">
-          <span style={{ "--value": countdown[3] }}></span>
-        </span>
-        sec
-      </div>
-    </div>
+    <div>
+    <h1>Days: {countdown[0]}</h1>
+    <h1>Hours: {countdown[1]}</h1>
+    <h1>Minutes: {countdown[2]}</h1>
+    <h1>Seconds: {countdown[3]}</h1>
+</div>
+    // <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+    //     <h1>{countDownMessage}</h1>
+    //   <div className="flex flex-col">
+    //     <span className="countdown font-mono text-5xl">
+    //       <span style={{ "--value": countdown[0] }}></span>
+    //     </span>
+    //     days
+    //   </div>
+    //   <div className="flex flex-col">
+    //     <span className="countdown font-mono text-5xl">
+    //       <span style={{ "--value": countdown[1] }}></span>
+    //     </span>
+    //     hours
+    //   </div>
+    //   <div className="flex flex-col">
+    //     <span className="countdown font-mono text-5xl">
+    //       <span style={{ "--value": countdown[2] }}></span>
+    //     </span>
+    //     min
+    //   </div>
+    //   <div className="flex flex-col">
+    //     <span className="countdown font-mono text-5xl">
+    //       <span style={{ "--value": countdown[3] }}></span>
+    //     </span>
+    //     sec
+    //   </div>
+    // </div>
   );
 }
 

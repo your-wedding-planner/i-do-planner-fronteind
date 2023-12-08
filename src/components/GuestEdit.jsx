@@ -18,6 +18,7 @@ function GuestEdit() {
     const [guest, setGuest] = useState({ ...DEFAULT_GUEST_FORM_VALUES });
     const [loading, setLoading] = useState(true);
     const { guestId } = useParams();
+    const storedToken = localStorage.getItem('authToken');
 
     const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ function GuestEdit() {
         setLoading(true);
 
         axios
-            .put(`${API_URL}/${guest._id}`, requestBody)
+            .put(`${API_URL}/${guest._id}`, { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
             .then(() => {
                 toast.success("Guest edited successfully")
                 navigate(`/GuestDetails/${guest._id}`);
@@ -58,7 +59,7 @@ function GuestEdit() {
     useEffect(() => {
         const getGuest = () => {
             axios
-                .get(`${API_URL}/${guestId}`)
+                .get(`${API_URL}/${guestId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
                 .then((response) => {
                     const guestData = response.data;
                     setGuest(guestData);

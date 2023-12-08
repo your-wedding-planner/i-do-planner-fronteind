@@ -5,8 +5,10 @@ import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/vendors";
 
-function AddVendorForm({ loadVendors }) {
-  const [showVendorsForm, setShowVendorsForm] = useState(false);
+
+function AddVendorForm { loadVendors } {
+  const storedToken = localStorage.getItem('authToken');
+  const [showVendors, setShowVendors] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -25,7 +27,7 @@ function AddVendorForm({ loadVendors }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, formData);
+      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");
       loadVendors();
       toast.success("Vendor created succesfully");
