@@ -3,6 +3,7 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 
 const API_URL = "http://localhost:5005/api/guests";
+const storedToken = localStorage.getItem('authToken');
 
 function AddGuestForm() {
   const [showGuests, setShowGuests] = useState(false);
@@ -24,7 +25,7 @@ function AddGuestForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, formData);
+      await axios.post(API_URL, { headers: { Authorization: `Bearer ${storedToken}`} }, formData);
       console.log("Form submitted successfully");
     } catch (error) {
       console.error("Error submitting form:", error);
