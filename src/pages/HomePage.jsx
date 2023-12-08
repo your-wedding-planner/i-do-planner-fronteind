@@ -8,11 +8,8 @@ import axios from "axios";
 
 function HomePage(){
     const [userDetails, setUserDetails] = useState({})
-    //const [weddingDate, setWeddingDate] = useState(new Date())
     const {user} = useContext(AuthContext)
     const {weddingDate} = user
-    console.log(weddingDate)
-
 
     return(
         <>

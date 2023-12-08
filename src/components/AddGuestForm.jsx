@@ -25,7 +25,7 @@ function AddGuestForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, { headers: { Authorization: `Bearer ${storedToken}`} }, formData);
+      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");
     } catch (error) {
       console.error("Error submitting form:", error);

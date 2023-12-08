@@ -4,7 +4,9 @@ import add_icon from "../assets/add-icon.png";
 
 const API_URL = "http://localhost:5005/api/vendors";
 
+
 function AddVendorForm() {
+  const storedToken = localStorage.getItem('authToken');
   const [showVendors, setShowVendors] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,7 +26,7 @@ function AddVendorForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, formData);
+      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");
     } catch (error) {
       console.error("Error submitting form:", error);
