@@ -9,12 +9,12 @@ function Header() {
     return null;
   } else {
     return (
-      <>
-        <h1> This is the Header </h1>
-        <Link to={`/`}>
+      <div className="header">
+        <h1> I Do Planner </h1>
+        {/* <Link to={`/`}>
           <img src={home_icon} alt="Home Icon" className="home"/>
-        </Link>
-      </>
+        </Link> */}
+      </div>
     );
   }
 }
