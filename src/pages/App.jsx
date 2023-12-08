@@ -13,12 +13,12 @@ import GuestDetails from "../components/GuestDetails";
 import GuestEdit from "../components/GuestEdit";
 import VendorDetails from "../components/VendorDetails";
 import VendorEdit from "../components/VendorEdit";
-
 import "./index.css";
-
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <>
+    <Toaster/>
       <Header />
       <NavBar />
       <Routes>

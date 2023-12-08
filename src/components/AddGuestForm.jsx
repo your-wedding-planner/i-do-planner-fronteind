@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
+import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/guests";
 
@@ -26,6 +27,7 @@ function AddGuestForm() {
     try {
       await axios.post(API_URL, formData);
       console.log("Form submitted successfully");
+      toast.success("Guest created successfully")
     } catch (error) {
       console.error("Error submitting form:", error);
     }

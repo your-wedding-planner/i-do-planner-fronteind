@@ -7,6 +7,10 @@ function VendorList() {
   const [vendorsList, setVendorsList] = useState([]);
 
   useEffect(() => {
+    loadVendors();
+  }, []);
+
+  const loadVendors = () => {
     axios
       .get("http://localhost:5005/api/vendors")
       .then((response) => {
@@ -15,7 +19,7 @@ function VendorList() {
       .catch((error) => {
         console.error("Error fetching vendors:", error);
       });
-  }, []);
+  };
 
   return (
     <>
@@ -25,29 +29,14 @@ function VendorList() {
           vendorsList.map((vendor) => (
             <Link to={`/VendorDetails/${vendor._id}`} key={vendor._id}> 
               <div>
-                <h3>
-                  {vendor.name} 
-                </h3>
-                <h3>
-                  {vendor.location} 
-                </h3>
-                <h3>
-                  {vendor.URL} 
-                </h3>
-                <h3>
-                  {vendor.description} 
-                </h3>
-                <h3>
-                  {vendor.typeOfService} 
-                </h3>
+                <h3>{vendor.name}</h3>
+                <h3>{vendor.location}</h3>
+                <h3>{vendor.URL}</h3>
+                <h3>{vendor.description}</h3>
+                <h3>{vendor.typeOfService}</h3>
               </div>
-              <h3>
-                  {vendor.email} 
-                </h3>
-                <h3>
-                  {vendor.phoneNumber} 
-                </h3>
-
+              <h3>{vendor.email}</h3>
+              <h3>{vendor.phoneNumber}</h3>
             </Link>
           ))
         ) : (
@@ -55,7 +44,9 @@ function VendorList() {
         )}
       </div>
       <div>
-      <AddVendorForm />
+        <AddVendorForm
+          loadVendors={loadVendors}
+        />
       </div>
     </>
   );

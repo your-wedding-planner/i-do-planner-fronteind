@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import VendorEdit from "./VendorEdit";
-import VendorList from "./VendorList";
-
+import toast from "react-hot-toast";
 const API_URL = "http://localhost:5005/api/vendors";
 
 function VendorDetails() {
   const [vendor, setVendor] = useState({});
   const { vendorId } = useParams();
-  const [vendorToDelete, setVendorToDelete] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,11 +20,11 @@ function VendorDetails() {
       });
   }, [vendorId]);
 
-  const deleteVendor = (vendor) => {
+  const deleteVendor = () => {
     axios
-      .delete(`${API_URL}/${vendor._id}`)
-      .then((response) => {
-        setVendorToDelete(response.data);
+      .delete(`${API_URL}/${vendorId}`)
+      .then(() => {
+        toast.success("Deleted succesfuly");
         console.log("Vendor deleted");
         navigate(`/VendorList`);
       })
@@ -36,8 +33,9 @@ function VendorDetails() {
       });
   };
 
-  return (
+  return vendor ?  (
     <>
+    
       <div>
         <h2>Vendor Details</h2>
         <p>Name: {vendor.name}</p>
@@ -49,26 +47,22 @@ function VendorDetails() {
         <p>Phone: {vendor.phoneNumber}</p>
       </div>
 
-      <button
-        className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
-        onClick={() => {
-          deleteVendor(vendor);
-        }}
-      >
-        Delete
-      </button>
-
-     
-       <div className="mt-4">
+      <div className="mt-4">
         <Link to={`/VendorEdit/${vendor._id}`}>
           <button className="btn btn-xs sm:btn-sm md:btn-md btn-wide">
             Edit
           </button>
         </Link>
       </div>
-       
+
+      <button
+        className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
+        onClick={deleteVendor}
+      >
+        Delete
+      </button>
     </>
-  );
+  ) : <p>loading</p>
 }
 
 export default VendorDetails;

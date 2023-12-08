@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import GuestDetails from "./GuestDetails";
+import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/guests";
 const DEFAULT_GUEST_FORM_VALUES = {
@@ -30,6 +30,7 @@ function GuestEdit() {
         axios
             .put(`${API_URL}/${guest._id}`, requestBody)
             .then(() => {
+                toast.success("Guest edited successfully")
                 navigate(`/GuestDetails/${guest._id}`);
             })
             .catch((error) => console.log(error));

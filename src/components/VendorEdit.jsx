@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import VendorDetails from "./VendorDetails";
+import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/vendors";
 const DEFAULT_VENDOR_FORM_VALUES = {
@@ -14,7 +14,7 @@ const DEFAULT_VENDOR_FORM_VALUES = {
     phoneNumber: "",
 };
 
-function VendorEdit() {
+function VendorEdit({ handleShowSnackbar }) {
     const [vendor, setVendor] = useState({ ...DEFAULT_VENDOR_FORM_VALUES });
     const [loading, setLoading] = useState(true);
     const { vendorId } = useParams();
@@ -30,6 +30,7 @@ function VendorEdit() {
         axios
             .put(`${API_URL}/${vendor._id}`, requestBody)
             .then(() => {
+                toast.success("Vendor edited successfully")
                 navigate(`/VendorDetails/${vendor._id}`);
             })
             .catch((error) => console.log(error));
@@ -68,6 +69,10 @@ function VendorEdit() {
         getVendor();
         setLoading(false);
     }, [vendorId]);
+
+    const handleButtonClick = () => {
+        setShowVendorsForm(true);
+    };
 
     return (
         <div>

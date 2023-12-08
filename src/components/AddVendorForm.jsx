@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
+import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/vendors";
 
-function AddVendorForm() {
-  const [showVendors, setShowVendors] = useState(false);
+function AddVendorForm({ loadVendors }) {
+  const [showVendorsForm, setShowVendorsForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -26,14 +27,18 @@ function AddVendorForm() {
     try {
       await axios.post(API_URL, formData);
       console.log("Form submitted successfully");
+      loadVendors();
+      toast.success("Vendor created succesfully");
+      setShowVendorsForm(false);
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
 
   const handleButtonClick = () => {
-    setShowVendors(true);
+    setShowVendorsForm(true);
   };
+
   return (
     <div>
       <div>
@@ -43,7 +48,7 @@ function AddVendorForm() {
       <button onClick={handleButtonClick} className="btn">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
-      {showVendors && (
+      {showVendorsForm && (
         <form onSubmit={handleSubmit}>
           <label>
             Name:

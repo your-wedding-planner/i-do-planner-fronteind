@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import GuestEdit from "./GuestEdit";
-import GuestList from "./GuestList";
+import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/guests";
 
@@ -29,6 +28,7 @@ function GuestDetails() {
       .then((response) => {
         setGuestToDelete(response.data);
         console.log("Guest deleted")
+        toast.success("Guest deleted successfully")
         navigate(`/GuestList`);
       })
       .catch((error) => {
