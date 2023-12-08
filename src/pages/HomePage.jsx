@@ -8,21 +8,12 @@ import axios from "axios";
 
 function HomePage(){
     const [userDetails, setUserDetails] = useState({})
-    const [weddingDate, setWeddingDate] = useState(new Date())
+    //const [weddingDate, setWeddingDate] = useState(new Date())
     const {user} = useContext(AuthContext)
-    const userId = user._id
+    const {weddingDate} = user
+    console.log(weddingDate)
 
-    useEffect(() => {
-        axios.get(`http://localhost:5005/api/users/${userId}`)
-        .then((response) => {
-            setUserDetails(response.data)
-            setWeddingDate(response.data.weddingDate)
-        })
-        .catch((error) => {
-            console.log(`Error fetching user with id ${userId}`, error)
-        })
-    }, [userId])
-    
+
     return(
         <>
          
