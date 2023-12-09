@@ -13,6 +13,7 @@ import GuestDetails from "../components/GuestDetails";
 import GuestEdit from "../components/GuestEdit";
 import VendorDetails from "../components/VendorDetails";
 import VendorEdit from "../components/VendorEdit";
+import SeatingPlanner from "../components/SeatingPlanner";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 function App() {
@@ -31,6 +32,8 @@ function App() {
         <Route path="/VendorDetails/:vendorId" element={<IsPrivate><VendorDetails/></IsPrivate>} />
         <Route path="/GuestEdit/:guestId" element={<IsPrivate><GuestEdit/></IsPrivate>} />
         <Route path="/VendorEdit/:vendorId" element={<IsPrivate><VendorEdit/></IsPrivate>} />
+        <Route path="/SeatingPlanner" element={<IsPrivate><SeatingPlanner /></IsPrivate>} />
+
       </Routes>
     </>
   );

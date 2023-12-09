@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import guest_icon from "../assets/guest-icon.png";
 import vendor_icon from "../assets/vendor-icon.png";
 import home_icon from "../assets/home-icon.png";
+import table_icon from "../assets/table-icon.png";
 
 function NavBarTest() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -68,6 +69,12 @@ function NavBarTest() {
                 <Link to={"/VendorList"}>
                   <img src={vendor_icon} alt="Vendor Icon" />
                   Vendor List
+                </Link>
+                </li>
+                <li>
+                <Link to={"/SeatingPlanner"}>
+                  <img src={table_icon} alt="Table Icon" />
+                  Seating Planner
                 </Link>
                 </li>
               </ul>
