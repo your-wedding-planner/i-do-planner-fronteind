@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import guest_icon from "../assets/guest-icon.png";
 import vendor_icon from "../assets/vendor-icon.png";
 import home_icon from "../assets/home-icon.png";
+import calculator_icon from "../assets/calculator-icon.png"
 
 function NavBarTest() {
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
@@ -41,13 +42,16 @@ function NavBarTest() {
                   <li>
                   <Link to={"/GuestList"}>
                   <img src={guest_icon} alt="Guest Icon" />
-                  Guest List
                 </Link>
                   </li>
                   <li>
                   <Link to={"/VendorList"}>
                   <img src={vendor_icon} alt="Vendor Icon" />
-                  Vendor List
+                </Link>
+                  </li>
+                  <li>
+                  <Link to={"/BudgetCalculator"}>
+                  <img src={calculator_icon} alt="Calculator Icon" />
                 </Link>
                   </li>
                 </ul>
@@ -61,15 +65,18 @@ function NavBarTest() {
                 <li>
                 <Link to={"/GuestList"}>
                   <img src={guest_icon} alt="Guest Icon" />
-                  Guest List
                 </Link>
                 </li>
                 <li>
                 <Link to={"/VendorList"}>
                   <img src={vendor_icon} alt="Vendor Icon" />
-                  Vendor List
                 </Link>
                 </li>
+                <li>
+                  <Link to={"/BudgetCalculator"}>
+                  <img src={calculator_icon} alt="Calculator Icon" />
+                </Link>
+                  </li>
               </ul>
             </div>
             <div className="navbar-end">

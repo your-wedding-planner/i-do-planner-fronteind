@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 import guest_icon from "../assets/guest-icon.png";
 import vendor_icon from "../assets/vendor-icon.png";
+import calculator_icon from "../assets/calculator-icon.png"
 import CountDown from "../components/CountDown";
 import { AuthContext } from "../context/auth.context";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+import { useContext } from "react"
 
 function HomePage() {
-  const [userDetails, setUserDetails] = useState({});
   const { user } = useContext(AuthContext);
   const { weddingDate } = user;
 
@@ -27,12 +26,6 @@ function HomePage() {
     <>
       <div>
         <div className="verticalcard lg:verticalcard-side bg-base-100 shadow-xl">
-          <figure>
-            {/* <img
-              src="https://daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-              alt="Album"
-            /> */}
-          </figure>
           <div className="verticalcard-body">
             <h2 className="verticalcard-title">{user.name} & {user.namePartner}</h2>
             <p>{formattedWeddingDate}</p>
@@ -50,6 +43,11 @@ function HomePage() {
         <Link to={`/VendorList`}>
           <img src={vendor_icon} alt="Vendor Icon" />
           Vendor List
+        </Link>
+        <br />
+        <Link to={'/BudgetCalculator'}>
+          <img src={calculator_icon} alt="Calculator Icon" />
+          Budget Calculator
         </Link>
       </div>
     </>

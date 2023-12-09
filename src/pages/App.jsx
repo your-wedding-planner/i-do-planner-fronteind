@@ -15,6 +15,8 @@ import VendorDetails from "../components/VendorDetails";
 import VendorEdit from "../components/VendorEdit";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
+import BudgetCalculator from "../components/BudgetCalculator";
+
 function App() {
   return (
     <>
@@ -31,6 +33,7 @@ function App() {
         <Route path="/VendorDetails/:vendorId" element={<IsPrivate><VendorDetails/></IsPrivate>} />
         <Route path="/GuestEdit/:guestId" element={<IsPrivate><GuestEdit/></IsPrivate>} />
         <Route path="/VendorEdit/:vendorId" element={<IsPrivate><VendorEdit/></IsPrivate>} />
+        <Route path="/BudgetCalculator" element={<IsPrivate><BudgetCalculator/></IsPrivate>} />
       </Routes>
     </>
   );
