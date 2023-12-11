@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import AddTableForm from "./AddTableForm";
 
 function SeatingPlanner() {
   const API_URL = "http://localhost:5005/api";
@@ -16,23 +17,23 @@ function SeatingPlanner() {
     return result;
   };
 
+  const loadData = async () => {
+    try {
+      const guestsResponse = await axios.get(`${API_URL}/guests`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+      guestsList = guestsResponse.data;
+
+      const tablesResponse = await axios.get(`${API_URL}/seatingTables`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      });
+      filterUnassignedGuests(guestsResponse.data, tablesResponse.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const guestsResponse = await axios.get(`${API_URL}/guests`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        });
-        guestsList = guestsResponse.data;
-
-        const tablesResponse = await axios.get(`${API_URL}/seatingTables`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        });
-        filterUnassignedGuests(guestsResponse.data, tablesResponse.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
     loadData();
   }, []);
 
@@ -108,69 +109,79 @@ function SeatingPlanner() {
     }
 
     if (table2._id != "-1") {
-        updateTable(table2);
+      updateTable(table2);
     }
   };
 
   const updateGuest = (guest) => {
     axios
-    .put(`${API_URL}/guests/${guest._id}`, guest, {
-      headers: { Authorization: `Bearer ${storedToken}` },
-    })
-    .then(() => {
-      console.log("Guest edited successfully");
-    })
-    .catch((error) => console.log(error));
-  }
+      .put(`${API_URL}/guests/${guest._id}`, guest, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {
+        console.log("Guest edited successfully");
+      })
+      .catch((error) => console.log(error));
+  };
 
   const updateTable = (table) => {
     axios
-    .put(`${API_URL}/seatingTables/${table._id}`, table, {
-      headers: { Authorization: `Bearer ${storedToken}` },
-    })
-    .then(() => {
-      console.log("Table edited successfully");
-    })
-    .catch((error) => console.log(error));
+      .put(`${API_URL}/seatingTables/${table._id}`, table, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then(() => {
+        console.log("Table edited successfully");
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const reloadTables = () => {
+    setTablesList([]);
+    unassignedTable = undefined;
+    loadData();
   }
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      {tablesList.map((table) => (
-        <div className="seatingPlanner">
-          <h1>{table.tableName}</h1>
-          <Droppable droppableId={table._id} direction="horizontal">
-            {(droppableProvided) => (
-              <ul
-                {...droppableProvided.droppableProps}
-                ref={droppableProvided.innerRef}
-                className="guest-container"
-              >
-                {table.assignedGuests.map((guest, index) => (
-                  <Draggable
-                    key={guest._id}
-                    draggableId={guest._id}
-                    index={index}
-                  >
-                    {(draggableProvided) => (
-                      <li
-                        key={guest._id}
-                        {...draggableProvided.draggableProps}
-                        ref={draggableProvided.innerRef}
-                        {...draggableProvided.dragHandleProps}
-                        className="guest-item"
-                      >
-                        {guest.firstName}
-                      </li>
-                    )}
-                  </Draggable>
-                ))}
-              </ul>
-            )}
-          </Droppable>
-        </div>
-      ))}
-    </DragDropContext>
+    <>
+      <AddTableForm reloadTables={reloadTables} />
+
+      <DragDropContext onDragEnd={onDragEnd}>
+        {tablesList.map((table) => (
+          <div className="seatingPlanner">
+            <h1>{table.tableName}</h1>
+            <Droppable droppableId={table._id} direction="horizontal">
+              {(droppableProvided) => (
+                <ul
+                  {...droppableProvided.droppableProps}
+                  ref={droppableProvided.innerRef}
+                  className="guest-container"
+                >
+                  {table.assignedGuests.map((guest, index) => (
+                    <Draggable
+                      key={guest._id}
+                      draggableId={guest._id}
+                      index={index}
+                    >
+                      {(draggableProvided) => (
+                        <li
+                          key={guest._id}
+                          {...draggableProvided.draggableProps}
+                          ref={draggableProvided.innerRef}
+                          {...draggableProvided.dragHandleProps}
+                          className="guest-item"
+                        >
+                          {guest.firstName}
+                        </li>
+                      )}
+                    </Draggable>
+                  ))}
+                </ul>
+              )}
+            </Droppable>
+          </div>
+        ))}
+      </DragDropContext>
+    </>
   );
 }
 
