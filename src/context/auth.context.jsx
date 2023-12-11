@@ -11,6 +11,7 @@ function AuthProviderWrapper(props) {
   const [user, setUser] = useState(null);
 
   const storeToken = (token) => { 
+    console.log(token)
     localStorage.setItem('authToken', token);
   }
 
