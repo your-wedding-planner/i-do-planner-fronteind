@@ -56,7 +56,7 @@ function AddGuestForm({ loadGuests }) {
     const getTables = () => {
       axios
         .get("http://localhost:5005/api/seatingTables", {
-          headers: { Authorization: `Bearer ${storedToken}` },
+          headers: { Authorization: `Bearer ${storedToken}` }
         })
         .then((response) => {
           setTables(response.data);
