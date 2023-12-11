@@ -14,15 +14,22 @@ function GuestEdit() {
     phoneNumber: "",
     notes: "",
     attending: "Pending",
+    seatingTable: null,
   });
   const [loading, setLoading] = useState(true);
   const { guestId } = useParams();
   const storedToken = localStorage.getItem("authToken");
+  const [tables, setTables] = useState([]);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (formData.seatingTable === "-1") {
+      formData.seatingTable = null;
+    }
+
     const requestBody = { ...formData };
 
     setLoading(true);
@@ -33,6 +40,7 @@ function GuestEdit() {
       .then(() => {
         toast.success("Guest edited successfully");
         navigate(`/GuestDetails/${guestId}`);
+        updateGuestsLists();
       })
       .catch((error) => console.log(error));
   };
@@ -56,8 +64,47 @@ function GuestEdit() {
     };
 
     getGuest();
+    getTables();
     setLoading(false);
   }, [guestId]);
+
+  const getTables = () => {
+    axios
+      .get("http://localhost:5005/api/seatingTables", {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setTables(response.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const updateGuestsLists = () => {
+    tables.forEach((table) => {
+      const index = table.assignedGuests.findIndex((guest) => guest._id === formData._id);
+      if (index !== -1) {
+        table.assignedGuests = table.assignedGuests.filter((guest, i) => i !== index);
+        updateTable(table)
+      }
+    });
+
+    if (formData.seatingTable != null) {
+      const table = tables.find((table) => table._id === formData.seatingTable);
+      table.assignedGuests.unshift(formData);
+      updateTable(table);
+    }
+  }
+
+  const updateTable = (table) => {
+      axios
+        .put(`http://localhost:5005/api/seatingTables/${table._id}`, table, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then(() => {
+          console.log("Table edited successfully");
+        })
+        .catch((error) => console.log(error));
+  };
 
   return (
     <div>
@@ -119,6 +166,19 @@ function GuestEdit() {
           <option value="Pending">Pending</option>
           <option value="Declined">Declined</option>
         </select>
+
+        <label>Table: </label>
+        <select
+          name="seatingTable"
+          value={formData.seatingTable}
+          onChange={handleChange}
+        >
+          <option value="-1">Unassigned table</option>
+          {tables.map((table) => (
+            <option value={table._id}>{table.tableName}</option>
+          ))}
+        </select>
+
         <button
           disabled={loading}
           type="submit"
