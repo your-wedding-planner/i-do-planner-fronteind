@@ -8,7 +8,7 @@ const API_URL = "http://localhost:5005/api/vendors";
 
 function AddVendorForm({ loadVendors })  {
   const storedToken = localStorage.getItem('authToken');
-  const [showVendors, setShowVendors] = useState(false);
+  const [showVendorsForm, setShowVendorsForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     location: "",

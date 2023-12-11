@@ -28,3 +28,34 @@ html, body {
   background-image: url("src/assets/background-test.png");
 }
 
+.seatingPlanner {
+  text-align: center;
+}
+
+.guest-container {
+  /* border: 1px dotted pink; */
+  margin: 0;
+  list-style: none;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+
+  display: inline-flex;
+  flex-direction: row;
+}
+
+.guest-item {
+  color: rgb(100, 79, 75);
+  box-shadow: 0px 2px 4px #4a4c4e;
+  border-radius: 5px;
+  padding: 0.3em 0.5em;
+  background-color: whitesmoke;
+  text-align: center;
+  margin: 5px;
+  border: 2px solid transparent;
+}
+
+.guest-item:focus {
+  outline: none;
+  border: 2px solid #4a9af5;
+}

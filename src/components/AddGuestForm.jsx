@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 
 const API_URL = "http://localhost:5005/api/guests";
-const storedToken = localStorage.getItem('authToken');
+const storedToken = localStorage.getItem("authToken");
 
-function AddGuestForm() {
+function AddGuestForm({ loadGuests }) {
   const [showGuests, setShowGuests] = useState(false);
+  const [tables, setTables] = useState([]);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -16,6 +17,7 @@ function AddGuestForm() {
     phoneNumber: "",
     notes: "",
     attending: "Pending",
+    seatingTable: null,
   });
 
   const handleChange = (e) => {
@@ -25,10 +27,22 @@ function AddGuestForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (formData.seatingTable === "-1") {
+      formData.seatingTable = null;
+    }
+
     try {
-      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
+      await axios
+        .post(API_URL, formData, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((response) => {
+          updateTable(response.data);
+        });
       console.log("Form submitted successfully");
-      toast.success("Guest created successfully")
+      toast.success("Guest created successfully");
+      setShowGuests(false);
+      loadGuests();
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -37,6 +51,36 @@ function AddGuestForm() {
   const handleButtonClick = () => {
     setShowGuests(true);
   };
+
+  useEffect(() => {
+    const getTables = () => {
+      axios
+        .get("http://localhost:5005/api/seatingTables", {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then((response) => {
+          setTables(response.data);
+        })
+        .catch((error) => console.log(error));
+    };
+    getTables();
+  }, []);
+
+  const updateTable = (newGuest) => {
+    if (formData.seatingTable != null) {
+      const table = tables.find((table) => table._id === formData.seatingTable);
+      table.assignedGuests.unshift(newGuest);
+      axios
+        .put(`http://localhost:5005/api/seatingTables/${table._id}`, table, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then(() => {
+          console.log("Table edited successfully");
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+
   return (
     <div>
       <div>
@@ -118,6 +162,17 @@ function AddGuestForm() {
               <option value="Declined">Declined</option>
             </select>
           </label>
+          <label>Table: </label>
+          <select
+            name="seatingTable"
+            value={formData.seatingTable}
+            onChange={handleChange}
+          >
+            <option value="-1">Unassigned table</option>
+            {tables.map((table) => (
+              <option value={table._id}>{table.tableName}</option>
+            ))}
+          </select>
           <br />
           <button type="submit">Submit</button>
         </form>

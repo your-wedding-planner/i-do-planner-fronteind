@@ -7,14 +7,16 @@ const API_URL = "http://localhost:5005/api/guests";
 
 function GuestDetails() {
   const [guest, setGuest] = useState({});
-  const { guestId } = useParams(); 
+  const { guestId } = useParams();
   const [guestToDelete, setGuestToDelete] = useState([]);
-  const storedToken = localStorage.getItem('authToken');
+  const storedToken = localStorage.getItem("authToken");
   const navigate = useNavigate();
-  
+
   useEffect(() => {
     axios
-      .get(`${API_URL}/${guestId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+      .get(`${API_URL}/${guestId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         setGuest(response.data);
       })
@@ -25,16 +27,17 @@ function GuestDetails() {
 
   const deleteGuest = (guest) => {
     axios
-      .delete(`${API_URL}/${guest._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+      .delete(`${API_URL}/${guest._id}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         setGuestToDelete(response.data);
-        console.log("Guest deleted")
-        toast.success("Guest deleted successfully")
+        console.log("Guest deleted");
+        toast.success("Guest deleted successfully");
         navigate(`/GuestList`);
       })
       .catch((error) => {
         console.error("Error deleting guest:", error);
-         
       });
   };
 
@@ -52,6 +55,14 @@ function GuestDetails() {
         <p>Attending: {guest.attending}</p>
       </div>
 
+      <div className="mt-4">
+        <Link to={`/GuestEdit/${guest._id}`}>
+          <button className="btn btn-xs sm:btn-sm md:btn-md btn-wide">
+            Edit
+          </button>
+        </Link>
+      </div>
+
       <button
         className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
         onClick={() => {
@@ -60,14 +71,6 @@ function GuestDetails() {
       >
         Delete
       </button>
-
-      <div className="mt-4">
-              <Link to={`/GuestEdit/${guest._id}`}>
-                <button className="btn btn-xs sm:btn-sm md:btn-md btn-wide">
-                  Edit
-                </button>
-              </Link>
-            </div>
     </>
   );
 }

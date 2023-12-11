@@ -4,6 +4,7 @@ import { AuthContext } from "../context/auth.context";
 import guest_icon from "../assets/guest-icon.png";
 import vendor_icon from "../assets/vendor-icon.png";
 import home_icon from "../assets/home-icon.png";
+import table_icon from "../assets/table-icon.png";
 import calculator_icon from "../assets/calculator-icon.png"
 
 function NavBarTest() {
@@ -77,6 +78,12 @@ function NavBarTest() {
                   <img src={calculator_icon} alt="Calculator Icon" />
                 </Link>
                   </li>
+                <li>
+                <Link to={"/SeatingPlanner"}>
+                  <img src={table_icon} alt="Table Icon" />
+                  Seating Planner
+                </Link>
+                </li>
               </ul>
             </div>
             <div className="navbar-end">
