@@ -25,7 +25,7 @@ function VendorDetails() {
     axios
       .delete(`${API_URL}/${vendor._id}`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then(() => {
-        toast.success("Deleted succesfuly");
+        toast.success("Deleted succesfuly"); //successfully?
         console.log("Vendor deleted");
         navigate(`/VendorList`);
       })

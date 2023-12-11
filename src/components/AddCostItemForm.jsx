@@ -7,7 +7,7 @@ const API_URL = "http://localhost:5005/api/costItems";
 const storedToken = localStorage.getItem('authToken');
 
 function AddCostItemForm() {
-   const [showCostItems, setShowCostItems] = useState(false);
+  const [showCostItems, setShowCostItems] = useState(false);
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
@@ -27,7 +27,7 @@ function AddCostItemForm() {
       console.log("Form submitted successfully");
       toast.success("Cost Item created successfully")
     } catch (error) {
-      console.error("Error submitting form:", error);
+      console.error("Error submitting form: ", error);
     }
   };
 
