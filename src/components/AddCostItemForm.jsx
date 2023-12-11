@@ -22,7 +22,7 @@ function AddCostItemForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    console.log(storedToken)
     axios
       .post(API_URL, formData, {
         headers: { Authorization: `Bearer ${storedToken}` }

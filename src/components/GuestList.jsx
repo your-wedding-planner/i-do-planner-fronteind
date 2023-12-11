@@ -8,14 +8,15 @@ function GuestList() {
   const [guestsList, setGuestsList] = useState([]);
   const storedToken = localStorage.getItem("authToken");
 
-  useEffect(() => {
+  useEffect(() => { 
+    if(!storedToken) return
     loadGuests();
-  }, []);
+  }, [storedToken]);
 
   const loadGuests = () => {
     axios
       .get("http://localhost:5005/api/guests", {
-        headers: { Authorization: `Bearer ${storedToken}` },
+        headers: { Authorization: `Bearer ${storedToken}` }
       })
       .then((response) => {
         setGuestsList(response.data);
