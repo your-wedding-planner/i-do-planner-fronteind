@@ -14,6 +14,7 @@ import GuestEdit from "../components/GuestEdit";
 import VendorDetails from "../components/VendorDetails";
 import VendorEdit from "../components/VendorEdit";
 import SeatingPlanner from "../components/SeatingPlanner";
+import TableEdit from "../components/TableEdit";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 import BudgetCalculator from "../components/BudgetCalculator";
@@ -36,6 +37,7 @@ function App() {
         <Route path="/VendorEdit/:vendorId" element={<IsPrivate><VendorEdit/></IsPrivate>} />
         <Route path="/BudgetCalculator" element={<IsPrivate><BudgetCalculator/></IsPrivate>} />
         <Route path="/SeatingPlanner" element={<IsPrivate><SeatingPlanner /></IsPrivate>} />
+        <Route path="/TableEdit" element={<IsPrivate><TableEdit /></IsPrivate>} />
 
       </Routes>
     </>
