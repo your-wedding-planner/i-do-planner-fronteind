@@ -152,9 +152,14 @@ function SeatingPlanner() {
     setEditingTableId(tableId);
   }
 
-  const handleDeleteClick = (tableId) => {
+  const handleDeleteClick = (table) => {
+    table.assignedGuests.map((guest) => {
+        guest.seatingTable = null;
+        updateGuest(guest);
+    })
+
     axios
-      .delete(`${API_URL}/seatingTables/${tableId}`, {
+      .delete(`${API_URL}/seatingTables/${table._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -173,7 +178,7 @@ function SeatingPlanner() {
           <div className="seatingPlanner" key={table.id}>
             <h1>{table.tableName}</h1>
             {table._id != -1 && <button className="btn" onClick={() => handleEditClick(table._id)}><img src={edit_icon} alt="Edit table" /></button>}
-            {table._id != -1 && <button className="btn" onClick={() => handleDeleteClick(table._id) }><img src={delete_icon} alt="Delete table" /></button>}
+            {table._id != -1 && <button className="btn" onClick={() => handleDeleteClick(table) }><img src={delete_icon} alt="Delete table" /></button>}
             <Droppable droppableId={table._id} direction="horizontal">
               {(droppableProvided) => (
                 <ul
