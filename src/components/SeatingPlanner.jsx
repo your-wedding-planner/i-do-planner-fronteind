@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import AddTableForm from "./AddTableForm";
 import TableEdit from "./TableEdit";
 import toast from "react-hot-toast";
-import edit_icon from "../assets/edit-icon.png"
-import delete_icon from "../assets/delete-icon.png"
+import edit_icon from "../assets/edit-icon.png";
+import delete_icon from "../assets/delete-icon.png";
 
 function SeatingPlanner() {
   const API_URL = "http://localhost:5005/api";
@@ -145,18 +146,18 @@ function SeatingPlanner() {
     setTablesList([]);
     unassignedTable = undefined;
     loadData();
-  }
+  };
 
   const handleEditClick = (tableId) => {
     setShowTableEdit(true);
     setEditingTableId(tableId);
-  }
+  };
 
   const handleDeleteClick = (table) => {
     table.assignedGuests.map((guest) => {
-        guest.seatingTable = null;
-        updateGuest(guest);
-    })
+      guest.seatingTable = null;
+      updateGuest(guest);
+    });
 
     axios
       .delete(`${API_URL}/seatingTables/${table._id}`, {
@@ -168,7 +169,13 @@ function SeatingPlanner() {
         reloadTables();
       })
       .catch((error) => console.log(error));
-  }
+  };
+
+  const navigate = useNavigate();
+
+  const handleGuestDetailsClick = (guestId) => {
+    navigate(`/GuestDetails/${guestId}`);
+  };
 
   return (
     <>
@@ -177,8 +184,19 @@ function SeatingPlanner() {
         {tablesList.map((table) => (
           <div className="seatingPlanner" key={table.id}>
             <h1>{table.tableName}</h1>
-            {table._id != -1 && <button className="btn" onClick={() => handleEditClick(table._id)}><img src={edit_icon} alt="Edit table" /></button>}
-            {table._id != -1 && <button className="btn" onClick={() => handleDeleteClick(table) }><img src={delete_icon} alt="Delete table" /></button>}
+            {table._id != -1 && (
+              <button
+                className="btn"
+                onClick={() => handleEditClick(table._id)}
+              >
+                <img src={edit_icon} alt="Edit table" />
+              </button>
+            )}
+            {table._id != -1 && (
+              <button className="btn" onClick={() => handleDeleteClick(table)}>
+                <img src={delete_icon} alt="Delete table" />
+              </button>
+            )}
             <Droppable droppableId={table._id} direction="horizontal">
               {(droppableProvided) => (
                 <ul
@@ -199,8 +217,9 @@ function SeatingPlanner() {
                           ref={draggableProvided.innerRef}
                           {...draggableProvided.dragHandleProps}
                           className="guest-item"
+                          onClick={() => handleGuestDetailsClick(guest._id)}
                         >
-                          {guest.firstName}
+                          {`${guest.firstName} ${guest.lastName}`}
                         </li>
                       )}
                     </Draggable>
@@ -211,7 +230,9 @@ function SeatingPlanner() {
           </div>
         ))}
       </DragDropContext>
-      {showTableEdit && <TableEdit tableId={editingTableId} reloadTables={reloadTables}/>}
+      {showTableEdit && (
+        <TableEdit tableId={editingTableId} reloadTables={reloadTables} />
+      )}
     </>
   );
 }
