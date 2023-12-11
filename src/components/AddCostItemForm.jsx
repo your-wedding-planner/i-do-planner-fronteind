@@ -20,15 +20,21 @@ function AddCostItemForm() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
-      console.log("Form submitted successfully");
-      toast.success("Cost Item created successfully")
-    } catch (error) {
-      console.error("Error submitting form: ", error);
-    }
+
+    axios
+      .post(API_URL, formData, {
+        headers: { Authorization: `Bearer ${storedToken}` }
+      } )
+      .then(() => {
+        console.log("Cost Item created successfully")
+      })
+      .catch((error) => {
+        console.log("Error creating cost item..", error)
+      })
+
+    
   };
 
   const handleButtonClick = () => {

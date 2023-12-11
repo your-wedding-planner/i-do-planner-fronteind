@@ -34,7 +34,7 @@ function AddGuestForm({ loadGuests }) {
     try {
       await axios
         .post(API_URL, formData, {
-          headers: { Authorization: `Bearer ${storedToken}` },
+          headers: { Authorization: `Bearer ${storedToken}` }
         })
         .then((response) => {
           updateTable(response.data);
