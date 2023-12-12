@@ -18,6 +18,7 @@ import TableEdit from "../components/TableEdit";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
 import BudgetCalculator from "../components/BudgetCalculator";
+import CostItemEdit from "../components/CostItemEdit";
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
         <Route path="/BudgetCalculator" element={<IsPrivate><BudgetCalculator/></IsPrivate>} />
         <Route path="/SeatingPlanner" element={<IsPrivate><SeatingPlanner /></IsPrivate>} />
         <Route path="/TableEdit" element={<IsPrivate><TableEdit /></IsPrivate>} />
-
+        <Route path="/CostItemEdit/:costItemId" element={<IsPrivate><CostItemEdit/></IsPrivate>} />
       </Routes>
     </>
   );
