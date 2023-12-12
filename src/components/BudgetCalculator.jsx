@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import AddCostItemForm from "./AddCostItemForm";
@@ -6,11 +6,14 @@ import delete_icon from "../assets/delete-icon.png"
 import edit_icon from "../assets/edit-icon.png"
 import toast from "react-hot-toast";
 import CostItemEdit from "./CostItemEdit";
+import { AuthContext } from "../context/auth.context";
+
 
 function BudgetCalculator () {
+  const {user} = useContext(AuthContext)
   const storedToken = localStorage.getItem("authToken");
   const [costItemList, setCostItemList] = useState();
-  const [budget, setBudget] = useState(50000);
+  const [budget, setBudget] = useState(user.weddingBudget);
   const [totalCosts, setTotalCosts] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
   const [formData, setFormData] = useState({
@@ -19,7 +22,7 @@ function BudgetCalculator () {
     description: "",
     typeOfCost: ""
   })
-    
+   
     const navigate = useNavigate();
 
     const loadCostItems = () => {

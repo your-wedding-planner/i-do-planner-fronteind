@@ -9,6 +9,7 @@ function Signup(props) {
     const [name, setName] = useState("")
     const [weddingDate, setWeddingDate] = useState(new Date())
     const [namePartner, setNamePartner] = useState("")
+    const [weddingBudget, setWeddingBudget] = useState(0)
     const [errorMessage, setErrorMessage] = useState(undefined)
 
     const navigate = useNavigate()
@@ -18,6 +19,7 @@ function Signup(props) {
     const handleName = (e) => setName(e.target.value)
     const handleWeddingDate = (e) => setWeddingDate(e.target.value)
     const handleNamePartner = (e) => setNamePartner(e.target.value)
+    const handleWeddingBudget = (e) => setWeddingBudget(e.target.value)
 
     const handleSignupSubmit = (e) => {
         e.preventDefault()
@@ -27,7 +29,8 @@ function Signup(props) {
             password,
             name, 
             weddingDate,
-            namePartner
+            namePartner, 
+            weddingBudget
         }
         console.log(requestBody)
 
@@ -50,6 +53,7 @@ function Signup(props) {
           <input
             type="email"
             name="email"
+            required={true}
             value={email}
             onChange={handleEmail}
           />
@@ -57,6 +61,7 @@ function Signup(props) {
           <input
             type="password"
             name="password"
+            required={true}
             value={password}
             onChange={handlePassword}
           />
@@ -64,6 +69,7 @@ function Signup(props) {
           <input
             type="text"
             name="name"
+            required={true}
             value={name}
             onChange={handleName}
           />
@@ -72,6 +78,7 @@ function Signup(props) {
             type="date"
             id="isoDate"
             name="weddingDate"
+            required={true}
             value={weddingDate}
             onChange={handleWeddingDate}
           />
@@ -79,8 +86,17 @@ function Signup(props) {
           <input
             type="text"
             name="namePartner"
+            required={true}
             value={namePartner}
             onChange={handleNamePartner}
+          />
+          <label className="card-actions">Wedding Budget</label>
+          <input
+            type="number"
+            name="weddingBudget"
+            required={true}
+            value={weddingBudget}
+            onChange={handleWeddingBudget}
           />
           <div className="card-actions">
             <button type="submit" className="btn btn-primary">
