@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
@@ -15,9 +14,13 @@ import VendorDetails from "../components/VendorDetails";
 import VendorEdit from "../components/VendorEdit";
 import SeatingPlanner from "../components/SeatingPlanner";
 import TableEdit from "../components/TableEdit";
+import Footer from "../components/Footer";
+import BudgetCalculator from "../components/BudgetCalculator";
+import AboutUs from "../components/AboutUs";
+import Contact from "../components/Contact";
+import WeddingOrganization from "../components/WeddingOrganization";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
-import BudgetCalculator from "../components/BudgetCalculator";
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
       <Routes>
         <Route path="/login" element={<IsAnon><Login /></IsAnon>} />
         <Route path="/signup" element={<IsAnon><Signup /></IsAnon>} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/WeddingOrganization" element={<WeddingOrganization />} />
         <Route path="/" element={<IsPrivate><HomePage /></IsPrivate>} />
         <Route path="/GuestList" element={<IsPrivate><GuestList /></IsPrivate>} />
         <Route path="/VendorList" element={<IsPrivate><VendorList /></IsPrivate>} />
@@ -38,8 +44,8 @@ function App() {
         <Route path="/BudgetCalculator" element={<IsPrivate><BudgetCalculator/></IsPrivate>} />
         <Route path="/SeatingPlanner" element={<IsPrivate><SeatingPlanner /></IsPrivate>} />
         <Route path="/TableEdit" element={<IsPrivate><TableEdit /></IsPrivate>} />
-
       </Routes>
+      <Footer />
     </>
   );
 }

@@ -61,11 +61,11 @@ function NavBarTest() {
                 </li>
               </ul>
             </div>
-            <a className="btn btn-ghost text-xl">
+            <div className="btn btn-ghost text-xl">
               <Link to={`/`}>
                 <img src={home_icon} alt="Home Icon" className="home" />
               </Link>
-            </a>
+            </div>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
@@ -92,9 +92,9 @@ function NavBarTest() {
             </ul>
           </div>
           <div className="navbar-end">
-            <a className="btn" onClick={handleLogoutButton}>
+            <div className="btn" onClick={handleLogoutButton}>
               Logout
-            </a>
+            </div>
           </div>
         </div>
       )}
