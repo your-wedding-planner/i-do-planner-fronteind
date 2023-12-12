@@ -51,7 +51,7 @@ function VendorEdit() {
       storedToken
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
+          headers: { Authorization: `Bearer ${storedToken}` }
         })
         .then((response) => {
           const vendorData = response.data;

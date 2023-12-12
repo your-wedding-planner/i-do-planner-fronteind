@@ -3,6 +3,8 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context"
+import { useNavigate } from "react-router-dom";
+
 
 function AddCostItemForm() {
   const storedToken = localStorage.getItem('authToken');
@@ -14,6 +16,8 @@ function AddCostItemForm() {
     description: "",
     typeOfCost: ""
   });
+
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +32,9 @@ function AddCostItemForm() {
         headers: { Authorization: `Bearer ${storedToken}` }
       } )
       .then(() => {
+        toast.success("Cost Item created successfully");
         console.log("Cost Item created successfully")
+        navigate("/BudgetCalculator") // --> why not working?
       })
       .catch((error) => {
         console.log("Error creating cost item..", error)

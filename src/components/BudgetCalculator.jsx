@@ -5,24 +5,22 @@ import AddCostItemForm from "./AddCostItemForm";
 import delete_icon from "../assets/delete-icon.png"
 import edit_icon from "../assets/edit-icon.png"
 import toast from "react-hot-toast";
+import CostItemEdit from "./CostItemEdit";
 
-const DEFAULT_COSTITEM_FORM_VALUES = {
+function BudgetCalculator () {
+  const storedToken = localStorage.getItem("authToken");
+  const [costItemList, setCostItemList] = useState();
+  const [budget, setBudget] = useState(50000);
+  const [totalCosts, setTotalCosts] = useState(0);
+  const [remainingBudget, setRemainingBudget] = useState(0);
+  const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
     description: "",
     typeOfCost: ""
-}
-
-function BudgetCalculator () {
-    const [costItemList, setCostItemList] = useState()
-    const [budget, setBudget] = useState(50000)
-    const [totalCosts, setTotalCosts] = useState(0)
-    const [remainingBudget, setRemainingBudget] = useState(0)
-    //const [costItemUpdated, setCostItemUpdated] = ({...DEFAULT_COSTITEM_FORM_VALUES})
-    const storedToken = localStorage.getItem('authToken');
+  })
+    
     const navigate = useNavigate();
-
-    console.log(costItemList)
 
     const loadCostItems = () => {
       storedToken
@@ -72,10 +70,6 @@ function BudgetCalculator () {
           })
       }
 
-      const editCostItem = (costItemId) => {
-        storedToken
-        
-      }
 //Put the following below in a table? --> format of Daisy
       return (
         <>
@@ -94,18 +88,16 @@ function BudgetCalculator () {
                     <h3>{costItem.price}</h3>
                     <h3>{costItem.description}</h3>
                     <h3>{costItem.typeOfCost}</h3>
+                    <Link to={`/CostItemEdit/${costItem._id}`}>
+                      <img src={edit_icon} alt="EditCostItem" />
+                    </Link>
                     <button
                       className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
-                      onClick={() => deleteCostItem(costItem._id)} // on each click, I want to pass costItem._id as an argument
+                      onClick={() => deleteCostItem(costItem._id)}
                     >
                       <img src={delete_icon} alt="DeleteCostItem" />
                     </button>
-                    <button
-                      className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
-                      onClick={() => editCostItem(costItem._id)}
-                    >
-                      <img src={edit_icon} alt="DeleteCostItem" />
-                    </button>
+                    
                   </div>
                 );
               })
