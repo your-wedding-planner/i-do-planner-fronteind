@@ -94,6 +94,9 @@ function AddCostItemForm({loadCostItems}) {
               required={true}
               onChange={handleChange}
             >
+              <option disabled selected value="">
+                Select an option
+              </option>
               <option value="Decoration">Decoration</option>
               <option value="Photographer">Photographer</option>
               <option value="Music">Music</option>

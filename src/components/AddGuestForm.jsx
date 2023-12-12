@@ -12,11 +12,11 @@ function AddGuestForm({ loadGuests }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    age: "Adult",
+    age: "",
     email: "",
     phoneNumber: "",
     notes: "",
-    attending: "Pending",
+    attending: "",
     seatingTable: null,
   });
 
@@ -120,6 +120,9 @@ function AddGuestForm({ loadGuests }) {
           <label>
             Age:
             <select name="age" required={true} value={formData.age} onChange={handleChange}>
+            <option disabled selected value="">
+                Select an option
+              </option>
               <option value="Adult">Adult</option>
               <option value="Child">Child</option>
               <option value="Baby">Baby</option>
@@ -163,6 +166,9 @@ function AddGuestForm({ loadGuests }) {
               value={formData.attending}
               onChange={handleChange}
             >
+              <option disabled selected value="">
+                Select an option
+              </option>
               <option value="Attending">Attending</option>
               <option value="Pending">Pending</option>
               <option value="Declined">Declined</option>

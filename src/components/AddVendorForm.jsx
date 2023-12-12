@@ -13,7 +13,7 @@ function AddVendorForm({ loadVendors })  {
     location: "",
     URL: "",
     description: "",
-    typeOfService: "Decoration",
+    typeOfService: "",
     email: "",
     phoneNumber: "",
   });
@@ -101,10 +101,11 @@ function AddVendorForm({ loadVendors })  {
           <label>
             Type of Service:
             <select name="typeOfService" required={true} value={formData.typeOfService} onChange={handleChange}>
+            <option disabled selected value="">
+                Select an option
+              </option>
               <option value="Decoration">Decoration</option>
               <option value="Photographer">Photographer</option>
-              <option value="Music">Music</option>
-              <option value="Music">Music</option>
               <option value="Music">Music</option>
               <option value="Food">Food</option>
               <option value="Beauty & Health">Beauty & Health</option>
