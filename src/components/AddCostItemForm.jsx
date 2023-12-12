@@ -91,6 +91,7 @@ function AddCostItemForm({loadCostItems}) {
             <select
               name="typeOfCost"
               value={formData.typeOfCost}
+              required={true}
               onChange={handleChange}
             >
               <option value="Decoration">Decoration</option>

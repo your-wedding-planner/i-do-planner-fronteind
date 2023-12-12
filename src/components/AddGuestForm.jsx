@@ -100,6 +100,7 @@ function AddGuestForm({ loadGuests }) {
             <input
               type="text"
               name="firstName"
+              required={true}
               value={formData.firstName}
               onChange={handleChange}
             />
@@ -110,6 +111,7 @@ function AddGuestForm({ loadGuests }) {
             <input
               type="text"
               name="lastName"
+              required={true}
               value={formData.lastName}
               onChange={handleChange}
             />
@@ -117,7 +119,7 @@ function AddGuestForm({ loadGuests }) {
           <br />
           <label>
             Age:
-            <select name="age" value={formData.age} onChange={handleChange}>
+            <select name="age" required={true} value={formData.age} onChange={handleChange}>
               <option value="Adult">Adult</option>
               <option value="Child">Child</option>
               <option value="Baby">Baby</option>
@@ -157,6 +159,7 @@ function AddGuestForm({ loadGuests }) {
             Attending:
             <select
               name="attending"
+              required={true}
               value={formData.attending}
               onChange={handleChange}
             >

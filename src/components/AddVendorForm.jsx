@@ -57,6 +57,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="name"
+              required={true}
               value={formData.name}
               onChange={handleChange}
             />
@@ -68,6 +69,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="location"
+              required={true}
               value={formData.location}
               onChange={handleChange}
             />
@@ -98,7 +100,7 @@ function AddVendorForm({ loadVendors })  {
 
           <label>
             Type of Service:
-            <select name="typeOfService" value={formData.typeOfService} onChange={handleChange}>
+            <select name="typeOfService" required={true} value={formData.typeOfService} onChange={handleChange}>
               <option value="Decoration">Decoration</option>
               <option value="Photographer">Photographer</option>
               <option value="Music">Music</option>

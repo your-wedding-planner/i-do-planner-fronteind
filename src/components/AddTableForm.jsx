@@ -53,6 +53,7 @@ function AddTableForm({ reloadTables }) {
             <input
               type="text"
               name="tableName"
+              required={true}
               value={formData.tableName}
               onChange={handleChange}
             />
