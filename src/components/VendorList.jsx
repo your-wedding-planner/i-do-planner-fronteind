@@ -13,7 +13,7 @@ function VendorList() {
 
   const loadVendors = () => {
     axios
-      .get("http://localhost:5005/api/vendors", { headers: { Authorization: `Bearer ${storedToken}`} })
+      .get(`${import.meta.env.VITE_API_URL}/api/vendors`, { headers: { Authorization: `Bearer ${storedToken}`} })
       .then((response) => {
         setVendorsList(response.data);
       })

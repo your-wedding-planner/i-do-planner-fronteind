@@ -3,8 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/vendors";
-
 function VendorEdit() {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +26,7 @@ function VendorEdit() {
     setLoading(true);
 
     axios
-      .put(`${API_URL}/${vendorId}`, requestBody, {
+      .put(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -46,7 +44,7 @@ function VendorEdit() {
   useEffect(() => {
     const getVendor = () => {
       axios
-        .get(`${API_URL}/${vendorId}`, {
+        .get(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {

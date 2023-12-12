@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/seatingTables";
-
 function TableEdit({ tableId, reloadTables }) {
   const [loading, setLoading] = useState(true);
   const storedToken = localStorage.getItem("authToken");
@@ -19,7 +17,7 @@ function TableEdit({ tableId, reloadTables }) {
     setLoading(true);
 
     axios
-      .put(`${API_URL}/${tableId}`, requestBody, {
+      .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -38,7 +36,7 @@ function TableEdit({ tableId, reloadTables }) {
     const getTable = () => {
       console.log(tableId);
       axios
-        .get(`${API_URL}/${tableId}`, {
+        .get(`${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {

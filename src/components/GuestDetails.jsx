@@ -3,8 +3,6 @@ import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/guests";
-
 function GuestDetails() {
   const [guest, setGuest] = useState({});
   const { guestId } = useParams();
@@ -14,7 +12,7 @@ function GuestDetails() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/${guestId}`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -27,7 +25,7 @@ function GuestDetails() {
 
   const deleteGuest = (guest) => {
     axios
-      .delete(`${API_URL}/${guest._id}`, {
+      .delete(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {

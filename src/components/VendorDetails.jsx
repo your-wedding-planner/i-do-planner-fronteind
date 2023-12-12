@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import toast from "react-hot-toast";
-const API_URL = "http://localhost:5005/api/vendors";
 
 function VendorDetails() {
   const [vendor, setVendor] = useState({});
@@ -12,7 +11,7 @@ function VendorDetails() {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/${vendorId}`, {
+      .get(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -25,7 +24,7 @@ function VendorDetails() {
 
   const deleteVendor = () => {
     axios
-      .delete(`${API_URL}/${vendor._id}`, {
+      .delete(`${import.meta.env.VITE_API_URL}/api/vendors/${vendor._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {

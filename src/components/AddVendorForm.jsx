@@ -3,9 +3,6 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/vendors";
-
-
 function AddVendorForm({ loadVendors })  {
   const storedToken = localStorage.getItem('authToken');
   const [showVendorsForm, setShowVendorsForm] = useState(false);
@@ -27,7 +24,7 @@ function AddVendorForm({ loadVendors })  {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(API_URL, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/vendors`, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");
       loadVendors();
       toast.success("Vendor created succesfully");

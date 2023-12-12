@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 //import authService from "../services/auth.service";
 
-const API_URL = "http://localhost:5005"
-
 function Signup(props) {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -34,7 +32,7 @@ function Signup(props) {
         console.log(requestBody)
 
         axios
-        .post(`${API_URL}/auth/signup`, requestBody)
+        .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
         .then((response) => {
           navigate("/login")
         })
@@ -44,7 +42,7 @@ function Signup(props) {
         })
 
         // axios
-        // .post(`${API_URL}/auth/signup`, requestBody)
+        // .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
         // //authService.signup()
         // .then((response) => {
         //     navigate("/login") 

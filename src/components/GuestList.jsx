@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddGuestForm from "./AddGuestForm";
-import GuestDetails from "./GuestDetails";
 import { Link } from "react-router-dom";
 
 function GuestList() {
@@ -15,7 +14,7 @@ function GuestList() {
 
   const loadGuests = () => {
     axios
-      .get("http://localhost:5005/api/guests", {
+      .get(`${import.meta.env.VITE_API_URL}/api/guests`, {
         headers: { Authorization: `Bearer ${storedToken}` }
       })
       .then((response) => {

@@ -9,7 +9,7 @@ function Calculator({costItemList}) {
 
     const loadBudget = () => {
         axios
-          .get("http://localhost:5005/api/budgets", { headers: { Authorization: `Bearer ${storedToken}`} })
+          .get(`${import.meta.env.VITE_API_URL}/api/budgets`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then((response) => {
             setBudget(response.data[0].budget) //change when backend is changed to ID
           })
@@ -27,7 +27,7 @@ function Calculator({costItemList}) {
         }
 
         axios
-          .post("http://localhost:5005/api/costItems", { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
+          .post(`${import.meta.env.VITE_API_URL}/api/costItems`, { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
           .then((response) => {
             console.log("Budget created succesfully")
             toast.success("Budget created succesfully")

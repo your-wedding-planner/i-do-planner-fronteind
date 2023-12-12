@@ -2,9 +2,7 @@ import { useContext, useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/auth.context"
-import authService from "../services/auth.service"
-
-const API_URL = "http://localhost:5005"
+//import authService from "../services/auth.service"
 
 function Login(props) {
     const [email, setEmail] = useState("")
@@ -23,7 +21,7 @@ function Login(props) {
         const requestBody = {email, password}
 
         axios
-        .post(`${API_URL}/auth/login`, requestBody)
+        .post(`${import.meta.env.VITE_API_URL}/auth/login`, requestBody)
         //authService.login()
         .then((response) => {
             console.log("This is the JWT Token", response.data.authToken)

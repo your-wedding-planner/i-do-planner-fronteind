@@ -3,7 +3,6 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/costItems";
 const storedToken = localStorage.getItem('authToken');
 
 function AddCostItemForm() {
@@ -24,7 +23,7 @@ function AddCostItemForm() {
     e.preventDefault();
     console.log(storedToken)
     axios
-      .post(API_URL, formData, {
+      .post(`${import.meta.env.VITE_API_URL}/api/costItems`, formData, {
         headers: { Authorization: `Bearer ${storedToken}` }
       } )
       .then(() => {

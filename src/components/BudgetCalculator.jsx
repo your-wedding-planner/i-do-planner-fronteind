@@ -26,7 +26,7 @@ function BudgetCalculator () {
 
     const loadCostItems = () => {
         axios
-          .get("http://localhost:5005/api/costItems", { headers: { Authorization: `Bearer ${storedToken}`} })
+          .get(`${import.meta.env.VITE_API_URL}/api/costItems`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then((response) => {
             setCostItemList(response.data);
           })
@@ -37,7 +37,7 @@ function BudgetCalculator () {
     
     // const loadBudget = () => {
     //   axios
-    //     .get("http://localhost:5005/api/budgets", { headers: { Authorization: `Bearer ${storedToken}`} })
+    //     .get(`${import.meta.env.VITE_API_URL}/api/budgets`, { headers: { Authorization: `Bearer ${storedToken}`} })
     //     .then((response) => {
     //       setBudget(response.data[0].budget) //change when backend is changed to ID
     //     })
@@ -77,7 +77,7 @@ function BudgetCalculator () {
       //   }
 
       //   axios
-      //     .post("http://localhost:5005/api/costItems", { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
+      //     .post(`${import.meta.env.VITE_API_URL}/api/costItems`, { headers: { Authorization: `Bearer ${storedToken}`} }, requestBody)
       //     .then((response) => {
       //       console.log("Budget created succesfully")
       //       toast.success("Budget created succesfully")
@@ -102,7 +102,7 @@ function BudgetCalculator () {
       // }
 
       const deleteCostItem = (costItemId) => {
-        axios.delete(`http://localhost:5005/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+        axios.delete(`${import.meta.env.VITE_API_URL}/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then(() => {
             toast.success("Deleted successfully")
             console.log("CostItem deleted")

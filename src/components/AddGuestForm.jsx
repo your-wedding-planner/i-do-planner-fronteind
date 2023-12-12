@@ -33,7 +33,7 @@ function AddGuestForm({ loadGuests }) {
 
     try {
       await axios
-        .post(API_URL, formData, {
+        .post(`${import.meta.env.VITE_API_URL}/api/guests`, formData, {
           headers: { Authorization: `Bearer ${storedToken}` }
         })
         .then((response) => {
@@ -55,7 +55,7 @@ function AddGuestForm({ loadGuests }) {
   useEffect(() => {
     const getTables = () => {
       axios
-        .get("http://localhost:5005/api/seatingTables", {
+        .get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
           headers: { Authorization: `Bearer ${storedToken}` }
         })
         .then((response) => {
@@ -71,7 +71,7 @@ function AddGuestForm({ loadGuests }) {
       const table = tables.find((table) => table._id === formData.seatingTable);
       table.assignedGuests.unshift(newGuest);
       axios
-        .put(`http://localhost:5005/api/seatingTables/${table._id}`, table, {
+        .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then(() => {

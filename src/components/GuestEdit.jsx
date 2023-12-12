@@ -3,8 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const API_URL = "http://localhost:5005/api/guests";
-
 function GuestEdit() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -34,7 +32,7 @@ function GuestEdit() {
 
     setLoading(true);
     axios
-      .put(`${API_URL}/${guestId}`, requestBody, {
+      .put(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -53,7 +51,7 @@ function GuestEdit() {
   useEffect(() => {
     const getGuest = () => {
       axios
-        .get(`${API_URL}/${guestId}`, {
+        .get(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then((response) => {
@@ -70,7 +68,7 @@ function GuestEdit() {
 
   const getTables = () => {
     axios
-      .get("http://localhost:5005/api/seatingTables", {
+      .get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -97,7 +95,7 @@ function GuestEdit() {
 
   const updateTable = (table) => {
       axios
-        .put(`http://localhost:5005/api/seatingTables/${table._id}`, table, {
+        .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
         .then(() => {

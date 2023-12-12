@@ -9,7 +9,6 @@ import edit_icon from "../assets/edit-icon.png";
 import delete_icon from "../assets/delete-icon.png";
 
 function SeatingPlanner() {
-  const API_URL = "http://localhost:5005/api";
   const storedToken = localStorage.getItem("authToken");
   let guestsList;
   const [tablesList, setTablesList] = useState([]);
@@ -26,12 +25,12 @@ function SeatingPlanner() {
 
   const loadData = async () => {
     try {
-      const guestsResponse = await axios.get(`${API_URL}/guests`, {
+      const guestsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/guests`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
       guestsList = guestsResponse.data;
 
-      const tablesResponse = await axios.get(`${API_URL}/seatingTables`, {
+      const tablesResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       });
       filterUnassignedGuests(guestsResponse.data, tablesResponse.data);
@@ -122,7 +121,7 @@ function SeatingPlanner() {
 
   const updateGuest = (guest) => {
     axios
-      .put(`${API_URL}/guests/${guest._id}`, guest, {
+      .put(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, guest, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -133,7 +132,7 @@ function SeatingPlanner() {
 
   const updateTable = (table) => {
     axios
-      .put(`${API_URL}/seatingTables/${table._id}`, table, {
+      .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
@@ -160,7 +159,7 @@ function SeatingPlanner() {
     });
 
     axios
-      .delete(`${API_URL}/seatingTables/${table._id}`, {
+      .delete(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
