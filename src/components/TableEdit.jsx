@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
 
 function TableEdit({ tableId, reloadTables }) {
+  const {user} = useContext(AuthContext)
   const [loading, setLoading] = useState(true);
   const storedToken = localStorage.getItem("authToken");
 
   const [formData, setFormData] = useState({
     tableName: "",
-  });
+    createdBy: user._id
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const requestBody = { ...formData };
+    const requestBody = { ...formData }
 
     setLoading(true);
 

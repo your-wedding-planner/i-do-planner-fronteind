@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
 
 function GuestEdit() {
+  const {user} = useContext(AuthContext)
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -13,7 +15,9 @@ function GuestEdit() {
     notes: "",
     attending: "Pending",
     seatingTable: null,
-  });
+    createdBy: user._id
+  })
+
   const [loading, setLoading] = useState(true);
   const { guestId } = useParams();
   const storedToken = localStorage.getItem("authToken");

@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
+
 
 function VendorEdit() {
+  const {user} = useContext(AuthContext)
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -12,7 +15,9 @@ function VendorEdit() {
     typeOfService: "Decoration",
     email: "",
     phoneNumber: "",
+    createdBy: user._id
   });
+
   const [loading, setLoading] = useState(true);
   const { vendorId } = useParams();
   const storedToken = localStorage.getItem("authToken");
