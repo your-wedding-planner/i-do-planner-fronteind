@@ -37,7 +37,7 @@ function BudgetCalculator () {
           });
       };
 
-    const calculator = (itemArray) => {
+    const calculateSumOfCosts = (itemArray) => {
       const result = itemArray
         .map((costItem) => {
           return costItem.price;
@@ -47,13 +47,22 @@ function BudgetCalculator () {
         }, 0);
       setTotalCosts(result)
 
-      const finalRemainingBudget = budget - totalCosts
-      setRemainingBudget(finalRemainingBudget)
+      // const remaining = budget - totalCosts
+      // setRemainingBudget(remaining)
     };
+
+    const calculateRemaining = () => {
+      console.log("This is with remainin", totalCosts)
+      const remaining = budget - totalCosts
+      setRemainingBudget(remaining)
+    }
+
+    //HOW TO TAKE THE MOST UPDATED VERSION OF TOTALCOST????
 
       useEffect(() => {
         if(!costItemList) return
-        calculator(costItemList)
+        calculateSumOfCosts(costItemList)
+        calculateRemaining()
       }, [costItemList]);
 
       useEffect(() => {
@@ -66,7 +75,9 @@ function BudgetCalculator () {
           .then(() => {
             toast.success("Deleted successfully")
             console.log("CostItem deleted")
-            navigate("/BudgetCalculator") // necessary --> already on this page?
+            calculateSumOfCosts(costItemList)
+            calculateRemaining()
+            loadCostItems()
           })
           .catch((error) => {
             console.log("Error deleting cost item", error)
@@ -78,8 +89,8 @@ function BudgetCalculator () {
         <>
         <div>
           <h3>Budget: {budget}</h3>
-          <h3>Remaining: {remainingBudget}</h3>
           <h3>Total costs: {totalCosts}</h3>
+          <h3>Remaining: {remainingBudget}</h3> 
         </div>
           <div>
             <h1>Cost Items:</h1>
@@ -109,7 +120,9 @@ function BudgetCalculator () {
             )}
           </div>
           <div>
-            <AddCostItemForm loadCostItems={loadCostItems} />
+            <AddCostItemForm 
+            loadCostItems={loadCostItems}
+            />
           </div>
         </>
       );

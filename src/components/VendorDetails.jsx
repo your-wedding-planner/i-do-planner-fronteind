@@ -30,7 +30,7 @@ function VendorDetails() {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then(() => {
-        toast.success("Deleted succesfuly"); //successfully?
+        toast.success("Deleted successfully");  
         console.log("Vendor deleted");
         navigate(`/VendorList`);
       })
