@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
 
-const API_URL = "http://localhost:5005/api/guests";
 const storedToken = localStorage.getItem("authToken");
 
 function AddGuestForm({ loadGuests }) {
+  const {user} = useContext(AuthContext)
   const [showGuests, setShowGuests] = useState(false);
   const [tables, setTables] = useState([]);
   const [formData, setFormData] = useState({
@@ -18,6 +19,7 @@ function AddGuestForm({ loadGuests }) {
     notes: "",
     attending: "Pending",
     seatingTable: null,
+    createdBy: user._id
   });
 
   const handleChange = (e) => {

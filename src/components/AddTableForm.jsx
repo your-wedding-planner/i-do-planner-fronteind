@@ -1,14 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
 
 function AddTableForm({ reloadTables }) {
+  const {user} = useContext(AuthContext)
   const storedToken = localStorage.getItem('authToken');
   const [showTableForm, setShowTableForm] = useState(false);
   const [formData, setFormData] = useState({
     tableName: "",
     assignedGuests: [],
+    createdBy: user._id
   });
 
   const handleChange = (e) => {

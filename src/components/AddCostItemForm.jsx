@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context"
 
 const storedToken = localStorage.getItem('authToken');
 
 function AddCostItemForm() {
+  const {user} = useContext(AuthContext)
   const [showCostItems, setShowCostItems] = useState(false);
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
     description: "",
     typeOfCost: "",
+    createdBy: user._id
   });
 
   const handleChange = (e) => {

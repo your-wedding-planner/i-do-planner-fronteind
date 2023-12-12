@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
+import { AuthContext } from "../context/auth.context";
 
 function AddVendorForm({ loadVendors })  {
+  const {user} = useContext(AuthContext)
   const storedToken = localStorage.getItem('authToken');
   const [showVendorsForm, setShowVendorsForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -14,6 +16,7 @@ function AddVendorForm({ loadVendors })  {
     typeOfService: "Decoration",
     email: "",
     phoneNumber: "",
+    createdBy: user._id
   });
 
   const handleChange = (e) => {
