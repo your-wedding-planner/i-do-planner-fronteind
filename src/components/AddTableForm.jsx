@@ -11,7 +11,6 @@ function AddTableForm({ reloadTables }) {
   const [formData, setFormData] = useState({
     tableName: "",
     assignedGuests: [],
-    createdBy: user._id
   });
 
   const handleChange = (e) => {
@@ -21,6 +20,7 @@ function AddTableForm({ reloadTables }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    storedToken
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/api/seatingTables`, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfuxlly");

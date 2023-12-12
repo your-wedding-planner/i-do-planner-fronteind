@@ -25,6 +25,7 @@ function BudgetCalculator () {
     console.log(costItemList)
 
     const loadCostItems = () => {
+      storedToken
         axios
           .get(`${import.meta.env.VITE_API_URL}/api/costItems`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then((response) => {
@@ -59,6 +60,7 @@ function BudgetCalculator () {
       }, []);
 
       const deleteCostItem = (costItemId) => {
+        storedToken
         axios.delete(`${import.meta.env.VITE_API_URL}/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then(() => {
             toast.success("Deleted successfully")
@@ -71,7 +73,7 @@ function BudgetCalculator () {
       }
 
       const editCostItem = (costItemId) => {
-        console.log(costItemId)
+        storedToken
         
       }
 //Put the following below in a table? --> format of Daisy

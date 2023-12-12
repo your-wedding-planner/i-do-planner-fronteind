@@ -24,6 +24,7 @@ function SeatingPlanner() {
   };
 
   const loadData = async () => {
+    storedToken
     try {
       const guestsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/guests`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -120,6 +121,7 @@ function SeatingPlanner() {
   };
 
   const updateGuest = (guest) => {
+    storedToken
     axios
       .put(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, guest, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -131,6 +133,7 @@ function SeatingPlanner() {
   };
 
   const updateTable = (table) => {
+    storedToken
     axios
       .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -153,6 +156,7 @@ function SeatingPlanner() {
   };
 
   const handleDeleteClick = (table) => {
+    storedToken
     table.assignedGuests.map((guest) => {
       guest.seatingTable = null;
       updateGuest(guest);

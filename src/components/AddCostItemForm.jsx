@@ -4,17 +4,15 @@ import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context"
 
-const storedToken = localStorage.getItem('authToken');
-
 function AddCostItemForm() {
+  const storedToken = localStorage.getItem('authToken');
   const {user} = useContext(AuthContext)
   const [showCostItems, setShowCostItems] = useState(false);
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
     description: "",
-    typeOfCost: "",
-    createdBy: user._id
+    typeOfCost: ""
   });
 
   const handleChange = (e) => {
@@ -24,7 +22,7 @@ function AddCostItemForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(storedToken)
+    storedToken
     axios
       .post(`${import.meta.env.VITE_API_URL}/api/costItems`, formData, {
         headers: { Authorization: `Bearer ${storedToken}` }
@@ -35,8 +33,6 @@ function AddCostItemForm() {
       .catch((error) => {
         console.log("Error creating cost item..", error)
       })
-
-    
   };
 
   const handleButtonClick = () => {

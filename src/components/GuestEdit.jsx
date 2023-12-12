@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
 
 function GuestEdit() {
+  const storedToken = localStorage.getItem("authToken");
   const {user} = useContext(AuthContext)
   const [formData, setFormData] = useState({
     firstName: "",
@@ -15,17 +16,17 @@ function GuestEdit() {
     notes: "",
     attending: "Pending",
     seatingTable: null,
-    createdBy: user._id
   })
 
   const [loading, setLoading] = useState(true);
   const { guestId } = useParams();
-  const storedToken = localStorage.getItem("authToken");
+  
   const [tables, setTables] = useState([]);
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
+    storedToken
     e.preventDefault();
 
     if (formData.seatingTable === "-1") {
@@ -53,6 +54,7 @@ function GuestEdit() {
   };
 
   useEffect(() => {
+    storedToken
     const getGuest = () => {
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, {
@@ -71,6 +73,7 @@ function GuestEdit() {
   }, [guestId]);
 
   const getTables = () => {
+    storedToken
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -98,6 +101,7 @@ function GuestEdit() {
   }
 
   const updateTable = (table) => {
+    storedToken
       axios
         .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
           headers: { Authorization: `Bearer ${storedToken}` },

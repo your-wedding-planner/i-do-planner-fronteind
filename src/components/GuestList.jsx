@@ -13,6 +13,7 @@ function GuestList() {
   }, [storedToken]);
 
   const loadGuests = () => {
+    storedToken
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/guests`, {
         headers: { Authorization: `Bearer ${storedToken}` }

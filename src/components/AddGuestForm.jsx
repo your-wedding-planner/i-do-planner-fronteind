@@ -4,9 +4,8 @@ import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
 
-const storedToken = localStorage.getItem("authToken");
-
 function AddGuestForm({ loadGuests }) {
+  const storedToken = localStorage.getItem("authToken");
   const {user} = useContext(AuthContext)
   const [showGuests, setShowGuests] = useState(false);
   const [tables, setTables] = useState([]);
@@ -19,7 +18,6 @@ function AddGuestForm({ loadGuests }) {
     notes: "",
     attending: "Pending",
     seatingTable: null,
-    createdBy: user._id
   });
 
   const handleChange = (e) => {
@@ -29,6 +27,7 @@ function AddGuestForm({ loadGuests }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    storedToken
     if (formData.seatingTable === "-1") {
       formData.seatingTable = null;
     }
@@ -56,6 +55,7 @@ function AddGuestForm({ loadGuests }) {
 
   useEffect(() => {
     const getTables = () => {
+      storedToken
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
           headers: { Authorization: `Bearer ${storedToken}` }
@@ -69,6 +69,7 @@ function AddGuestForm({ loadGuests }) {
   }, []);
 
   const updateTable = (newGuest) => {
+    storedToken
     if (formData.seatingTable != null) {
       const table = tables.find((table) => table._id === formData.seatingTable);
       table.assignedGuests.unshift(newGuest);

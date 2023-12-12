@@ -11,6 +11,7 @@ function GuestDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    storedToken
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -24,6 +25,7 @@ function GuestDetails() {
   }, [guestId]);
 
   const deleteGuest = (guest) => {
+    storedToken
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },

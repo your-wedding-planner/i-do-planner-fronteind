@@ -16,7 +16,6 @@ function AddVendorForm({ loadVendors })  {
     typeOfService: "Decoration",
     email: "",
     phoneNumber: "",
-    createdBy: user._id
   });
 
   const handleChange = (e) => {
@@ -26,6 +25,7 @@ function AddVendorForm({ loadVendors })  {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    storedToken
     try {
       await axios.post(`${import.meta.env.VITE_API_URL}/api/vendors`, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
       console.log("Form submitted successfully");

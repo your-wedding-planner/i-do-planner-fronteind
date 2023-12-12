@@ -7,6 +7,7 @@ import { AuthContext } from "../context/auth.context";
 
 function VendorEdit() {
   const {user} = useContext(AuthContext)
+  const storedToken = localStorage.getItem("authToken");
   const [formData, setFormData] = useState({
     name: "",
     location: "",
@@ -15,17 +16,16 @@ function VendorEdit() {
     typeOfService: "Decoration",
     email: "",
     phoneNumber: "",
-    createdBy: user._id
   });
 
   const [loading, setLoading] = useState(true);
   const { vendorId } = useParams();
-  const storedToken = localStorage.getItem("authToken");
-
+  
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    storedToken
     const requestBody = { ...formData };
 
     setLoading(true);
@@ -48,6 +48,7 @@ function VendorEdit() {
 
   useEffect(() => {
     const getVendor = () => {
+      storedToken
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, {
           headers: { Authorization: `Bearer ${storedToken}` },

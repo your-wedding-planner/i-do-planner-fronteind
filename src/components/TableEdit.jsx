@@ -15,6 +15,7 @@ function TableEdit({ tableId, reloadTables }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    storedToken
     const requestBody = { ...formData }
 
     setLoading(true);
@@ -37,6 +38,7 @@ function TableEdit({ tableId, reloadTables }) {
 
   useEffect(() => {
     const getTable = () => {
+      storedToken
       console.log(tableId);
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`, {

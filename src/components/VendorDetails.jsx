@@ -10,6 +10,7 @@ function VendorDetails() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    storedToken
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -23,6 +24,7 @@ function VendorDetails() {
   }, [vendorId]);
 
   const deleteVendor = () => {
+    storedToken
     axios
       .delete(`${import.meta.env.VITE_API_URL}/api/vendors/${vendor._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },

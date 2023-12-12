@@ -40,17 +40,6 @@ function Signup(props) {
           const errorDescription = error.response.data.message
           setErrorMessage(errorDescription)
         })
-
-        // axios
-        // .post(`${import.meta.env.VITE_API_URL}/auth/signup`, requestBody)
-        // //authService.signup()
-        // .then((response) => {
-        //     navigate("/login") 
-        // })
-        // .catch((error) => {
-        //     const errorDescription = error.response.data.message
-        //     setErrorMessage(errorDescription)
-        // })
     }
 
     return (
