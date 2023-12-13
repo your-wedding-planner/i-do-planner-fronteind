@@ -28,7 +28,7 @@ function GuestList() {
 
   return (
     <>
-      <div>
+      <div className="footer-pin">
         <h1>Guest List</h1>
         {guestsList.length > 0 ? (
           guestsList.map((guest) => (

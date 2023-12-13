@@ -47,7 +47,7 @@ function VendorDetails() {
   };
 
   return vendor ? (
-    <>
+    <div className="footer-pin">
       <div>
         <h2>Vendor Details</h2>
         <p>Name: {vendor.name}</p>
@@ -73,7 +73,7 @@ function VendorDetails() {
       >
         Delete
       </button>
-    </>
+    </div>
   ) : (
     <p>loading</p>
   );

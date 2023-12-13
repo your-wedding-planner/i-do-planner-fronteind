@@ -49,7 +49,7 @@ function GuestDetails() {
 
   return (
     <>
-      <div>
+      <div className="footer-pin">
         <h2>Guest Details</h2>
         <p>
           Name: {guest.firstName} {guest.lastName}

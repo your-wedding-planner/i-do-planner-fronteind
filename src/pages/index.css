@@ -18,7 +18,7 @@
   height: auto;
   text-align: center;
   justify-content: center;
-  display: block; /* Asegúrate de que el logo sea un bloque para aplicar márgenes automáticos */
+  display: block; 
   margin: 0 auto; 
 }
 
@@ -115,7 +115,7 @@ html, body {
   min-width: 50px;
   text-align: center;
   margin-top: 4px;
-  margin-bottom: 4px;;
+  margin-bottom: 4px;
 }
 
 .countdown-mssg {
@@ -126,7 +126,7 @@ text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 50px; /* Adjust the padding as needed */
+  padding: 100px 50px; 
   background-color: #FBFEF9;
 }
 
@@ -138,23 +138,23 @@ text-align: center;
 }
 
 .dashboard-item {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Center items vertically */
+  display: flex; 
+  align-items: center; 
   white-space: nowrap;
-  gap: 10px; /* Adjust the space between icon and text */
+  gap: 10px; 
 }
 
 .dashboard-item a {
-  display: flex; /* Use flexbox for anchor elements */
-  align-items: center; /* Center items vertically */
-  text-decoration: none; /* Remove default link underline */
+  display: flex; 
+  align-items: center; 
 }
 
 .dashboard-icon {
   width: 4vw;
   height: auto;
   vertical-align: middle;
-  margin-right: 20px; /* Align icon to the middle of the text */
+  margin-right: 20px; 
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
 
 .budget-container {
@@ -197,4 +197,10 @@ td, th {
   width: 25px;
   height: auto;
   filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+}
+
+.footer-pin {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
 }

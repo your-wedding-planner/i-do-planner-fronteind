@@ -25,7 +25,7 @@ function HomePage() {
   );
 
   return (
-    <>
+    <div className="footer-pin">
       <div>
         <section className="wedding-info-container">
           <div className="card lg:card-side bg-base-96">
@@ -79,7 +79,7 @@ function HomePage() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
 

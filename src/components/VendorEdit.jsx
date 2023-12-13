@@ -76,7 +76,7 @@ function VendorEdit() {
   };
 
   return (
-    <div>
+    <div className="footer-pin">
       <h3>Edit vendor</h3>
       <form onSubmit={handleSubmit}>
         <label>Name: </label>

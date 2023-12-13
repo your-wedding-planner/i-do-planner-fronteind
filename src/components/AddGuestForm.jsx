@@ -85,6 +85,7 @@ function AddGuestForm({ loadGuests }) {
   };
 
   return (
+    <div lassName="footer-pin">
     <div>
       <div>
         <h2>Add new Guest</h2>
@@ -189,6 +190,7 @@ function AddGuestForm({ loadGuests }) {
           <button type="submit">Submit</button>
         </form>
       )}
+    </div>
     </div>
   );
 }

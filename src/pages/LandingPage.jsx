@@ -17,7 +17,7 @@ function LandingPage() {
       }, []);
 
   return (
-    <>
+    <div className="footer-pin">
       <section id="weddingOrganization">
         <WeddingOrganization />
       </section>
@@ -27,7 +27,7 @@ function LandingPage() {
       <section id="contact">
         <Contact />
       </section>
-    </>
+    </div>
   );
 }
 

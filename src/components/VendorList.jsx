@@ -24,7 +24,7 @@ function VendorList() {
   };
 
   return (
-    <>
+    <div className="footer-pin">
       <div>
         <h1>Vendors List</h1>
         {vendorsList.length > 0 ? (
@@ -50,7 +50,7 @@ function VendorList() {
           loadVendors={loadVendors}
         />
       </div>
-    </>
+    </div>
   );
 }
 

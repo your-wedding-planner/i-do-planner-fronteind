@@ -46,6 +46,7 @@ function Signup(props) {
     }
 
     return (
+      <div className="footer-pin">
 <div className="card w-96 bg-base-100 shadow-xl">
       <form onSubmit={handleSignupSubmit}>
         <div className="card-body items-center text-center">
@@ -110,6 +111,7 @@ function Signup(props) {
         <p>Do you already have an account?</p>
         <Link to={"/signup"}>Click here to login</Link>
       </div>
+    </div>
     </div>
     )
 }

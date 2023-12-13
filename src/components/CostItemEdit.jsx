@@ -65,7 +65,7 @@ useEffect(() => {
 }, costItemId);
 
 return (
-  <div>
+  <div className="footer-pin">
     <h3>Edit Cost Item</h3>
     <form onSubmit={handleSubmit}>
       <label>Name of Vendor:</label>

@@ -24,16 +24,22 @@ function SeatingPlanner() {
   };
 
   const loadData = async () => {
-    storedToken
+    storedToken;
     try {
-      const guestsResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/guests`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+      const guestsResponse = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/guests`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
       guestsList = guestsResponse.data;
 
-      const tablesResponse = await axios.get(`${import.meta.env.VITE_API_URL}/api/seatingTables`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      });
+      const tablesResponse = await axios.get(
+        `${import.meta.env.VITE_API_URL}/api/seatingTables`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      );
       filterUnassignedGuests(guestsResponse.data, tablesResponse.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -121,7 +127,7 @@ function SeatingPlanner() {
   };
 
   const updateGuest = (guest) => {
-    storedToken
+    storedToken;
     axios
       .put(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, guest, {
         headers: { Authorization: `Bearer ${storedToken}` },
@@ -133,11 +139,15 @@ function SeatingPlanner() {
   };
 
   const updateTable = (table) => {
-    storedToken
+    storedToken;
     axios
-      .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, table, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .put(
+        `${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`,
+        table,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
       .then(() => {
         console.log("Table edited successfully");
       })
@@ -156,7 +166,7 @@ function SeatingPlanner() {
   };
 
   const handleDeleteClick = (table) => {
-    storedToken
+    storedToken;
 
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this table?"
@@ -167,18 +177,21 @@ function SeatingPlanner() {
         guest.seatingTable = null;
         updateGuest(guest);
       });
-  
+
       axios
-        .delete(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        })
+        .delete(
+          `${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        )
         .then(() => {
           console.log("Table deleted successfully");
           toast.success("Table deleted successfully");
           reloadTables();
         })
-        .catch((error) => console.log(error))
-    }  
+        .catch((error) => console.log(error));
+    }
   };
 
   const navigate = useNavigate();
@@ -188,7 +201,7 @@ function SeatingPlanner() {
   };
 
   return (
-    <>
+    <div className="footer-pin">
       <AddTableForm reloadTables={reloadTables} />
       <DragDropContext onDragEnd={onDragEnd}>
         {tablesList.map((table) => (
@@ -204,7 +217,11 @@ function SeatingPlanner() {
             )}
             {table._id != -1 && (
               <button className="btn" onClick={() => handleDeleteClick(table)}>
-                <img className="menu-icon" src={delete_icon} alt="Delete table" />
+                <img
+                  className="menu-icon"
+                  src={delete_icon}
+                  alt="Delete table"
+                />
               </button>
             )}
             <Droppable droppableId={table._id} direction="horizontal">
@@ -243,7 +260,7 @@ function SeatingPlanner() {
       {showTableEdit && (
         <TableEdit tableId={editingTableId} reloadTables={reloadTables} />
       )}
-    </>
+    </div>
   );
 }
 

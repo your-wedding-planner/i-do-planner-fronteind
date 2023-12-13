@@ -39,7 +39,7 @@ function AddTableForm({ reloadTables }) {
   };
 
   return (
-    <div>
+    <div className="footer-pin">
       <div>
         <h2>Add new Table</h2>
       </div>
