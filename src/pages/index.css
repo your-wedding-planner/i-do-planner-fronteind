@@ -92,3 +92,69 @@ html, body {
 .countdown {
   text-align: center;
 }
+
+.wedding-info-container {
+  background-image: url("../assets/wedding-rings.jpeg");
+  padding: 80px;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: #333;
+}
+
+.countdown-digit {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  min-width: 50px;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 4px;;
+}
+
+.countdown-mssg {
+text-align: center;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 50px; /* Adjust the padding as needed */
+  background-color: #FBFEF9;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-item {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Center items vertically */
+  white-space: nowrap;
+  gap: 10px; /* Adjust the space between icon and text */
+}
+
+.dashboard-item a {
+  display: flex; /* Use flexbox for anchor elements */
+  align-items: center; /* Center items vertically */
+  text-decoration: none; /* Remove default link underline */
+}
+
+.dashboard-icon {
+  width: 4vw;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 20px; /* Align icon to the middle of the text */
+}
+
+
