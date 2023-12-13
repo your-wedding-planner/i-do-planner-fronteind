@@ -66,32 +66,39 @@ useEffect(() => {
 
 return (
   <div>
-    <h3>Edit Cost Item</h3>
-    <form onSubmit={handleSubmit}>
-      <label>Name of Vendor:</label>
+    <form onSubmit={handleSubmit} className="edit-costitem-container">
+      <label>Name of Vendor:
       <input
         type="text"
         name="nameVendor"
+        className="input input-bordered w-full max-w-xs"
         value={formData.nameVendor}
         onChange={handleChange}
       />
-      <label>Price:</label>
+      </label>
+      <label>Price:
       <input
         type="number"
         name="price"
+        min="0"
+        className="input input-bordered w-full max-w-xs"
         value={formData.price}
         onChange={handleChange}
       />
-      <label>Description</label>
+      </label>
+      <label>Description
       <textarea
         type="text"
         name="description"
+        className="input input-bordered w-full max-w-xs"
         value={formData.description}
         onChange={handleChange}
       />
-      <label>Type of cost:</label>
+      </label>
+      <label>Type of cost:
       <select
         name="typeOfCost"
+        className="select select-bordered w-full max-w-xs"
         value={formData.typeOfCost}
         onChange={handleChange}
       >
@@ -106,13 +113,16 @@ return (
         <option value="Invitations">Invitations</option>
         <option value="Gifts">Gifts</option>
       </select>
+      </label>
+      <div>
       <button 
       disabled={loading}
       type="submit"
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition duration-150 ease-in-out"
+      className="btn btn-primary"
       >
         Save
         </button>
+        </div>
     </form>
   </div>
 );
