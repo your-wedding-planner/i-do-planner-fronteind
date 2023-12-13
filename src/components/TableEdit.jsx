@@ -16,7 +16,13 @@ function TableEdit({ tableId, reloadTables }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     storedToken
-    const requestBody = { ...formData }
+
+    const confirmEdit = window.confirm(
+      "Are you sure you want to edit this table?"
+    );
+
+    if(confirmEdit) {
+      const requestBody = { ...formData }
 
     setLoading(true);
 
@@ -29,6 +35,7 @@ function TableEdit({ tableId, reloadTables }) {
         reloadTables();
       })
       .catch((error) => console.log(error));
+    }
   };
 
   const handleChange = (e) => {

@@ -44,20 +44,18 @@ function AddCostItemForm({loadCostItems}) {
 
   return (
     <div>
-      <div>
-        <h2>Add new Cost Item</h2>
-      </div>
-
       <button onClick={handleButtonClick} className="btn">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showCostItems && (
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form onSubmit={handleSubmit} className="add-from-costitem">
+          <label >
             Name of Vendor:
             <input
               type="text"
               name="nameVendor"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               required={true}
               value={formData.nameVendor}
               onChange={handleChange}
@@ -69,6 +67,8 @@ function AddCostItemForm({loadCostItems}) {
             <input
               type="number"
               name="price"
+              min="0"
+              className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.price}
               onChange={handleChange}
@@ -80,22 +80,25 @@ function AddCostItemForm({loadCostItems}) {
             <textarea
               type="text"
               name="description"
+              className="textarea textarea-bordered"
+              placeholder="Type here"
               required={true}
               value={formData.description}
               onChange={handleChange}
             />
           </label>
           <br />         
-          <label>
+          <label >
             Type of cost:
             <select
               name="typeOfCost"
+              className="select select-bordered w-full max-w-xs"
               value={formData.typeOfCost}
               required={true}
               onChange={handleChange}
             >
               <option disabled selected value="">
-                Select an option
+                Select the type
               </option>
               <option value="Decoration">Decoration</option>
               <option value="Photographer">Photographer</option>
@@ -110,7 +113,7 @@ function AddCostItemForm({loadCostItems}) {
             </select>
           </label>
           <br />
-          <button type="submit">Submit</button>
+          <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       )}
     </div>

@@ -26,7 +26,13 @@ function VendorEdit() {
   const handleSubmit = (e) => {
     e.preventDefault();
     storedToken
-    const requestBody = { ...formData };
+
+    const confirmEdit = window.confirm(
+      "Are you sure you want to edit this vendor?"
+    );
+
+    if (confirmEdit) {
+      const requestBody = { ...formData };
 
     setLoading(true);
 
@@ -39,6 +45,7 @@ function VendorEdit() {
         navigate(`/VendorDetails/${vendorId}`);
       })
       .catch((error) => console.log(error));
+    }
   };
 
   const handleChange = (e) => {

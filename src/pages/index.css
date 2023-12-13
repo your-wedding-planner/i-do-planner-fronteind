@@ -157,4 +157,44 @@ text-align: center;
   margin-right: 20px; /* Align icon to the middle of the text */
 }
 
+.budget-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1em;
+  font-size: medium
+}
 
+.budget-container h2 {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.add-from-costitem {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.add-from-costitem label {
+  display: flex;
+  flex-direction: column;
+}
+
+.overflow-x-auto{
+  padding: 4em;
+}
+
+.remaining-budget{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+td, th {
+  font-size: 1rem;
+}
+
+.costitem-icons{
+  width: 25px;
+  height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+}

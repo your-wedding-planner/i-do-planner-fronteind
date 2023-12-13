@@ -29,23 +29,29 @@ function GuestEdit() {
     storedToken
     e.preventDefault();
 
-    if (formData.seatingTable === "-1") {
-      formData.seatingTable = null;
+    const confirmEdit = window.confirm(
+      "Are you sure you want to edit this guest?"
+    );
+
+    if (confirmEdit) {
+      if (formData.seatingTable === "-1") {
+        formData.seatingTable = null;
+      }
+  
+      const requestBody = { ...formData };
+  
+      setLoading(true);
+      axios
+        .put(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, requestBody, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then(() => {
+          toast.success("Guest edited successfully");
+          navigate(`/GuestDetails/${guestId}`);
+          updateGuestsLists();
+        })
+        .catch((error) => console.log(error));
     }
-
-    const requestBody = { ...formData };
-
-    setLoading(true);
-    axios
-      .put(`${import.meta.env.VITE_API_URL}/api/guests/${guestId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then(() => {
-        toast.success("Guest edited successfully");
-        navigate(`/GuestDetails/${guestId}`);
-        updateGuestsLists();
-      })
-      .catch((error) => console.log(error));
   };
 
   const handleChange = (e) => {
