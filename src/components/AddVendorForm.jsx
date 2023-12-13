@@ -57,6 +57,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="name"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.name}
@@ -68,6 +69,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="location"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.location}
@@ -79,6 +81,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="description"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               value={formData.description}
               onChange={handleChange}
@@ -89,6 +92,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="URL"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               value={formData.URL}
               onChange={handleChange}
@@ -122,6 +126,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="email"
               name="email"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               value={formData.email}
               onChange={handleChange}
@@ -132,6 +137,7 @@ function AddVendorForm({ loadVendors })  {
             <input
               type="text"
               name="phoneNumber"
+              placeholder="Type here"
               className="input input-bordered w-full max-w-xs"
               value={formData.phoneNumber}
               onChange={handleChange}

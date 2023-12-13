@@ -257,7 +257,6 @@ td, th {
   min-width: 100vw;
 }
 
-
 .add-form-vendor {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -400,7 +399,7 @@ td, th {
 .signup-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
 .signup-background {
@@ -410,7 +409,44 @@ td, th {
 .signup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 15vh 0px;
+  margin: 5vh 0px;
+}
+
+.signup label {
+  display: flex;  
+  flex-direction: column;
+  padding: 10px;
+}
+
+.signup-btn-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.login {
+  background-image: url("src/assets/background-signup.jpeg");
+  height: 80vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 40vw;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.login-container form{
+  padding-top: 2vh;
 }
 
 

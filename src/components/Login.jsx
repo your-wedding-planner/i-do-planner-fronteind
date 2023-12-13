@@ -37,34 +37,42 @@ function Login(props) {
 
   return (
     <div className="container">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <form onSubmit={handleLoginSubmit}>
-          <div className="card-body items-center text-center">
-            <label className="card-actions">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={handleEmail}
-            />
-            <label className="card-actions">Password</label>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={handlePassword}
-            />
-            <div className="card-actions">
-              <button type="submit" className="btn btn-primary">
-                Log in
-              </button>
+      <div className="login">
+        <div className="login-container">
+          <form onSubmit={handleLoginSubmit}>
+            <div className="card-body items-center text-center">
+              <label className="card-actions">Email</label>
+              <input
+                type="email"
+                name="email"
+                required={true}
+                placeholder="Type here"
+                className="input input-bordered w-full max-w-xs"
+                value={email}
+                onChange={handleEmail}
+              />
+              <label className="card-actions">Password</label>
+              <input
+                type="password"
+                name="password"
+                required={true}
+                placeholder="Type here"
+                className="input input-bordered w-full max-w-xs"
+                value={password}
+                onChange={handlePassword}
+              />
+              <div className="card-actions">
+                <button type="submit" className="btn btn-primary">
+                  Log in
+                </button>
+              </div>
             </div>
+          </form>
+          <div className="items-center text-center">
+            {errorMessage && <p>{errorMessage}</p>}
+            <p>Don't have an account yet?</p>
+            <Link to={"/signup"}>Click here to create an account</Link>
           </div>
-        </form>
-        <div className="items-center text-center">
-          {errorMessage && <p>{errorMessage}</p>}
-          <p>Don't have an account yet?</p>
-          <Link to={"/signup"}>Click here to create an account</Link>
         </div>
       </div>
     </div>

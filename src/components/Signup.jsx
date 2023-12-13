@@ -49,12 +49,13 @@ function Signup(props) {
       <div className="container">
 
 <div className="signup">
-      <img src="src/assets/sign-up-background.jpeg" alt="couple" />
+      <img src="src/assets/background-signup.jpeg" alt="couple" />
       <form onSubmit={handleSignupSubmit} className="signup-container">
           <label className="card-actions">Email
           <input
             type="email"
             name="email"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={email}
@@ -65,6 +66,7 @@ function Signup(props) {
           <input
             type="password"
             name="password"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={password}
@@ -75,6 +77,7 @@ function Signup(props) {
           <input
             type="text"
             name="name"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={name}
@@ -96,6 +99,7 @@ function Signup(props) {
           <input
             type="text"
             name="namePartner"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={namePartner}
@@ -113,13 +117,14 @@ function Signup(props) {
             onChange={handleWeddingBudget}
           />
           </label>
+          <div className="signup-btn-link">
             <button type="submit" className="btn btn-primary">
               Sign up
             </button>
-        <div className="items-center text-center">
         {errorMessage && <p>{errorMessage}</p>}
         <p>Do you already have an account?</p>
         <Link to={"/signup"}>Click here to login</Link>
+      
       </div>
         
       </form>
