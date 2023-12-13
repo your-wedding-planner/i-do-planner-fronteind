@@ -281,6 +281,21 @@ td, th {
   grid-column-end: 3;
 }
 
+.signup-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.signup-background {
+  background-image: url("src/assets/sign-up-background.jpeg");
+}
+
+.signup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 15vh 0px;
+}
 
 
 

@@ -46,70 +46,83 @@ function Signup(props) {
     }
 
     return (
-<div className="card w-96 bg-base-100 shadow-xl">
-      <form onSubmit={handleSignupSubmit}>
-        <div className="card-body items-center text-center">
-          <label className="card-actions">Email</label>
+
+<div className="signup">
+      <img src="src/assets/sign-up-background.jpeg" alt="couple" />
+      <form onSubmit={handleSignupSubmit} className="signup-container">
+          <label className="card-actions">Email
           <input
             type="email"
             name="email"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={email}
             onChange={handleEmail}
           />
-          <label className="card-actions">Password</label>
+          </label>
+          <label className="card-actions">Password
           <input
             type="password"
             name="password"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={password}
             onChange={handlePassword}
           />
-          <label className="card-actions">Your first name</label>
+          </label>
+          <label className="card-actions">Your first name
           <input
             type="text"
             name="name"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={name}
             onChange={handleName}
           />
-          <label className="card-actions" for="isoDate">Date of your wedding</label>
+          </label>
+          <label className="card-actions" for="isoDate">Date of your wedding
           <input
             type="date"
             id="isoDate"
             name="weddingDate"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={weddingDate}
             onChange={handleWeddingDate}
           />
-          <label className="card-actions">Name of your partner</label>
+          </label>
+          <label className="card-actions">Name of your partner
           <input
             type="text"
             name="namePartner"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={namePartner}
             onChange={handleNamePartner}
           />
-          <label className="card-actions">Wedding Budget</label>
+          </label>
+          <label className="card-actions">Wedding Budget
           <input
             type="number"
             name="weddingBudget"
+            min="0"
+            className="input input-bordered w-full max-w-xs"
             required={true}
             value={weddingBudget}
             onChange={handleWeddingBudget}
           />
-          <div className="card-actions">
+          </label>
             <button type="submit" className="btn btn-primary">
               Sign up
             </button>
-          </div>
-        </div>
-      </form>
-      <div className="items-center text-center">
+        <div className="items-center text-center">
         {errorMessage && <p>{errorMessage}</p>}
         <p>Do you already have an account?</p>
         <Link to={"/signup"}>Click here to login</Link>
       </div>
+        
+      </form>
+      
     </div>
     )
 }
