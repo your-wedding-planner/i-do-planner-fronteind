@@ -46,17 +46,17 @@ function NavBarTest() {
               >
                 <li>
                   <Link to={"/GuestList"}>
-                    <img src={guest_icon} alt="Guest Icon" />
+                    <img className="menu-icon" src={guest_icon} alt="Guest Icon" />
                   </Link>
                 </li>
                 <li>
                   <Link to={"/VendorList"}>
-                    <img src={vendor_icon} alt="Vendor Icon" />
+                    <img className="menu-icon" src={vendor_icon} alt="Vendor Icon" />
                   </Link>
                 </li>
                 <li>
                   <Link to={"/BudgetCalculator"}>
-                    <img src={calculator_icon} alt="Calculator Icon" />
+                    <img className="menu-icon" src={calculator_icon} alt="Calculator Icon" />
                   </Link>
                 </li>
               </ul>
@@ -71,22 +71,22 @@ function NavBarTest() {
             <ul className="menu menu-horizontal px-1">
               <li>
                 <Link to={"/GuestList"}>
-                  <img src={guest_icon} alt="Guest Icon" />
+                  <img className="menu-icon" src={guest_icon} alt="Guest Icon" />
                 </Link>
               </li>
               <li>
                 <Link to={"/VendorList"}>
-                  <img src={vendor_icon} alt="Vendor Icon" />
+                  <img className="menu-icon" src={vendor_icon} alt="Vendor Icon" />
                 </Link>
               </li>
               <li>
                 <Link to={"/BudgetCalculator"}>
-                  <img src={calculator_icon} alt="Calculator Icon" />
+                  <img className="menu-icon" src={calculator_icon} alt="Calculator Icon" />
                 </Link>
               </li>
               <li>
                 <Link to={"/SeatingPlanner"}>
-                  <img src={table_icon} alt="Table Icon" />
+                  <img className="menu-icon" src={table_icon} alt="Table Icon" />
                 </Link>
               </li>
             </ul>

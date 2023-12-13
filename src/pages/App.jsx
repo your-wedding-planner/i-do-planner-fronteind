@@ -22,6 +22,7 @@ import Contact from "../components/Contact";
 import WeddingOrganization from "../components/WeddingOrganization";
 import "./index.css";
 import { Toaster } from "react-hot-toast";
+import LandingPage from "./LandingPage";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       <Header />
       <NavBar />
       <Routes>
+        <Route path="/landingPage" element={<LandingPage />} />
         <Route path="/login" element={<IsAnon><Login /></IsAnon>} />
         <Route path="/signup" element={<IsAnon><Signup /></IsAnon>} />
         <Route path="/AboutUs" element={<AboutUs />} />
