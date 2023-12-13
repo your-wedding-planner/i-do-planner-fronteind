@@ -88,7 +88,7 @@ function VendorDetails() {
   };
 
   return vendor ? (
-    <>
+    <div className="container">
       <div className="details-container">
         <div className="avatar">
           <div className="w-24 rounded-full">
@@ -138,7 +138,7 @@ function VendorDetails() {
           />
         </button>
       </div>
-    </>
+    </div>
   ) : (
     <p>loading</p>
   );

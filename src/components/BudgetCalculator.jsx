@@ -88,7 +88,7 @@ function BudgetCalculator() {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="budget-container">
         <h3>Budget: {budget.toLocaleString('en-US', {
           style: 'currency',
@@ -166,7 +166,7 @@ function BudgetCalculator() {
         </table>
         
       </div>
-    </>
+    </div>
   );
 }
 

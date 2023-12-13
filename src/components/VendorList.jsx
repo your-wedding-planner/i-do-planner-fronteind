@@ -26,7 +26,7 @@ function VendorList() {
   };
 
   return (
-    <>
+    <div className="container">
       <div>
         <AddVendorForm loadVendors={loadVendors} />
       </div>

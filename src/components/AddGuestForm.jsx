@@ -86,6 +86,7 @@ function AddGuestForm({ loadGuests }) {
 
   return (
     <div>
+    <div>
       <div>
         <h2>Add new Guest</h2>
       </div>
@@ -202,6 +203,7 @@ function AddGuestForm({ loadGuests }) {
           </div>
         </form>
       )}
+    </div>
     </div>
   );
 }

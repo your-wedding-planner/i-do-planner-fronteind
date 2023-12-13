@@ -30,41 +30,18 @@ function CountDown({ weddingDate }) {
 
   }, [weddingDate]);
 
+
   return (
     <div>
-    <h1>Days: {countdown[0]}</h1>
-    <h1>Hours: {countdown[1]}</h1>
-    <h1>Minutes: {countdown[2]}</h1>
-    <h1>Seconds: {countdown[3]}</h1>
-</div>
-    // <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-    //     <h1>{countDownMessage}</h1>
-    //   <div className="flex flex-col">
-    //     <span className="countdown font-mono text-5xl">
-    //       <span style={{ "--value": countdown[0] }}></span>
-    //     </span>
-    //     days
-    //   </div>
-    //   <div className="flex flex-col">
-    //     <span className="countdown font-mono text-5xl">
-    //       <span style={{ "--value": countdown[1] }}></span>
-    //     </span>
-    //     hours
-    //   </div>
-    //   <div className="flex flex-col">
-    //     <span className="countdown font-mono text-5xl">
-    //       <span style={{ "--value": countdown[2] }}></span>
-    //     </span>
-    //     min
-    //   </div>
-    //   <div className="flex flex-col">
-    //     <span className="countdown font-mono text-5xl">
-    //       <span style={{ "--value": countdown[3] }}></span>
-    //     </span>
-    //     sec
-    //   </div>
-    // </div>
+      <div className="countdown-container">
+        <div className="countdown-digit">{countdown[0]}</div>
+        <div className="countdown-digit">{countdown[1]}</div>
+        <div className="countdown-digit">{countdown[2]}</div>
+        <div className="countdown-digit">{countdown[3]}</div>
+      </div>
+      <h1 className="countdown-mssg">{countDownMessage}</h1>
+    </div>
   );
 }
-
+  
 export default CountDown;

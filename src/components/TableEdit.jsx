@@ -63,7 +63,7 @@ function TableEdit({ tableId, reloadTables }) {
   }, [tableId]);
 
   return (
-    <div>
+    <div className="footer-pin">
       <h3>Edit table</h3>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>

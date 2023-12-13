@@ -7,6 +7,21 @@
   src: url('../assets/fonts/Lie-to-Me-\ OTF.otf') format('truetype');
 }
 
+html {
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  height: 178px;
+  width: 100%;
+  }
+  
 .menu-icon {
   width: 40px;
   height: auto;
@@ -18,7 +33,7 @@
   height: auto;
   text-align: center;
   justify-content: center;
-  display: block; /* Asegúrate de que el logo sea un bloque para aplicar márgenes automáticos */
+  display: block; 
   margin: 0 auto; 
 }
 
@@ -34,43 +49,56 @@
   align-items: center;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-#root {
-  height: 100%;
- background-color: #FBFEF9;
-}
-
 .seatingPlanner {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
+
+.table-buttons {
+  display: flex;
+  gap: 5px;
 }
 
 .guest-container {
-  /* border: 1px dotted pink; */
-  margin: 0;
+  border: 1px dashed #ccc;
+  margin: 5px;
   list-style: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 1.5rem;
-
   display: inline-flex;
   flex-direction: row;
+  text-align: center;
+  min-height: 50px;
+  min-width: 80vw;
+  justify-content: center;
 }
 
 .guest-item {
   color: rgb(100, 79, 75);
-  box-shadow: 0px 2px 4px #4a4c4e;
+  box-shadow: 0px 2px 4px #666667;
   border-radius: 5px;
   padding: 0.3em 0.5em;
   background-color: whitesmoke;
   text-align: center;
   margin: 5px;
   border: 2px solid transparent;
+  text-align: center;
+  font-size: 1rem;
 }
 
 .guest-item:focus {
@@ -91,6 +119,70 @@ html, body {
 
 .countdown {
   text-align: center;
+}
+
+.wedding-info-container {
+  background-image: url("../assets/wedding-rings.jpeg");
+  padding: 80px;
+}
+
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  color: #333;
+}
+
+.countdown-digit {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  min-width: 50px;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.countdown-mssg {
+text-align: center;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px 50px; 
+  background-color: #FBFEF9;
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-item {
+  display: flex; 
+  align-items: center; 
+  white-space: nowrap;
+  gap: 10px; 
+}
+
+.dashboard-item a {
+  display: flex; 
+  align-items: center; 
+}
+
+.dashboard-icon {
+  width: 4vw;
+  height: auto;
+  vertical-align: middle;
+  margin-right: 20px; 
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
 
 .budget-container {
@@ -141,6 +233,29 @@ td, th {
   height: auto;
   filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
+
+.table-assignment-icons {
+  width: 25px;
+  height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  text-align: end;
+}
+
+.table-options {
+  display: flex;
+  gap: 12px;
+}
+
+.table-options button {
+  width: 5vw;
+  height: auto;
+  bottom: 0;
+}
+
+.container {
+  min-height: calc(100vh - 178px);
+}
+
 
 .add-form-vendor {
   display: grid;

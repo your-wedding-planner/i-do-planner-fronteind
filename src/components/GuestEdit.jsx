@@ -119,7 +119,7 @@ function GuestEdit() {
   };
 
   return (
-    <div >
+    <div className="container" >
       <form onSubmit={handleSubmit} className="edit-guest-container">
         <label>First Name: 
         <input

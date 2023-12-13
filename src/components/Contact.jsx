@@ -2,6 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
+  <div>
     <div className="contact-container">
       <h1>Contact Us</h1>
       <p>Feel free to connect with us on LinkedIn:</p>
@@ -29,6 +30,7 @@ const Contact = () => {
           <a href="https://github.com/juliasendra" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
         </div>
       </div>
+    </div>
     </div>
   );
 };

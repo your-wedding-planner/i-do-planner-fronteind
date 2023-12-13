@@ -76,7 +76,7 @@ function VendorEdit() {
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit} className="edit-vendor-container">
         <label>Name: 
         <input

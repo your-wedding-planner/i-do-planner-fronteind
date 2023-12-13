@@ -27,8 +27,8 @@ function GuestList() {
   };
 
   return (
-    <>
-    <div>
+    <div className="container">
+      <div>
         <AddGuestForm loadGuests={loadGuests} />
       </div>
     <div className="overflow-x-auto">
@@ -108,7 +108,7 @@ function GuestList() {
       <div>
         <AddGuestForm loadGuests={loadGuests} />
       </div> */}
-    </>
+    </div>
   );
 }
 

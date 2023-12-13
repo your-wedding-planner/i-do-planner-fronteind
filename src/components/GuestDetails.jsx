@@ -50,7 +50,7 @@ function GuestDetails() {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="details-container">
         <div className="avatar placeholder">
           <div className="bg-secondary text-neutral-content rounded-full w-24">
@@ -104,7 +104,7 @@ function GuestDetails() {
         </div>
         </div>
       
-    </>
+    </div>
   );
 }
 

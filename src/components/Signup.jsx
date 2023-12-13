@@ -46,6 +46,7 @@ function Signup(props) {
     }
 
     return (
+      <div className="container">
 
 <div className="signup">
       <img src="src/assets/sign-up-background.jpeg" alt="couple" />
@@ -122,8 +123,10 @@ function Signup(props) {
       </div>
         
       </form>
+      </div>
       
     </div>
+    
     )
 }
 
