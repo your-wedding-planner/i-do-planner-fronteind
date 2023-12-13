@@ -179,3 +179,41 @@ td, th {
   justify-content: center;
 }
 
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 25px;
+  justify-items: center;
+  margin-right: 25vw;
+  margin-left: 25vw;
+}
+
+.details-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
+.details-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: large;
+}
+
+.details-btn {
+  display: flex;
+
+}
+
+.details-icons {
+  width: 25px;
+  height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+}
+
+
+
+
