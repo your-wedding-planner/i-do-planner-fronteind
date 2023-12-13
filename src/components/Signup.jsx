@@ -49,7 +49,7 @@ function Signup(props) {
       <div className="container">
 
 <div className="signup">
-      <img src="src/assets/sign-up-background.jpeg" alt="couple" />
+      <img src="src/assets/background-signup.jpeg" alt="couple" />
       <form onSubmit={handleSignupSubmit} className="signup-container">
           <label className="card-actions">Email
           <input
@@ -113,13 +113,14 @@ function Signup(props) {
             onChange={handleWeddingBudget}
           />
           </label>
+          <div className="signup-btn-link">
             <button type="submit" className="btn btn-primary">
               Sign up
             </button>
-        <div className="items-center text-center">
         {errorMessage && <p>{errorMessage}</p>}
         <p>Do you already have an account?</p>
         <Link to={"/signup"}>Click here to login</Link>
+      
       </div>
         
       </form>
