@@ -22,8 +22,6 @@ function BudgetCalculator () {
     description: "",
     typeOfCost: ""
   })
-   
-    const navigate = useNavigate();
 
     const loadCostItems = () => {
       storedToken
@@ -47,22 +45,13 @@ function BudgetCalculator () {
         }, 0);
       setTotalCosts(result)
 
-      // const remaining = budget - totalCosts
-      // setRemainingBudget(remaining)
-    };
-
-    const calculateRemaining = () => {
-      console.log("This is with remainin", totalCosts)
-      const remaining = budget - totalCosts
+      const remaining = budget - result
       setRemainingBudget(remaining)
-    }
-
-    //HOW TO TAKE THE MOST UPDATED VERSION OF TOTALCOST????
+    };
 
       useEffect(() => {
         if(!costItemList) return
         calculateSumOfCosts(costItemList)
-        calculateRemaining()
       }, [costItemList]);
 
       useEffect(() => {
@@ -76,7 +65,6 @@ function BudgetCalculator () {
             toast.success("Deleted successfully")
             console.log("CostItem deleted")
             calculateSumOfCosts(costItemList)
-            calculateRemaining()
             loadCostItems()
           })
           .catch((error) => {
