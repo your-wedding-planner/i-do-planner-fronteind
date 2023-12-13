@@ -424,7 +424,28 @@ td, th {
   align-items: center;
   grid-column-start: 1;
   grid-column-end: 3;
+}
 
+.login {
+  background-image: url("src/assets/background-signup.jpeg");
+  height: 80vh;
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 40vw;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+}
+
+.login-container form{
+  padding-top: 2vh;
 }
 
 
