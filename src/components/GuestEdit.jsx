@@ -119,58 +119,75 @@ function GuestEdit() {
   };
 
   return (
-    <div>
-      <h3>Edit guest</h3>
-      <form onSubmit={handleSubmit}>
-        <label>First Name: </label>
+    <div >
+      <form onSubmit={handleSubmit} className="edit-guest-container">
+        <label>First Name: 
         <input
           type="text"
           name="firstName"
+          className="input input-bordered w-full max-w-xs"
           value={formData.firstName}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Last Name: </label>
+        <label>Last Name: 
         <input
           type="text"
           name="lastName"
+          className="input input-bordered w-full max-w-xs"
           value={formData.lastName}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Age: </label>
-        <select name="age" value={formData.age} onChange={handleChange}>
+        <label>Age: 
+        <select 
+        name="age" 
+        className="select select-bordered w-full max-w-xs"
+        value={formData.age} 
+        onChange={handleChange}>
           <option value="Adult">Adult</option>
           <option value="Child">Child</option>
           <option value="Baby">Baby</option>
         </select>
+        </label>
 
-        <label>Email: </label>
+        <label>Email: 
         <input
           type="email"
           name="email"
+          className="input input-bordered w-full max-w-xs"
           value={formData.email}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Phone Number: </label>
+        <label>Phone Number: 
         <input
           type="text"
           name="phoneNumber"
+          className="input input-bordered w-full max-w-xs"
           value={formData.phoneNumber}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Notes: </label>
-        <textarea
+        <label>Notes: 
+        <input
+        type="text"
           name="notes"
+          className="input input-bordered w-full max-w-xs"
           value={formData.notes}
           onChange={handleChange}
-        ></textarea>
+        > 
+        </input>
+        </label>
 
-        <label>Attending: </label>
+        <label>Attending: 
         <select
           name="attending"
+          className="select select-bordered w-full max-w-xs"
           value={formData.attending}
           onChange={handleChange}
         >
@@ -178,10 +195,12 @@ function GuestEdit() {
           <option value="Pending">Pending</option>
           <option value="Declined">Declined</option>
         </select>
+        </label>
 
-        <label>Table: </label>
+        <label>Table: 
         <select
           name="seatingTable"
+          className="select select-bordered w-full max-w-xs"
           value={formData.seatingTable}
           onChange={handleChange}
         >
@@ -190,14 +209,17 @@ function GuestEdit() {
             <option value={table._id}>{table.tableName}</option>
           ))}
         </select>
+        </label>
+        <div>
 
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition duration-150 ease-in-out"
+          className="btn btn-primary"
         >
           Save
         </button>
+        </div>
       </form>
     </div>
   );
