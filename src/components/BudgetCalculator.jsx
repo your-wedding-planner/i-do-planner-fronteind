@@ -96,13 +96,13 @@ function BudgetCalculator () {
                     <h3>{costItem.description}</h3>
                     <h3>{costItem.typeOfCost}</h3>
                     <Link to={`/CostItemEdit/${costItem._id}`}>
-                      <img src={edit_icon} alt="EditCostItem" />
+                      <img className="menu-icon"src={edit_icon} alt="EditCostItem" />
                     </Link>
                     <button
                       className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
                       onClick={() => deleteCostItem(costItem._id)}
                     >
-                      <img src={delete_icon} alt="DeleteCostItem" />
+                      <img className="menu-icon" src={delete_icon} alt="DeleteCostItem" />
                     </button>
                     
                   </div>

@@ -2,18 +2,36 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-img {
+@font-face {
+  font-family: 'Lie-to-Me';
+  src: url('../assets/fonts/Lie-to-Me-\ OTF.otf') format('truetype');
+}
+
+.menu-icon {
   width: 40px;
   height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+}
+
+.cover-logo {
+  width: 18%;
+  height: auto;
+  text-align: center;
+  justify-content: center;
+  display: block; /* Asegúrate de que el logo sea un bloque para aplicar márgenes automáticos */
+  margin: 0 auto; 
 }
 
 .home {
   width: 30px;
   height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
 
 .header{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 html, body {
@@ -25,7 +43,7 @@ html, body {
 
 #root {
   height: 100%;
-  background-image: url("src/assets/background-test.png");
+ background-color: #FBFEF9;
 }
 
 .seatingPlanner {
@@ -58,4 +76,19 @@ html, body {
 .guest-item:focus {
   outline: none;
   border: 2px solid #4a9af5;
+}
+
+.couple-title {
+  font-family: "Lie-to-Me";
+  font-size: 250%;
+  text-align: center;
+}
+
+.couple-date {
+  font-family: "Lie-to-Me";
+  text-align: center;
+}
+
+.countdown {
+  text-align: center;
 }

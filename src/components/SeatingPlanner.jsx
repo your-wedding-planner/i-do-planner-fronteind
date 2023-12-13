@@ -192,12 +192,12 @@ function SeatingPlanner() {
                 className="btn"
                 onClick={() => handleEditClick(table._id)}
               >
-                <img src={edit_icon} alt="Edit table" />
+                <img className="menu-icon" src={edit_icon} alt="Edit table" />
               </button>
             )}
             {table._id != -1 && (
               <button className="btn" onClick={() => handleDeleteClick(table)}>
-                <img src={delete_icon} alt="Delete table" />
+                <img className="menu-icon" src={delete_icon} alt="Delete table" />
               </button>
             )}
             <Droppable droppableId={table._id} direction="horizontal">
