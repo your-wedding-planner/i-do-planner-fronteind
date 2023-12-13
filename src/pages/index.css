@@ -254,6 +254,7 @@ td, th {
 
 .container {
   min-height: calc(100vh - 178px);
+  min-width: 100vw;
 }
 
 
