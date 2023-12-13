@@ -55,6 +55,7 @@ function Signup(props) {
           <input
             type="email"
             name="email"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={email}
@@ -65,6 +66,7 @@ function Signup(props) {
           <input
             type="password"
             name="password"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={password}
@@ -75,6 +77,7 @@ function Signup(props) {
           <input
             type="text"
             name="name"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={name}
@@ -96,6 +99,7 @@ function Signup(props) {
           <input
             type="text"
             name="namePartner"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={namePartner}
