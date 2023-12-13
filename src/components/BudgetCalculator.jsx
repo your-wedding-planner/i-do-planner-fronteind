@@ -60,6 +60,11 @@ function BudgetCalculator () {
 
       const deleteCostItem = (costItemId) => {
         storedToken
+
+        const confirmDelete = window.confirm(
+          "Are you sure you want to delete this cost item?"
+        );
+
         axios.delete(`${import.meta.env.VITE_API_URL}/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then(() => {
             toast.success("Deleted successfully")
