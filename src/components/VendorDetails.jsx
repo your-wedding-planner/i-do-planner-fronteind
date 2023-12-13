@@ -25,7 +25,13 @@ function VendorDetails() {
 
   const deleteVendor = () => {
     storedToken
-    axios
+
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this vendor?"
+    );
+
+    if(confirmDelete) {
+      axios
       .delete(`${import.meta.env.VITE_API_URL}/api/vendors/${vendor._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
@@ -37,6 +43,7 @@ function VendorDetails() {
       .catch((error) => {
         console.error("Error deleting vendor:", error);
       });
+    }
   };
 
   return vendor ? (

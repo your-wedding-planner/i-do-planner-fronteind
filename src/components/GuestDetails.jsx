@@ -26,7 +26,12 @@ function GuestDetails() {
 
   const deleteGuest = (guest) => {
     storedToken
-    axios
+
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this guest?"
+    );
+    if (confirmDelete) {
+      axios
       .delete(`${import.meta.env.VITE_API_URL}/api/guests/${guest._id}`, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
@@ -39,6 +44,7 @@ function GuestDetails() {
       .catch((error) => {
         console.error("Error deleting guest:", error);
       });
+    }
   };
 
   return (

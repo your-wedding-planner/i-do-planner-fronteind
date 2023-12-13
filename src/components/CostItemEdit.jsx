@@ -17,8 +17,15 @@ function CostItemEdit() {
 
  const handleSubmit = (e) => {
     e.preventDefault()
+    
     storedToken
-    const requestBody = {...formData}
+
+    const confirmEdit = window.confirm(
+      "Are you sure you want to edit this cost item?"
+    );
+
+    if(confirmEdit) {
+      const requestBody = {...formData}
 
     setLoading(true)
 
@@ -31,6 +38,7 @@ function CostItemEdit() {
         navigate("/BudgetCalculator")
       })
       .catch((error) => console.log(error))
+    }
  }
 
  const handleChange = (e) => {

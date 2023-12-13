@@ -157,21 +157,28 @@ function SeatingPlanner() {
 
   const handleDeleteClick = (table) => {
     storedToken
-    table.assignedGuests.map((guest) => {
-      guest.seatingTable = null;
-      updateGuest(guest);
-    });
 
-    axios
-      .delete(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then(() => {
-        console.log("Table deleted successfully");
-        toast.success("Table deleted successfully");
-        reloadTables();
-      })
-      .catch((error) => console.log(error));
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this table?"
+    );
+
+    if (confirmDelete) {
+      table.assignedGuests.map((guest) => {
+        guest.seatingTable = null;
+        updateGuest(guest);
+      });
+  
+      axios
+        .delete(`${import.meta.env.VITE_API_URL}/api/seatingTables/${table._id}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        .then(() => {
+          console.log("Table deleted successfully");
+          toast.success("Table deleted successfully");
+          reloadTables();
+        })
+        .catch((error) => console.log(error))
+    }  
   };
 
   const navigate = useNavigate();

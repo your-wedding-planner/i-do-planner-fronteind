@@ -65,7 +65,8 @@ function BudgetCalculator () {
           "Are you sure you want to delete this cost item?"
         );
 
-        axios.delete(`${import.meta.env.VITE_API_URL}/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
+        if (confirmDelete) {
+          axios.delete(`${import.meta.env.VITE_API_URL}/api/costItems/${costItemId}`, { headers: { Authorization: `Bearer ${storedToken}`} })
           .then(() => {
             toast.success("Deleted successfully")
             console.log("CostItem deleted")
@@ -75,6 +76,7 @@ function BudgetCalculator () {
           .catch((error) => {
             console.log("Error deleting cost item", error)
           })
+        }
       }
 
 //Put the following below in a table? --> format of Daisy
