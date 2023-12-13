@@ -77,43 +77,51 @@ function VendorEdit() {
 
   return (
     <div>
-      <h3>Edit vendor</h3>
-      <form onSubmit={handleSubmit}>
-        <label>Name: </label>
+      <form onSubmit={handleSubmit} className="edit-vendor-container">
+        <label>Name: 
         <input
           type="text"
           name="name"
+          className="input input-bordered w-full max-w-xs"
           value={formData.name}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Location: </label>
+        <label>Location: 
         <input
           type="text"
           name="location"
+          className="input input-bordered w-full max-w-xs"
           value={formData.location}
           onChange={handleChange}
         />
+        </label>
 
-        <label>URL: </label>
+        <label>URL: 
         <input
           type="text"
           name="URL"
+          className="input input-bordered w-full max-w-xs"
           value={formData.URL}
           onChange={handleChange}
         />
+        </label>
 
-        <label>Description: </label>
+        <label>Description: 
         <input
           type="text"
           name="description"
+          className="input input-bordered w-full max-w-xs"
           value={formData.description}
           onChange={handleChange}
         />
+        </label>
 
-        <label>TypeOfService: </label>
+        <label>TypeOfService: 
         <select
           name="typeOfService"
+          className="select select-bordered w-full max-w-xs"
           value={formData.typeOfService}
           onChange={handleChange}
         >
@@ -128,14 +136,16 @@ function VendorEdit() {
           <option value="Invitations">Invitations</option>
           <option value="Gifts">Gifts</option>
         </select>
-
+        </label>
+        <div>
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition duration-150 ease-in-out"
+          className="btn btn-primary"
         >
           Save
         </button>
+        </div>
       </form>
     </div>
   );

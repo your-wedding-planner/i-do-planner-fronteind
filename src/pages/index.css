@@ -113,6 +113,7 @@ html, body {
 .add-form-costitem label {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .add-form-costitem div{
@@ -153,6 +154,7 @@ td, th {
 .add-form-vendor label{
   display: flex;
   justify-content: space-between;
+  align-items: center; 
 }
 
 .add-form-vendor div{
@@ -169,9 +171,10 @@ td, th {
   padding: 20px;
 }
 
-.add-form-guest label{
+.add-form-guest label {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .add-form-guest div{
@@ -226,9 +229,31 @@ td, th {
 .edit-guest-container label {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .edit-guest-container div{
+  display: flex;
+  justify-content: center;
+}
+
+.edit-vendor-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 25px;
+  grid-row-gap: 20px;
+  margin-right: 15vw;
+  margin-left: 15vw;
+}
+
+.edit-vendor-container label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-vendor-container div{
   display: flex;
   justify-content: center;
 }
