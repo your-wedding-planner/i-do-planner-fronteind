@@ -15,6 +15,7 @@ function BudgetCalculator() {
   const [budget, setBudget] = useState(user.weddingBudget);
   const [totalCosts, setTotalCosts] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
+  const [remainingBudgetPercentage, setRemainingBudgetPercentage] = useState(0)
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
@@ -47,7 +48,10 @@ function BudgetCalculator() {
     setTotalCosts(result);
 
     const remaining = budget - result;
+    const percentageRemaining = (100/budget) * remaining
+    const roundedPercentage = percentageRemaining.toFixed(1)
     setRemainingBudget(remaining);
+    setRemainingBudgetPercentage(roundedPercentage)
   };
 
   useEffect(() => {
@@ -85,11 +89,27 @@ function BudgetCalculator() {
 
   return (
     <>
-      <div>
-        <h3>Budget: {budget}</h3>
-        <h3>Total costs: {totalCosts}</h3>
-        <h3>Remaining: {remainingBudget}</h3>
+      <div className="budget-container">
+        <h3>Budget: {budget.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'EUR',
+        })}</h3>
+        <div className="remaining-budget">
+        <h2 >Remaining: {remainingBudget.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'EUR',
+        })}</h2>
+        <div className="radial-progress text-success" style={{"--value": remainingBudgetPercentage}} role="progressbar">{remainingBudgetPercentage}%</div>
+        </div>
+        <h3>Total costs: {totalCosts.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'EUR',
+        })}</h3>
+        
       </div>
+      <div className="btn-secondary btn-add-costitem">
+          <AddCostItemForm loadCostItems={loadCostItems} />
+        </div>
 
       <div className="overflow-x-auto">
         <table className="table table-xs">
@@ -109,13 +129,16 @@ function BudgetCalculator() {
                 return (
                   <tr>
                     <td>{costItem.nameVendor}</td>
-                    <td>{costItem.price}</td>
+                    <td>{(costItem.price).toLocaleString('en-US', {
+                      style: 'currency',
+                      currency: 'EUR',
+                    })}</td>
                     <td>{costItem.description}</td>
                     <td>{costItem.typeOfCost}</td>
                     <td>
                       <Link to={`/CostItemEdit/${costItem._id}`}>
                         <img
-                          className="menu-icon"
+                          className="costitem-icons"
                           src={edit_icon}
                           alt="EditCostItem"
                         />
@@ -124,11 +147,10 @@ function BudgetCalculator() {
                     <td>
                       {" "}
                       <button
-                        className="btn btn-xs sm:btn-sm md:btn-md btn-wide "
                         onClick={() => deleteCostItem(costItem._id)}
                       >
                         <img
-                          className="menu-icon"
+                          className="costitem-icons"
                           src={delete_icon}
                           alt="DeleteCostItem"
                         />
@@ -141,20 +163,8 @@ function BudgetCalculator() {
               <p>There are not cost items yet</p>
             )}
           </tbody>
-          <tfoot>
-            <tr>
-              <th>Name of vendor</th>
-              <th>Cost</th>
-              <th>Description</th>
-              <th>Type of cost</th>
-              <th>Edit cost item</th>
-              <th>Delete cost item</th>
-            </tr>
-          </tfoot>
         </table>
-        <div>
-          <AddCostItemForm loadCostItems={loadCostItems} />
-        </div>
+        
       </div>
     </>
   );
