@@ -206,27 +206,20 @@ function SeatingPlanner() {
       <DragDropContext onDragEnd={onDragEnd}>
         {tablesList.map((table) => (
           <div className="seatingPlanner" key={table.id}>
-            <div className="table-options">
-            <h1>{table.tableName}</h1>
-            {table._id != -1 && (
-              <button
-                className="btn"
-                onClick={() => handleEditClick(table._id)}
-              >
-                <img className="table-assignment-icons" src={edit_icon} alt="Edit table" />
-              </button>
-            )}
-            
-            {table._id != -1 && (
-              <button className="btn" onClick={() => handleDeleteClick(table)}>
-                <img
-                  className="table-assignment-icons"
-                  src={delete_icon}
-                  alt="Delete table"
-                />
-              </button>
-            )}
-          </div>
+            <div className="table-header">
+              <h1>{table.tableName}</h1>
+              {table._id !== "-1" && (
+                <div className="table-buttons">
+                  <button className="btn" onClick={() => handleEditClick(table._id)}>
+                    <img className="table-assignment-icons" src={edit_icon} alt="Edit table" />
+                  </button>
+                  <button className="btn" onClick={() => handleDeleteClick(table)}>
+                    <img className="table-assignment-icons" src={delete_icon} alt="Delete table" />
+                  </button>
+                </div>
+              )}
+            </div>
+            <div className="guests-container"></div>
             <Droppable droppableId={table._id} direction="horizontal">
               {(droppableProvided) => (
                 <ul
