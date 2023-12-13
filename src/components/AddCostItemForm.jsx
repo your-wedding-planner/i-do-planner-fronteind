@@ -48,7 +48,7 @@ function AddCostItemForm({loadCostItems}) {
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showCostItems && (
-        <form onSubmit={handleSubmit} className="add-from-costitem">
+        <form onSubmit={handleSubmit} className="add-form-costitem">
           <label >
             Name of Vendor:
             <input
@@ -61,7 +61,7 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-          <br />
+     
           <label>
             Price:
             <input
@@ -74,7 +74,7 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-          <br />
+     
           <label>
             Description:
             <input
@@ -87,7 +87,7 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-          <br />         
+           
           <label >
             Type of cost:
             <select
@@ -112,8 +112,9 @@ function AddCostItemForm({loadCostItems}) {
               <option value="Gifts">Gifts</option>
             </select>
           </label>
-          <br />
+         <div>
           <button className="btn btn-primary" type="submit">Submit</button>
+          </div>
         </form>
       )}
     </div>

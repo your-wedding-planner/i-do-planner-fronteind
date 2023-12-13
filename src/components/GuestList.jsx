@@ -28,6 +28,67 @@ function GuestList() {
 
   return (
     <>
+    <div>
+        <AddGuestForm loadGuests={loadGuests} />
+      </div>
+    <div className="overflow-x-auto">
+        <table className="table table-xs">
+          <thead>
+            <tr>
+              <th>Name</th>
+              {/* <th>Location</th>
+              <th>Website</th> */}
+              <th>Status invitation</th>
+              <th>Table</th>
+              {/* <th>Email</th>
+              <th>Phone number</th> */}
+            </tr>
+          </thead>
+          <tbody>
+            {guestsList?.length > 0 ? (
+              guestsList?.map((guest) => {
+                return (
+                  <tr>
+                    <td>
+                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                      {guest.firstName} {guest.lastName}
+                    </Link>
+                    </td>
+                    <td>
+                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                      {guest.attending}
+                    </Link>
+                    </td>
+                    <td>
+                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                      {guest.seatingTable}
+                    </Link>
+                    </td>
+                    {/* <td>{vendor.location}</td>
+                    <td>{vendor.URL}</td>
+                    <td>{vendor.description}</td>
+                    <td>{vendor.typeOfService}</td>
+                    <td>{vendor.email}</td>
+                    <td>{vendor.phoneNumber}</td> */}
+                  </tr>
+                );
+              })
+            ) : (
+              <p>No guests available</p>
+            )}
+          </tbody>
+        </table>
+      </div>
+
+
+
+{/* 
+
+
+
+
+
+
       <div>
         <h1>Guest List</h1>
         {guestsList.length > 0 ? (
@@ -46,7 +107,7 @@ function GuestList() {
       </div>
       <div>
         <AddGuestForm loadGuests={loadGuests} />
-      </div>
+      </div> */}
     </>
   );
 }

@@ -137,7 +137,9 @@ function AddVendorForm({ loadVendors })  {
               onChange={handleChange}
             />
           </label>
+          <div>
           <button className="btn btn-primary" type="submit">Submit</button>
+          </div>
         </form>
       )}
     </div>

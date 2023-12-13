@@ -62,9 +62,6 @@ function VendorList() {
                       {vendor.typeOfService}
                     </Link>
                     </td>
-                    
-
-
                     {/* <td>{vendor.location}</td>
                     <td>{vendor.URL}</td>
                     <td>{vendor.description}</td>

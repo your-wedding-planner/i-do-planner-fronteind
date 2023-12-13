@@ -94,32 +94,39 @@ function AddGuestForm({ loadGuests }) {
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showGuests && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="add-form-guest">
           <label>
             First Name:
             <input
               type="text"
               name="firstName"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               required={true}
               value={formData.firstName}
               onChange={handleChange}
             />
           </label>
-          <br />
           <label>
             Last Name:
             <input
               type="text"
               name="lastName"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               required={true}
               value={formData.lastName}
               onChange={handleChange}
             />
           </label>
-          <br />
           <label>
             Age:
-            <select name="age" required={true} value={formData.age} onChange={handleChange}>
+            <select 
+            name="age" 
+            className="select select-bordered w-full max-w-xs"
+            required={true} 
+            value={formData.age} 
+            onChange={handleChange}>
             <option disabled selected value="">
                 Select an option
               </option>
@@ -128,40 +135,43 @@ function AddGuestForm({ loadGuests }) {
               <option value="Baby">Baby</option>
             </select>
           </label>
-          <br />
           <label>
             Email:
             <input
               type="email"
               name="email"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               value={formData.email}
               onChange={handleChange}
             />
           </label>
-          <br />
           <label>
             Phone Number:
             <input
               type="text"
               name="phoneNumber"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               value={formData.phoneNumber}
               onChange={handleChange}
             />
           </label>
-          <br />
           <label>
             Notes:
-            <textarea
+            <input
               name="notes"
+              className="input input-bordered w-full max-w-xs"
+              placeholder="Type here"
               value={formData.notes}
               onChange={handleChange}
-            ></textarea>
+            ></input>
           </label>
-          <br />
           <label>
             Attending:
             <select
               name="attending"
+              className="select select-bordered w-full max-w-xs"
               required={true}
               value={formData.attending}
               onChange={handleChange}
@@ -174,9 +184,10 @@ function AddGuestForm({ loadGuests }) {
               <option value="Declined">Declined</option>
             </select>
           </label>
-          <label>Table: </label>
+          <label>Table: 
           <select
             name="seatingTable"
+            className="select select-bordered w-full max-w-xs"
             value={formData.seatingTable}
             onChange={handleChange}
           >
@@ -185,8 +196,10 @@ function AddGuestForm({ loadGuests }) {
               <option value={table._id}>{table.tableName}</option>
             ))}
           </select>
-          <br />
-          <button type="submit">Submit</button>
+          </label>
+          <div>
+          <button className="btn btn-primary" type="submit">Submit</button>
+          </div>
         </form>
       )}
     </div>
