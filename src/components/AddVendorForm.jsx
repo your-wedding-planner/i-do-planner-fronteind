@@ -51,56 +51,57 @@ function AddVendorForm({ loadVendors })  {
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showVendorsForm && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="add-form-vendor">
           <label>
             Name:
             <input
               type="text"
               name="name"
+              className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.name}
               onChange={handleChange}
             />
-          </label>
-          <br />
-          
+          </label>          
           <label>
             Location:
             <input
               type="text"
               name="location"
+              className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.location}
               onChange={handleChange}
             />
           </label>
-          <br />
-
           <label>
             Description:
             <input
               type="text"
               name="description"
+              className="input input-bordered w-full max-w-xs"
               value={formData.description}
               onChange={handleChange}
             />
           </label>
-          <br />
-
           <label>
             URL:
             <input
               type="text"
               name="URL"
+              className="input input-bordered w-full max-w-xs"
               value={formData.URL}
               onChange={handleChange}
             />
           </label>
-          <br />
-
           <label>
             Type of Service:
-            <select name="typeOfService" required={true} value={formData.typeOfService} onChange={handleChange}>
+            <select 
+            name="typeOfService" 
+            className="select select-bordered w-full max-w-xs"
+            required={true} 
+            value={formData.typeOfService} 
+            onChange={handleChange}>
             <option disabled selected value="">
                 Select an option
               </option>
@@ -116,31 +117,27 @@ function AddVendorForm({ loadVendors })  {
               <option value="Gifts">Gifts</option>
             </select>
           </label>
-          <br />
-
           <label>
             Email:
             <input
               type="email"
               name="email"
+              className="input input-bordered w-full max-w-xs"
               value={formData.email}
               onChange={handleChange}
             />
           </label>
-
-          <br />
           <label>
             Phone Number:
             <input
               type="text"
               name="phoneNumber"
+              className="input input-bordered w-full max-w-xs"
               value={formData.phoneNumber}
               onChange={handleChange}
             />
           </label>
-          <br />
-          
-          <button type="submit">Submit</button>
+          <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       )}
     </div>

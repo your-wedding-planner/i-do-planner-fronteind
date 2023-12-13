@@ -77,10 +77,10 @@ function AddCostItemForm({loadCostItems}) {
           <br />
           <label>
             Description:
-            <textarea
+            <input
               type="text"
               name="description"
-              className="textarea textarea-bordered"
+              className="input input-bordered w-full max-w-xs"
               placeholder="Type here"
               required={true}
               value={formData.description}

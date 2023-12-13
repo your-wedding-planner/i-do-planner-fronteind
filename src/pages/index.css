@@ -134,3 +134,18 @@ td, th {
   height: auto;
   filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
+
+.add-form-vendor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr); 
+  grid-column-gap: 100px;
+  grid-row-gap: 20px;
+  padding: 50px;
+}
+
+.add-form-vendor label{
+  display: flex;
+  justify-content: space-between;
+
+}
