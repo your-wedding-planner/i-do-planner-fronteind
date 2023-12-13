@@ -119,7 +119,7 @@ function GuestEdit() {
   };
 
   return (
-    <div className="footer-pin">
+    <div className="container">
       <h3>Edit guest</h3>
       <form onSubmit={handleSubmit}>
         <label>First Name: </label>

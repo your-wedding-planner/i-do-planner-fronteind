@@ -43,7 +43,7 @@ function AddCostItemForm({loadCostItems}) {
   };
 
   return (
-    <div className="footer-pin">
+    <div>
       <button onClick={handleButtonClick} className="btn">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>

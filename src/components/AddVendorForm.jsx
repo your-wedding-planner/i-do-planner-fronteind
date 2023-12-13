@@ -42,7 +42,7 @@ function AddVendorForm({ loadVendors })  {
   };
 
   return (
-    <div className="footer-pin">
+    <div>
       <div>
         <h2>Add new Vendor</h2>
       </div>

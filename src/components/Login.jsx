@@ -36,7 +36,7 @@ function Login(props) {
   };
 
   return (
-    <div className="footer-pin">
+    <div className="container">
       <div className="card w-96 bg-base-100 shadow-xl">
         <form onSubmit={handleLoginSubmit}>
           <div className="card-body items-center text-center">

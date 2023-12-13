@@ -17,7 +17,7 @@ function LandingPage() {
       }, []);
 
   return (
-    <div className="footer-pin">
+    <div>
       <section id="weddingOrganization">
         <WeddingOrganization />
       </section>

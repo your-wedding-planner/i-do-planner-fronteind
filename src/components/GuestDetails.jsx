@@ -48,8 +48,8 @@ function GuestDetails() {
   };
 
   return (
-    <>
-      <div className="footer-pin">
+    <div className="container">
+      <div>
         <h2>Guest Details</h2>
         <p>
           Name: {guest.firstName} {guest.lastName}
@@ -77,7 +77,7 @@ function GuestDetails() {
       >
         Delete
       </button>
-    </>
+    </div>
   );
 }
 

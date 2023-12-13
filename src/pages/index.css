@@ -7,6 +7,21 @@
   src: url('../assets/fonts/Lie-to-Me-\ OTF.otf') format('truetype');
 }
 
+html {
+  min-height: 100vh;
+}
+
+body {
+  position: relative;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.footer {
+  height: 178px;
+  width: 100%;
+  }
+  
 .menu-icon {
   width: 40px;
   height: auto;
@@ -34,32 +49,28 @@
   align-items: center;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
 
-#root {
-  height: 100%;
- background-color: #FBFEF9;
-}
 
 .seatingPlanner {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  position: relative;
+  width: 100%;
+  height: 80px;
 }
 
 .guest-container {
-  /* border: 1px dotted pink; */
-  margin: 0;
+  margin: 5px;
   list-style: none;
   padding: 5px;
   border-radius: 5px;
   font-size: 1.5rem;
-
   display: inline-flex;
   flex-direction: row;
+  text-align: center;
 }
 
 .guest-item {
@@ -71,6 +82,7 @@ html, body {
   text-align: center;
   margin: 5px;
   border: 2px solid transparent;
+  text-align: center;
 }
 
 .guest-item:focus {
@@ -199,8 +211,25 @@ td, th {
   filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
 }
 
-.footer-pin {
-  display: flex;
-  flex-direction: column;
-  min-height: 70vh;
+.table-assignment-icons {
+  width: 25px;
+  height: auto;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  text-align: end;
 }
+
+.table-options {
+  display: flex;
+  gap: 12px;
+}
+
+.table-options button {
+  width: 5vw;
+  height: auto;
+  bottom: 0;
+}
+
+.container {
+  min-height: calc(100vh - 178px);
+}
+

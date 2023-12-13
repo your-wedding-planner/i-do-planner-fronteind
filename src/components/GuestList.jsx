@@ -27,7 +27,7 @@ function GuestList() {
   };
 
   return (
-    <>
+    <div className="container">
       <div className="footer-pin">
         <h1>Guest List</h1>
         {guestsList.length > 0 ? (
@@ -47,7 +47,7 @@ function GuestList() {
       <div>
         <AddGuestForm loadGuests={loadGuests} />
       </div>
-    </>
+    </div>
   );
 }
 

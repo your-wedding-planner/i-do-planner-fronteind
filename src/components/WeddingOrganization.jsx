@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const WeddingOrganization = () => {
   return (
-    <div className="footer-pin">
+    <div>
       <div className="wedding-organization-container">
         <h1>Your Dream Wedding, Simplified</h1>
         <p>

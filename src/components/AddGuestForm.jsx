@@ -85,7 +85,7 @@ function AddGuestForm({ loadGuests }) {
   };
 
   return (
-    <div lassName="footer-pin">
+    <div>
     <div>
       <div>
         <h2>Add new Guest</h2>

@@ -47,7 +47,7 @@ function VendorDetails() {
   };
 
   return vendor ? (
-    <div className="footer-pin">
+    <div className="container">
       <div>
         <h2>Vendor Details</h2>
         <p>Name: {vendor.name}</p>

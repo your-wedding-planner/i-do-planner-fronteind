@@ -201,29 +201,32 @@ function SeatingPlanner() {
   };
 
   return (
-    <div className="footer-pin">
+    <div className="container">
       <AddTableForm reloadTables={reloadTables} />
       <DragDropContext onDragEnd={onDragEnd}>
         {tablesList.map((table) => (
           <div className="seatingPlanner" key={table.id}>
+            <div className="table-options">
             <h1>{table.tableName}</h1>
             {table._id != -1 && (
               <button
                 className="btn"
                 onClick={() => handleEditClick(table._id)}
               >
-                <img className="menu-icon" src={edit_icon} alt="Edit table" />
+                <img className="table-assignment-icons" src={edit_icon} alt="Edit table" />
               </button>
             )}
+            
             {table._id != -1 && (
               <button className="btn" onClick={() => handleDeleteClick(table)}>
                 <img
-                  className="menu-icon"
+                  className="table-assignment-icons"
                   src={delete_icon}
                   alt="Delete table"
                 />
               </button>
             )}
+          </div>
             <Droppable droppableId={table._id} direction="horizontal">
               {(droppableProvided) => (
                 <ul

@@ -24,7 +24,7 @@ function VendorList() {
   };
 
   return (
-    <div className="footer-pin">
+    <div className="container">
       <div>
         <h1>Vendors List</h1>
         {vendorsList.length > 0 ? (

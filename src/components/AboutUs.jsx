@@ -2,7 +2,7 @@ import React from 'react';
 
 const AboutUs = () => {
   return (
-    <div className="footer-pin">
+    <div>
     <div className="about-us-container">
       <h1>About Us</h1>
       <p>We are Elise Jonkers and Júlia Sendra, two junior full-stack developers. Together, we've created this platform in just a week to simplify wedding planning for couples.</p>

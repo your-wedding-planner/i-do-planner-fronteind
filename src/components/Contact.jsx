@@ -2,7 +2,7 @@ import React from 'react';
 
 const Contact = () => {
   return (
-  <div className="footer-pin">
+  <div>
     <div className="contact-container">
       <h1>Contact Us</h1>
       <p>Feel free to connect with us on LinkedIn:</p>
