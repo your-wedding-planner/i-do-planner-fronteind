@@ -124,6 +124,8 @@ body {
 
 .wedding-info-container {
   background-image: url("../assets/wedding-rings.jpeg");
+  background-position: center;
+  opacity: 0.7;
   padding: 80px;
 } 
 
@@ -402,10 +404,6 @@ td, th {
   grid-template-rows: repeat(4, 1fr);
 }
 
-.signup-background {
-  background-image: url("src/assets/sign-up-background.jpeg");
-}
-
 .signup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -428,7 +426,7 @@ td, th {
 }
 
 .login {
-  background-image: url("src/assets/background-signup.jpeg");
+  background-image: url("../assets/background-signup.jpeg");
 
   height: 100vh;
   margin-top: 5vh;
@@ -593,6 +591,9 @@ wedding-organization-container {
   margin-left: 20px;
 }
 
+.radial-progress {
+  margin: 40px;
+}
 .addtable {
   display: flex;
   justify-content: space-evenly;
