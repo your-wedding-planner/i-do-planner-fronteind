@@ -28,6 +28,22 @@ function BudgetCalculator() {
     return costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
   }))
 
+  const sortCostLow = () => {
+    const toSortLow = [...costItemList]
+    const sortedLow = toSortLow.sort((a, b) => {
+      return (a.price) - (b.price)
+    })
+    setCostItemList(sortedLow)
+  }
+
+  const sortCostHigh = () => {
+    const toSortHigh = [...costItemList]
+    const sortedHigh = toSortHigh.sort((a, b) => {
+      return (b.price) - (a.price)
+    })
+    setCostItemList(sortedHigh)
+  }
+
   const loadCostItems = () => {
     storedToken;
     axios
@@ -128,6 +144,28 @@ function BudgetCalculator() {
         </label>
       </div>
 
+      <div>
+
+      <button
+      className="btn btn-primary"
+        onClick={() => {
+          sortCostLow();
+        }}
+      >
+        Sort low-high
+      </button>
+      <button
+      className="btn btn-primary"
+        onClick={() => {
+          sortCostHigh();
+        }}
+      >
+        Sort high-low
+      </button>
+
+      </div>
+
+      
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
