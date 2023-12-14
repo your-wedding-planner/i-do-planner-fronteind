@@ -30,6 +30,7 @@ function GuestList() {
       })
       .then((response) => {
         setGuestsList(response.data);
+        console.log(response.data[1].seatingTable.tableName)
       })
       .catch((error) => {
         console.error("Error fetching guests:", error);
@@ -82,7 +83,8 @@ function GuestList() {
                     </td>
                     <td>
                     <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
-                      {guest.seatingTable}
+                      {guest.seatingTable && <p>{guest.seatingTable.tableName}</p>}
+                      {!guest.seatingTable && <p>No table assigned</p>}
                     </Link>
                     </td>
                     {/* <td>{vendor.location}</td>
