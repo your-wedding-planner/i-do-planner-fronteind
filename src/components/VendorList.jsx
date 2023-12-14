@@ -5,7 +5,12 @@ import AddVendorForm from "./AddVendorForm";
 
 function VendorList() {
   const [vendorsList, setVendorsList] = useState([]);
+  const [query, setQuery] = useState("")
   const storedToken = localStorage.getItem("authToken");
+
+  const filteredVendors = vendorsList.filter((vendor) => {
+    return vendor.name.toLowerCase().includes(query.toLowerCase())
+  })
 
   useEffect(() => {
     loadVendors();
@@ -30,6 +35,17 @@ function VendorList() {
       <div>
         <AddVendorForm loadVendors={loadVendors} />
       </div>
+      <div>
+        <label>
+          Search by name:
+          <input 
+          type="search" 
+          className="input input-bordered w-full max-w-xs"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
+      </div>
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -44,8 +60,8 @@ function VendorList() {
             </tr>
           </thead>
           <tbody>
-            {vendorsList?.length > 0 ? (
-              vendorsList?.map((vendor) => {
+            {filteredVendors?.length > 0 ? (
+              filteredVendors?.map((vendor) => {
                 return (
                   <tr>
                     <td>

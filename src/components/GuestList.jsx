@@ -5,7 +5,17 @@ import { Link } from "react-router-dom";
 
 function GuestList() {
   const [guestsList, setGuestsList] = useState([]);
+  const [query, setQuery] = useState("")
   const storedToken = localStorage.getItem("authToken");
+
+  const filteredGuests = guestsList.filter((guest) => {
+    const firstNameFiltered = guest.firstName.toLowerCase().includes(query.toLowerCase())
+    const lastNameFiltered = guest.lastName.toLowerCase().includes(query.toLocaleLowerCase())
+    const nameFiltered = firstNameFiltered + ' ' + lastNameFiltered
+    return nameFiltered || firstNameFiltered || lastNameFiltered
+    //const nameFiltered = `${firstNameFiltered} ${lastNameFiltered}`
+    //return nameFiltered
+  })
 
   useEffect(() => { 
     if(!storedToken) return
@@ -31,6 +41,17 @@ function GuestList() {
       <div>
         <AddGuestForm loadGuests={loadGuests} />
       </div>
+      <div>
+        <label>
+          Search by name:
+          <input 
+          type="search" 
+          className="input input-bordered w-full max-w-xs"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
+      </div>
     <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -45,8 +66,8 @@ function GuestList() {
             </tr>
           </thead>
           <tbody>
-            {guestsList?.length > 0 ? (
-              guestsList?.map((guest) => {
+            {filteredGuests?.length > 0 ? (
+              filteredGuests?.map((guest) => {
                 return (
                   <tr>
                     <td>
