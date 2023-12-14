@@ -63,21 +63,22 @@ function TableEdit({ tableId, reloadTables }) {
   }, [tableId]);
 
   return (
-    <div className="footer-pin">
-      <h3>Edit table</h3>
-      <form onSubmit={handleSubmit}>
+    <div>
+
+      <form onSubmit={handleSubmit} className="edittable">
         <label>Name:</label>
         <input
           type="text"
           name="tableName"
+          className="input input-bordered w-full max-w-xs"
           value={formData.tableName}
           onChange={handleChange}
         />
         <button
           disabled={loading}
           type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition duration-150 ease-in-out"
-        >
+          className="btn btn-primary"
+          >
           Save
         </button>
       </form>
