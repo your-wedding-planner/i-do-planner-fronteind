@@ -11,7 +11,8 @@ import { AuthContext } from "../context/auth.context";
 function BudgetCalculator() {
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
-  const [costItemList, setCostItemList] = useState();
+  const [costItemList, setCostItemList] = useState([]);
+  const [query, setQuery] = useState("")
   const [budget, setBudget] = useState(user.weddingBudget);
   const [totalCosts, setTotalCosts] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
@@ -22,6 +23,10 @@ function BudgetCalculator() {
     description: "",
     typeOfCost: "",
   });
+
+  const filteredCostItems = costItemList.filter((costItem => {
+    return costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
+  }))
 
   const loadCostItems = () => {
     storedToken;
@@ -111,6 +116,18 @@ function BudgetCalculator() {
           <AddCostItemForm loadCostItems={loadCostItems} />
         </div>
 
+        <div>
+        <label>
+          Search by name:
+          <input 
+          type="search" 
+          className="input input-bordered w-full max-w-xs"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
+      </div>
+
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -124,8 +141,8 @@ function BudgetCalculator() {
             </tr>
           </thead>
           <tbody>
-            {costItemList?.length > 0 ? (
-              costItemList?.map((costItem) => {
+            {filteredCostItems?.length > 0 ? (
+              filteredCostItems?.map((costItem) => {
                 return (
                   <tr>
                     <td>{costItem.nameVendor}</td>

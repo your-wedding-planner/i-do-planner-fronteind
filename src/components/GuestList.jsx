@@ -9,12 +9,10 @@ function GuestList() {
   const storedToken = localStorage.getItem("authToken");
 
   const filteredGuests = guestsList.filter((guest) => {
-    const firstNameFiltered = guest.firstName.toLowerCase().includes(query.toLowerCase())
-    const lastNameFiltered = guest.lastName.toLowerCase().includes(query.toLocaleLowerCase())
-    const nameFiltered = firstNameFiltered + ' ' + lastNameFiltered
-    return nameFiltered || firstNameFiltered || lastNameFiltered
-    //const nameFiltered = `${firstNameFiltered} ${lastNameFiltered}`
-    //return nameFiltered
+    const fullName = `${guest.firstName} ${guest.lastName}`
+    const nameFiltered = fullName.toLowerCase().includes(query.toLowerCase())
+
+    return nameFiltered
   })
 
   useEffect(() => { 
