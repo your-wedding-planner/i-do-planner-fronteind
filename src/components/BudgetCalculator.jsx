@@ -198,20 +198,35 @@ function BudgetCalculator() {
         <AddCostItemForm loadCostItems={loadCostItems} />
       </div>
 
-      <div>
-        <div>
-          <label>
-            Search by name:
+    
+        <div className="filter-costitems">
+          <label >
+            Search by name:</label>
             <input
               type="search"
               className="input input-bordered w-full max-w-xs"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
-          </label>
-        </div>
-
-        <div>
+          
+          <label>Filter by type of cost:</label>
+          <select
+            name="typeOfCost"
+            className="select select-bordered w-full max-w-xs"
+            onChange={costItemSelect}
+          >
+            <option value={""}>All types</option>
+            <option value={"Decoration"}>Decoration</option>
+            <option value={"Photographer"}>Photographer</option>
+            <option value={"Music"}>Music</option>
+            <option value={"Food"}>Food</option>
+            <option value={"Beauty & Health"}>Beauty & Health</option>
+            <option value={"Officials"}>Officials</option>
+            <option value={"Location"}>Location</option>
+            <option value={"Dress & Accessories"}>Dress & Accessories</option>
+            <option value={"Invitations"}>Invitations</option>
+            <option value={"Gifts"}>Gifts</option>
+          </select>
           <button
             className="btn btn-primary"
             onClick={() => {
@@ -228,6 +243,10 @@ function BudgetCalculator() {
           >
             Sort high-low
           </button>
+        </div>
+
+        {/* <div>
+          
         </div>
 
         <div>
@@ -249,8 +268,8 @@ function BudgetCalculator() {
             <option value={"Invitations"}>Invitations</option>
             <option value={"Gifts"}>Gifts</option>
           </select>
-        </div>
-      </div>
+        </div> */}
+  
 
       <div className="overflow-x-auto">
         <table className="table table-xs">

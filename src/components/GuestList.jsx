@@ -15,6 +15,14 @@ function GuestList() {
     return nameFiltered
   })
 
+  const sortByInvitaton = () => {
+    const toSortInvitation = [...guestsList]
+    const sortedInvitation = toSortInvitation.sort((a, b) => {
+      return a.attending.localeCompare(b.attending) 
+    })
+    setGuestsList(sortedInvitation)
+  }
+
   useEffect(() => { 
     if(!storedToken) return
     loadGuests();
@@ -40,16 +48,25 @@ function GuestList() {
       <div>
         <AddGuestForm loadGuests={loadGuests} />
       </div>
-      <div>
-        <label>
-          Search by name:
+      <div className="filter-list">
+        <label >
+          Search by name:</label>
           <input 
           type="search" 
           className="input input-bordered w-full max-w-xs"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           />
-        </label>
+          
+        
+        <button
+            className="btn btn-primary"
+            onClick={() => {
+              sortByInvitaton();
+            }}
+          >
+            Sort by Status
+          </button>
       </div>
     <div className="overflow-x-auto">
         <table className="table table-xs">

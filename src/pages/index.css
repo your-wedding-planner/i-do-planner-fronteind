@@ -668,3 +668,40 @@ wedding-organization-container {
   padding-right: 0;
 } 
 
+.filter-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+}
+
+.filter-list input {
+  margin-right: 20vw;
+  margin-left: 3vw;
+}
+
+.filter-costitems {
+  margin-right: 5vw;
+  margin-left: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filter-costitems input {
+  margin-left: 1vw;
+  margin-right: 2vw;
+}
+
+.filter-costitems select {
+  margin-left: 1vw;
+  margin-right: 5vw;
+}
+
+.filter-costitems button {
+  margin-left: 2vw;
+  
+}
+

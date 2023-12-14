@@ -12,6 +12,14 @@ function VendorList() {
     return vendor.name.toLowerCase().includes(query.toLowerCase())
   })
 
+  const sortByCategory = () => {
+    const toSortCategory = [...vendorsList]
+    const sortedCategory = toSortCategory.sort((a, b) => {
+      return a.typeOfService.localeCompare(b.typeOfService) 
+    })
+    setVendorsList(sortedCategory)
+  }
+
   useEffect(() => {
     loadVendors();
   }, []);
@@ -35,16 +43,24 @@ function VendorList() {
       <div>
         <AddVendorForm loadVendors={loadVendors} />
       </div>
-      <div>
+      <div className="filter-list">
         <label>
-          Search by name:
+          Search by name:</label>
           <input 
           type="search" 
           className="input input-bordered w-full max-w-xs"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           />
-        </label>
+        
+        <button
+            className="btn btn-primary"
+            onClick={() => {
+              sortByCategory();
+            }}
+          >
+            Sort by Category
+          </button>
       </div>
       <div className="overflow-x-auto">
         <table className="table table-xs">
