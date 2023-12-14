@@ -39,30 +39,35 @@ function AddTableForm({ reloadTables }) {
   };
 
   return (
-    <div className="footer-pin">
-      <div>
-        <h2>Add new Table</h2>
-      </div>
+    <div className="addtable">
+  
       <button onClick={handleButtonClick} className="btn">
         <img src={add_icon} alt="Add Icon" className="home" />
       </button>
+ 
+       
       {showTableForm && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="addtable">
           <label>
-            Name:
+            Name:</label>
             <input
               type="text"
               name="tableName"
+              className="input input-bordered w-full max-w-xs"
               required={true}
               value={formData.tableName}
               onChange={handleChange}
             />
-          </label>
-          <button type="submit">Submit</button>
+          
+          <button className="btn btn-primary" type="submit">Submit</button>
         </form>
       )}
 
-    </div>
+</div>
+
+
+
+
   );
 }
 

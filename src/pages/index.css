@@ -592,4 +592,21 @@ wedding-organization-container {
   margin-left: 20px;
 }
 
+.addtable {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px;
+}
 
+.addtable form {
+  justify-content: space-between; 
+}
+
+.addtable form button {
+  margin-left: 25px;
+}
+
+.addtable form label {
+  margin-right: 25px;
+}
