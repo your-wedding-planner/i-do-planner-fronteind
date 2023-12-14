@@ -49,15 +49,21 @@ function GuestDetails() {
     }
   };
 
+  const getGuestInitials = (guest) => {
+    if (guest && guest.firstName && guest.lastName) {
+      return guest.firstName[0] + guest.lastName[0];
+    } else {
+      return '';
+    }
+  }
+
   return (
     <div className="container">
       <div className="details-container">
         <div className="avatar placeholder">
           <div className="bg-secondary text-neutral-content rounded-full w-24">
             <span className="text-3xl">
-              {/* {guest.firstName[0]}
-              {guest.lastName[0]}  */}
-              FL
+              {getGuestInitials(guest)} 
             </span>
           </div>
         </div>
