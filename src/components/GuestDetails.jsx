@@ -55,8 +55,9 @@ function GuestDetails() {
         <div className="avatar placeholder">
           <div className="bg-secondary text-neutral-content rounded-full w-24">
             <span className="text-3xl">
-              {guest.firstName[0]}
-              {guest.lastName[0]} 
+              {/* {guest.firstName[0]}
+              {guest.lastName[0]}  */}
+              FL
             </span>
           </div>
         </div>

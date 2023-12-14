@@ -195,7 +195,7 @@ function BudgetCalculator() {
           })}
         </h3>
       </div>
-      <div className="btn-secondary btn-add-costitem">
+      <div >
         <AddCostItemForm loadCostItems={loadCostItems} />
       </div>
 

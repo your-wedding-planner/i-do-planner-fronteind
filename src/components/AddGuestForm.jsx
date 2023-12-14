@@ -99,7 +99,7 @@ function AddGuestForm({ loadGuests }) {
     <div>
     <div>
       <div>
-      <button onClick={handleButtonClick} className="btn fixed bottom-3 right-14 text-blue-500">
+      <button onClick={handleButtonClick} className="btn float-center text-blue-500">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       </div>
