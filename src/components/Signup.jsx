@@ -49,7 +49,7 @@ function Signup(props) {
       <div className="container">
 
 <div className="signup">
-      <img src="src/assets/background-signup.jpeg" alt="couple" />
+      <img src="../assets/background-signup.jpeg" alt="couple" />
       <form onSubmit={handleSignupSubmit} className="signup-container">
           <label className="card-actions">Email
           <input
