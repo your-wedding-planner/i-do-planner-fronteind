@@ -32,10 +32,17 @@ function AddCostItemForm({loadCostItems}) {
         loadCostItems()
         toast.success("Cost Item created successfully");
         setShowCostItems(false)
+        setFormData({
+          nameVendor: "",
+          price: 0,
+          description: "",
+          typeOfCost: ""
+          })
       })
       .catch((error) => {
         console.log("Error creating cost item..", error)
       })
+
   };
 
   const handleButtonClick = () => {

@@ -32,6 +32,15 @@ function AddVendorForm({ loadVendors })  {
       loadVendors();
       toast.success("Vendor created succesfully");
       setShowVendorsForm(false);
+      setFormData({
+        name: "",
+        location: "",
+        URL: "",
+        description: "",
+        typeOfService: "",
+        email: "",
+        phoneNumber: "",
+      })
     } catch (error) {
       console.error("Error submitting form:", error);
     }

@@ -39,6 +39,16 @@ function AddGuestForm({ loadGuests }) {
         })
         .then((response) => {
           updateTable(response.data);
+          setFormData({
+            firstName: "",
+            lastName: "",
+            age: "",
+            email: "",
+            phoneNumber: "",
+            notes: "",
+            attending: "",
+            seatingTable: null,
+          })
         });
       console.log("Form submitted successfully");
       toast.success("Guest created successfully");

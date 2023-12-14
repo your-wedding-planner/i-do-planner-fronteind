@@ -26,7 +26,6 @@ function AddTableForm({ reloadTables }) {
       console.log("Form submitted successfuxlly");
       toast.success("Table created successfully");
       setShowTableForm(false);
-      // Clear the form after submission
       reloadTables();
       setFormData({ tableName: "", assignedGuests: [] });
     } catch (error) {
