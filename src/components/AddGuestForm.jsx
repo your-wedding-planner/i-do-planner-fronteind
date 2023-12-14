@@ -3,6 +3,7 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
+import "../css/add-forms.css"
 
 function AddGuestForm({ loadGuests }) {
   const storedToken = localStorage.getItem("authToken");
@@ -98,7 +99,7 @@ function AddGuestForm({ loadGuests }) {
     <div>
     <div>
       <div>
-      <button onClick={handleButtonClick} className="btn fixed bottom-3 right-14 text-blue-500">
+      <button onClick={handleButtonClick} className="btn float-center text-blue-500">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       </div>

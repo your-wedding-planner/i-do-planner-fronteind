@@ -40,7 +40,7 @@ function AddTableForm({ reloadTables }) {
   return (
     <div className="addtable">
   
-      <button onClick={handleButtonClick} className="btn">
+      <button onClick={handleButtonClick} className="btn float-center text-blue-500">
         <img src={add_icon} alt="Add Icon" className="home" />
       </button>
  

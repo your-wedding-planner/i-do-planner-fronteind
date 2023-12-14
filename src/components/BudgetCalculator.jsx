@@ -7,6 +7,7 @@ import edit_icon from "../assets/edit-icon.png";
 import toast from "react-hot-toast";
 import CostItemEdit from "./CostItemEdit";
 import { AuthContext } from "../context/auth.context";
+import "../css/filter-search.css"
 
 function BudgetCalculator() {
   const { user } = useContext(AuthContext);
@@ -194,7 +195,7 @@ function BudgetCalculator() {
           })}
         </h3>
       </div>
-      <div className="btn-secondary btn-add-costitem">
+      <div >
         <AddCostItemForm loadCostItems={loadCostItems} />
       </div>
 

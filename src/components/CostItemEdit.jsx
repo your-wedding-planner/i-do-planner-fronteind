@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
+import "../css/add-forms.css"
 
 function CostItemEdit() {
   const {costItemId} = useParams()
@@ -65,7 +66,7 @@ useEffect(() => {
 }, costItemId);
 
 return (
-  <div>
+  <div className="container">
     <form onSubmit={handleSubmit} className="edit-costitem-container">
       <label>Name of Vendor:
       <input

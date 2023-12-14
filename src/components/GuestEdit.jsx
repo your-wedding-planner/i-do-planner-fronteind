@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
+import "../css/add-forms.css"
 
 function GuestEdit() {
   const storedToken = localStorage.getItem("authToken");
