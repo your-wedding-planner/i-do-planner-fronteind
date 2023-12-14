@@ -1,36 +1,44 @@
 import React from 'react';
+import linkedin_icon from "../assets/linkedin-icon.png";
+import github_icon from "../assets/github-icon.png";
 
 const Contact = () => {
   return (
-  <div>
-    <div className="contact-container">
-      <h1>Contact Us</h1>
-      <p>Feel free to connect with us on LinkedIn:</p>
+    <div className="contact-page">
+    <h1>Contact Us</h1>
+
+    <div className="contact-intro">
+      <p>
+        Thank you for your interest in contacting us. Please feel free to reach out to us!
+        <br></br>
+        Below are our contact details and links to our profiles on LinkedIn and GitHub.
+      </p>
+    </div>
+
+      <div className="contact-column">
+        <h2>Elise</h2>
       
-      <div className="linkedin-profiles">
-        <div className="profile">
-          <h3>Elise Jonkers</h3>
-          <a href="https://www.linkedin.com/in/elise-jonkers-2236a1151/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-        </div>
-        <div className="profile">
-          <h3>Júlia Sendra</h3>
-          <a href="https://www.linkedin.com/in/j%C3%BAlia-sendra-gim%C3%A9nez" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
-        </div>
+        <a href="https://www.linkedin.com/in/elise-jonkers-2236a1151/">
+        <img className="social-media-icons" src={linkedin_icon} alt="LinkedIn icon" />
+         </a>
+      
+        <a href="https://github.com/elisejonkers">
+        <img className="social-media-icons" src={github_icon} alt="Github icon" />
+        </a>
       </div>
 
-      <p>Additionally, you can find our projects and contributions on GitHub:</p>
+      <div className="contact-column">
+        <h2>Júlia</h2>
       
-      <div className="github-profiles">
-        <div className="profile">
-          <h3>Elise Jonkers</h3>
-          <a href="https://github.com/elisejonkers" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        </div>
-        <div className="profile">
-          <h3>Júlia Sendra</h3>
-          <a href="https://github.com/juliasendra" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
-        </div>
+        <a href="https://www.linkedin.com/in/júlia-sendra-giménez/">
+        <img className="social-media-icons" src={linkedin_icon} alt="LinkedIn icon" />
+         </a>
+      
+        <a href="https://github.com/juliasendra">
+        <img className="social-media-icons" src={github_icon} alt="Github icon" />
+        </a>
       </div>
-    </div>
+      
     </div>
   );
 };
