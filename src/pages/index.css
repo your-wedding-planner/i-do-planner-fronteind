@@ -23,11 +23,11 @@ body h1 {
 
   body h2 {
     font-family: 'Nunito', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
     }
 
   body h3 {
-  font-size:  1.8rem;
+  font-size:  1.5rem;
   font-family: 'Nunito', sans-serif;
   max-width: 100vw;
   }
@@ -150,7 +150,7 @@ body h1 {
 .couple-date {
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.7rem;
   text-align: center;
 }
 
@@ -489,10 +489,33 @@ section {
 
 #weddingOrganization {
   background-color: #FBFBFF;
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.content-wrapper-left {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.textAlignedLeft {
+  text-align: left;
+}
+
+.image-section {
+  order: 1;
+  margin-bottom: 5vh;
+  }
+
+.text-section {
+  order: 2;
 }
 
 #aboutUs {
-  background-color: #ffddd0;
+  background-color: #fcf2ed;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 #contact {
@@ -509,6 +532,7 @@ section {
 wedding-organization-container {
   padding: 50px;
   text-align: center;
+  display: flex;
 }
 
 .wedding-organization-container h1 {
@@ -534,7 +558,7 @@ wedding-organization-container {
 
 .functionality-section h3 {
   color: #BD6F29;
-  font-size:  1.8rem;
+  font-size:  1.5rem;
   margin-bottom: 10px;
   font-family: 'Nunito', sans-serif;
 }
@@ -580,6 +604,7 @@ wedding-organization-container {
 }
 
 .contact-page h1 {
+  color: #EF7244;
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -702,6 +727,18 @@ wedding-organization-container {
 
 .filter-costitems button {
   margin-left: 2vw;
-  
 }
 
+.textAlignedLeft {
+  text-align: left;
+}
+
+.textAlignedRight {
+  text-align: right;
+}
+
+.landing-pg-txt-mgn {
+margin-left: 10vw;
+margin-right: 10vw;
+margin-top: 2vw;
+}
