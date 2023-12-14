@@ -124,7 +124,7 @@ body {
 .wedding-info-container {
   background-image: url("../assets/wedding-rings.jpeg");
   padding: 80px;
-}
+} 
 
 .countdown-container {
   display: flex;
@@ -254,6 +254,7 @@ td, th {
 
 .container {
   min-height: calc(100vh - 178px);
+  min-width: 100%
 }
 
 .add-form-vendor {

@@ -18,7 +18,7 @@ function CountDown({ weddingDate }) {
         setCountDownMessage('Your special day has come!')
       } else {
         const calculatedDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
-        const calculatedHours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+        const calculatedHours = Math.floor(((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))-1)
         const calculatedMinutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60))
         const calculatedSeconds = Math.floor((timeDifference % (1000 * 60)) / 1000)
 

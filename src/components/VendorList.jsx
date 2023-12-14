@@ -78,7 +78,7 @@ function VendorList() {
         </table>
       </div>
 
-    </>
+  </div>
   );
 }
 
