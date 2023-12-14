@@ -93,8 +93,7 @@ function VendorList() {
           </tbody>
         </table>
       </div>
-
-  </div>
+</div>
   );
 }
 
