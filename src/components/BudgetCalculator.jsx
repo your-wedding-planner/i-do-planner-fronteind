@@ -12,11 +12,11 @@ function BudgetCalculator() {
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
   const [costItemList, setCostItemList] = useState([]);
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const [budget, setBudget] = useState(user.weddingBudget);
   const [totalCosts, setTotalCosts] = useState(0);
   const [remainingBudget, setRemainingBudget] = useState(0);
-  const [remainingBudgetPercentage, setRemainingBudgetPercentage] = useState(0)
+  const [remainingBudgetPercentage, setRemainingBudgetPercentage] = useState(0);
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
@@ -24,25 +24,39 @@ function BudgetCalculator() {
     typeOfCost: "",
   });
 
-  const filteredCostItems = costItemList.filter((costItem => {
-    return costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
-  }))
+  const filteredCostItems = costItemList.filter((costItem) => {
+    return costItem.nameVendor.toLowerCase().includes(query.toLowerCase());
+
+  });
+
+  function costItemSelect (event) {
+    console.log(event.target.value)
+    const selectedList = costItemList.filter((costItem) => {
+      return costItem.typeOfCost === event.target.value
+    })
+
+    setCostItemList(selectedList)
+  } 
+
+
 
   const sortCostLow = () => {
-    const toSortLow = [...costItemList]
+    const toSortLow = [...costItemList];
     const sortedLow = toSortLow.sort((a, b) => {
-      return (a.price) - (b.price)
-    })
-    setCostItemList(sortedLow)
-  }
+      return a.price - b.price;
+    });
+    setCostItemList(sortedLow);
+  };
 
   const sortCostHigh = () => {
-    const toSortHigh = [...costItemList]
+    const toSortHigh = [...costItemList];
     const sortedHigh = toSortHigh.sort((a, b) => {
-      return (b.price) - (a.price)
-    })
-    setCostItemList(sortedHigh)
-  }
+      return b.price - a.price;
+    });
+    setCostItemList(sortedHigh);
+  };
+
+  
 
   const loadCostItems = () => {
     storedToken;
@@ -69,10 +83,10 @@ function BudgetCalculator() {
     setTotalCosts(result);
 
     const remaining = budget - result;
-    const percentageRemaining = (100/budget) * remaining
-    const roundedPercentage = percentageRemaining.toFixed(1)
+    const percentageRemaining = (100 / budget) * remaining;
+    const roundedPercentage = percentageRemaining.toFixed(1);
     setRemainingBudget(remaining);
-    setRemainingBudgetPercentage(roundedPercentage)
+    setRemainingBudgetPercentage(roundedPercentage);
   };
 
   useEffect(() => {
@@ -111,61 +125,95 @@ function BudgetCalculator() {
   return (
     <div className="container">
       <div className="budget-container">
-        <h3>Budget: {budget.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'EUR',
-        })}</h3>
+        <h3>
+          Budget:{" "}
+          {budget.toLocaleString("en-US", {
+            style: "currency",
+            currency: "EUR",
+          })}
+        </h3>
         <div className="remaining-budget">
-        <h2 >Remaining: {remainingBudget.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'EUR',
-        })}</h2>
-        <div className="radial-progress text-success" style={{"--value": remainingBudgetPercentage}} role="progressbar">{remainingBudgetPercentage}%</div>
+          <h2>
+            Remaining:{" "}
+            {remainingBudget.toLocaleString("en-US", {
+              style: "currency",
+              currency: "EUR",
+            })}
+          </h2>
+          <div
+            className="radial-progress text-success"
+            style={{ "--value": remainingBudgetPercentage }}
+            role="progressbar"
+          >
+            {remainingBudgetPercentage}%
+          </div>
         </div>
-        <h3>Total costs: {totalCosts.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'EUR',
-        })}</h3>
-        
+        <h3>
+          Total costs:{" "}
+          {totalCosts.toLocaleString("en-US", {
+            style: "currency",
+            currency: "EUR",
+          })}
+        </h3>
       </div>
       <div className="btn-secondary btn-add-costitem">
-          <AddCostItemForm loadCostItems={loadCostItems} />
-        </div>
-
-        <div>
-        <label>
-          Search by name:
-          <input 
-          type="search" 
-          className="input input-bordered w-full max-w-xs"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          />
-        </label>
+        <AddCostItemForm loadCostItems={loadCostItems} />
       </div>
 
       <div>
+        <div>
+          <label>
+            Search by name:
+            <input
+              type="search"
+              className="input input-bordered w-full max-w-xs"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </label>
+        </div>
 
-      <button
-      className="btn btn-primary"
-        onClick={() => {
-          sortCostLow();
-        }}
-      >
-        Sort low-high
-      </button>
-      <button
-      className="btn btn-primary"
-        onClick={() => {
-          sortCostHigh();
-        }}
-      >
-        Sort high-low
-      </button>
+        <div>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              sortCostLow();
+            }}
+          >
+            Sort low-high
+          </button>
+          <button
+            className="btn btn-primary"
+            onClick={() => {
+              sortCostHigh();
+            }}
+          >
+            Sort high-low
+          </button>
+        </div>
 
+        <div>
+          <label>Filter by type of cost:</label>
+          <select
+            name="typeOfCost"
+            className="select select-bordered w-full max-w-xs"
+            onChange={costItemSelect}
+          >
+            <option value={"All"}>All types</option>
+            <option value={"Decoration"}>Decoration</option>
+            <option value={"Photographer"}>Photographer</option>
+            <option value={"Music"}>Music</option>
+            <option value={"Food"}>Food</option>
+            <option value={"Beauty & Health"}>Beauty & Health</option>
+            <option value={"Officials"}>Officials</option>
+            <option value={"Location"}>Location</option>
+            <option value={"Dress & Accessories"}>Dress & Accessories</option>
+            <option value={"Invitations"}>Invitations</option>
+            <option value={"Gifts"}>Gifts</option>
+          </select>
+        </div>
       </div>
 
-      
       <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
@@ -184,10 +232,12 @@ function BudgetCalculator() {
                 return (
                   <tr>
                     <td>{costItem.nameVendor}</td>
-                    <td>{(costItem.price).toLocaleString('en-US', {
-                      style: 'currency',
-                      currency: 'EUR',
-                    })}</td>
+                    <td>
+                      {costItem.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "EUR",
+                      })}
+                    </td>
                     <td>{costItem.description}</td>
                     <td>{costItem.typeOfCost}</td>
                     <td>
@@ -201,9 +251,7 @@ function BudgetCalculator() {
                     </td>
                     <td>
                       {" "}
-                      <button
-                        onClick={() => deleteCostItem(costItem._id)}
-                      >
+                      <button onClick={() => deleteCostItem(costItem._id)}>
                         <img
                           className="costitem-icons"
                           src={delete_icon}
@@ -219,7 +267,6 @@ function BudgetCalculator() {
             )}
           </tbody>
         </table>
-        
       </div>
     </div>
   );
