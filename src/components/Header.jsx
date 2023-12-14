@@ -9,16 +9,16 @@ function Header() {
   // ) {
   //   return null;
   // } else {
-    return (
-      <div className="bg-base-100">
-        <Link to={`/`}>
-          <img className="cover-logo" src={i_do_planner_cover_logo} alt= "I do planner cover icon" />
-        </Link>
-        {/* <Link to={`/`}>
-          <img src={home_icon} alt="Home Icon" className="home"/>
-        </Link> */}
-      </div>
-    );
-  
+  return (
+    <div className="bg-base-100">
+      <Link to={`/`}>
+        <img
+          className="cover-logo"
+          src={i_do_planner_cover_logo}
+          alt="I do planner cover icon"
+        />
+      </Link>
+    </div>
+  );
 }
 export default Header;

@@ -2,42 +2,42 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddGuestForm from "./AddGuestForm";
 import { Link } from "react-router-dom";
-import "../css/filter-search.css"
+import "../css/filter-search.css";
 
 function GuestList() {
   const [guestsList, setGuestsList] = useState([]);
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const storedToken = localStorage.getItem("authToken");
 
   const filteredGuests = guestsList.filter((guest) => {
-    const fullName = `${guest.firstName} ${guest.lastName}`
-    const nameFiltered = fullName.toLowerCase().includes(query.toLowerCase())
+    const fullName = `${guest.firstName} ${guest.lastName}`;
+    const nameFiltered = fullName.toLowerCase().includes(query.toLowerCase());
 
-    return nameFiltered
-  })
+    return nameFiltered;
+  });
 
   const sortByInvitaton = () => {
-    const toSortInvitation = [...guestsList]
+    const toSortInvitation = [...guestsList];
     const sortedInvitation = toSortInvitation.sort((a, b) => {
-      return a.attending.localeCompare(b.attending) 
-    })
-    setGuestsList(sortedInvitation)
-  }
+      return a.attending.localeCompare(b.attending);
+    });
+    setGuestsList(sortedInvitation);
+  };
 
-  useEffect(() => { 
-    if(!storedToken) return
+  useEffect(() => {
+    if (!storedToken) return;
     loadGuests();
   }, [storedToken]);
 
   const loadGuests = () => {
-    storedToken
+    storedToken;
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/guests`, {
-        headers: { Authorization: `Bearer ${storedToken}` }
+        headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
         setGuestsList(response.data);
-        console.log(response.data[1].seatingTable.tableName)
+        console.log(response.data[1].seatingTable.tableName);
       })
       .catch((error) => {
         console.error("Error fetching guests:", error);
@@ -50,26 +50,24 @@ function GuestList() {
         <AddGuestForm loadGuests={loadGuests} />
       </div>
       <div className="filter-list">
-        <label >
-          Search by name:</label>
-          <input 
-          type="search" 
+        <label>Search by name:</label>
+        <input
+          type="search"
           className="input input-bordered w-full max-w-xs"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          />
-          
-        
+        />
+
         <button
-            className="btn btn-primary"
-            onClick={() => {
-              sortByInvitaton();
-            }}
-          >
-            Sort by Status
-          </button>
+          className="btn btn-primary"
+          onClick={() => {
+            sortByInvitaton();
+          }}
+        >
+          Sort by Status
+        </button>
       </div>
-    <div className="overflow-x-auto">
+      <div className="overflow-x-auto">
         <table className="table table-xs">
           <thead>
             <tr>
@@ -88,20 +86,22 @@ function GuestList() {
                 return (
                   <tr>
                     <td>
-                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
-                      {guest.firstName} {guest.lastName}
-                    </Link>
+                      <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                        {guest.firstName} {guest.lastName}
+                      </Link>
                     </td>
                     <td>
-                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
-                      {guest.attending}
-                    </Link>
+                      <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                        {guest.attending}
+                      </Link>
                     </td>
                     <td>
-                    <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
-                      {guest.seatingTable && <p>{guest.seatingTable.tableName}</p>}
-                      {!guest.seatingTable && <p>No table assigned</p>}
-                    </Link>
+                      <Link to={`/GuestDetails/${guest._id}`} key={guest._id}>
+                        {guest.seatingTable && (
+                          <p>{guest.seatingTable.tableName}</p>
+                        )}
+                        {!guest.seatingTable && <p>No table assigned</p>}
+                      </Link>
                     </td>
                     {/* <td>{vendor.location}</td>
                     <td>{vendor.URL}</td>
@@ -119,9 +119,7 @@ function GuestList() {
         </table>
       </div>
 
-
-
-{/* 
+      {/* 
 
 
 

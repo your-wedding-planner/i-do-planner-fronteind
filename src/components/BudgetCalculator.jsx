@@ -7,7 +7,7 @@ import edit_icon from "../assets/edit-icon.png";
 import toast from "react-hot-toast";
 import CostItemEdit from "./CostItemEdit";
 import { AuthContext } from "../context/auth.context";
-import "../css/filter-search.css"
+import "../css/filter-search.css";
 
 function BudgetCalculator() {
   const { user } = useContext(AuthContext);
@@ -28,46 +28,36 @@ function BudgetCalculator() {
   const [filterCost, setFilterCost] = useState("");
 
   useEffect(() => {
-  //  switch(query, filterCost) {
-  //   case true, true: 
-  //   break
-  //   case true, false:
-  //  }
+    //  switch(query, filterCost) {
+    //   case true, true:
+    //   break
+    //   case true, false:
+    //  }
     const filtered = query
       ? filterCost
-        ? 
-            itemsBackup.filter(
-              (costItem) =>
-                costItem.nameVendor
-                  .toLowerCase()
-                  .includes(query.toLowerCase()) &&
-                costItem.typeOfCost.toLowerCase() === filterCost.toLowerCase()
-            )
-          
-        : 
-            itemsBackup.filter((costItem) =>
-              costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
-            )
-          
-      : setCostItemList(itemsBackup);
-   
-
-    setCostItemList(filtered)
-
-    !query && filterCost &&
-       setCostItemList(
-          itemsBackup.filter(
-            (cost) => cost.typeOfCost.toLowerCase() === filterCost.toLowerCase()
+        ? itemsBackup.filter(
+            (costItem) =>
+              costItem.nameVendor.toLowerCase().includes(query.toLowerCase()) &&
+              costItem.typeOfCost.toLowerCase() === filterCost.toLowerCase()
           )
+        : itemsBackup.filter((costItem) =>
+            costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
+          )
+      : setCostItemList(itemsBackup);
+
+    setCostItemList(filtered);
+
+    !query &&
+      filterCost &&
+      setCostItemList(
+        itemsBackup.filter(
+          (cost) => cost.typeOfCost.toLowerCase() === filterCost.toLowerCase()
         )
+      );
 
-
-        !query && !filterCost && setCostItemList(itemsBackup)
-      
+    !query && !filterCost && setCostItemList(itemsBackup);
   }, [query, filterCost]);
 
-
-  
   function costItemSelect(e) {
     e.preventDefault();
     console.log(e.target.value);
@@ -195,58 +185,56 @@ function BudgetCalculator() {
           })}
         </h3>
       </div>
-      <div >
+      <div>
         <AddCostItemForm loadCostItems={loadCostItems} />
       </div>
 
-    
-        <div className="filter-costitems">
-          <label >
-            Search by name:</label>
-            <input
-              type="search"
-              className="input input-bordered w-full max-w-xs"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-          
-          <label>Filter by type of cost:</label>
-          <select
-            name="typeOfCost"
-            className="select select-bordered w-full max-w-xs"
-            onChange={costItemSelect}
-          >
-            <option value={""}>All types</option>
-            <option value={"Decoration"}>Decoration</option>
-            <option value={"Photographer"}>Photographer</option>
-            <option value={"Music"}>Music</option>
-            <option value={"Food"}>Food</option>
-            <option value={"Beauty & Health"}>Beauty & Health</option>
-            <option value={"Officials"}>Officials</option>
-            <option value={"Location"}>Location</option>
-            <option value={"Dress & Accessories"}>Dress & Accessories</option>
-            <option value={"Invitations"}>Invitations</option>
-            <option value={"Gifts"}>Gifts</option>
-          </select>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              sortCostLow();
-            }}
-          >
-            Sort low-high
-          </button>
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              sortCostHigh();
-            }}
-          >
-            Sort high-low
-          </button>
-        </div>
+      <div className="filter-costitems">
+        <label>Search by name:</label>
+        <input
+          type="search"
+          className="input input-bordered w-full max-w-xs"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
 
-        {/* <div>
+        <label>Filter by type of cost:</label>
+        <select
+          name="typeOfCost"
+          className="select select-bordered w-full max-w-xs"
+          onChange={costItemSelect}
+        >
+          <option value={""}>All types</option>
+          <option value={"Decoration"}>Decoration</option>
+          <option value={"Photographer"}>Photographer</option>
+          <option value={"Music"}>Music</option>
+          <option value={"Food"}>Food</option>
+          <option value={"Beauty & Health"}>Beauty & Health</option>
+          <option value={"Officials"}>Officials</option>
+          <option value={"Location"}>Location</option>
+          <option value={"Dress & Accessories"}>Dress & Accessories</option>
+          <option value={"Invitations"}>Invitations</option>
+          <option value={"Gifts"}>Gifts</option>
+        </select>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            sortCostLow();
+          }}
+        >
+          Sort low-high
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            sortCostHigh();
+          }}
+        >
+          Sort high-low
+        </button>
+      </div>
+
+      {/* <div>
           
         </div>
 
@@ -270,7 +258,6 @@ function BudgetCalculator() {
             <option value={"Gifts"}>Gifts</option>
           </select>
         </div> */}
-  
 
       <div className="overflow-x-auto">
         <table className="table table-xs">

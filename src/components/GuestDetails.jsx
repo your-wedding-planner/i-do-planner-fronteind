@@ -53,63 +53,52 @@ function GuestDetails() {
     if (guest && guest.firstName && guest.lastName) {
       return guest.firstName[0] + guest.lastName[0];
     } else {
-      return '';
+      return "";
     }
-  }
+  };
 
   return (
     <div className="container">
       <div className="details-container">
         <div className="avatar placeholder">
           <div className="bg-secondary text-neutral-content rounded-full w-24">
-            <span className="text-3xl">
-              {getGuestInitials(guest)} 
-            </span>
+            <span className="text-3xl">{getGuestInitials(guest)}</span>
           </div>
         </div>
         <div className="details-name">
-          <h1 >
+          <h1>
             {guest.firstName} {guest.lastName}
           </h1>
-          </div>
-          <div className="details-text">
+        </div>
+        <div className="details-text">
           <p>Age: {guest.age}</p>
           <p>Notes: {guest.notes}</p>
           <p>Attending: {guest.attending}</p>
         </div>
         <div className="details-text">
           <h3>Contact information:</h3>
-        <p>Email: {guest.email}</p>
-        <p>Phone number: {guest.phoneNumber}</p>
+          <p>Email: {guest.email}</p>
+          <p>Phone number: {guest.phoneNumber}</p>
         </div>
-       
+
         <div className="details-btn">
           <Link to={`/GuestEdit/${guest._id}`}>
             <button className="btn">
-            <img
-          className="details-icons"
-          src={edit_icon}
-          al="EditGuest"
-          />
+              <img className="details-icons" src={edit_icon} al="EditGuest" />
             </button>
           </Link>
         </div>
         <div>
-        <button
-          className="btn"
-          onClick={() => {
-            deleteGuest(guest);
-          }}
-        >
-          <img
-          className="details-icons"
-          src={delete_icon}
-          al="DeleteGuest"
-          />
-        </button>
+          <button
+            className="btn"
+            onClick={() => {
+              deleteGuest(guest);
+            }}
+          >
+            <img className="details-icons" src={delete_icon} al="DeleteGuest" />
+          </button>
         </div>
-        </div>
-      
+      </div>
     </div>
   );
 }

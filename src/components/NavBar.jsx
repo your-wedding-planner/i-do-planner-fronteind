@@ -17,7 +17,7 @@ function NavBarTest() {
   return (
     <nav>
       {isLoggedIn && (
-        <div className="navbar bg-base-100" style={{ margin: '0' }}>
+        <div className="navbar bg-base-100" style={{ margin: "0" }}>
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -46,24 +46,40 @@ function NavBarTest() {
               >
                 <li>
                   <Link to={"/GuestList"}>
-                    <img className="menu-icon" src={guest_icon} alt="Guest Icon" />
+                    <img
+                      className="menu-icon"
+                      src={guest_icon}
+                      alt="Guest Icon"
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link to={"/VendorList"}>
-                    <img className="menu-icon" src={vendor_icon} alt="Vendor Icon" />
+                    <img
+                      className="menu-icon"
+                      src={vendor_icon}
+                      alt="Vendor Icon"
+                    />
                   </Link>
                 </li>
                 <li>
                   <Link to={"/BudgetCalculator"}>
-                    <img className="menu-icon" src={calculator_icon} alt="Calculator Icon" />
+                    <img
+                      className="menu-icon"
+                      src={calculator_icon}
+                      alt="Calculator Icon"
+                    />
                   </Link>
                 </li>
                 <li>
-                <Link to={"/SeatingPlanner"}>
-                  <img className="menu-icon" src={table_icon} alt="Table Icon" />
-                </Link>
-              </li>
+                  <Link to={"/SeatingPlanner"}>
+                    <img
+                      className="menu-icon"
+                      src={table_icon}
+                      alt="Table Icon"
+                    />
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="btn btn-ghost text-xl">
@@ -76,22 +92,38 @@ function NavBarTest() {
             <ul className="menu menu-horizontal px-1">
               <li>
                 <Link to={"/GuestList"}>
-                  <img className="menu-icon" src={guest_icon} alt="Guest Icon" />
+                  <img
+                    className="menu-icon"
+                    src={guest_icon}
+                    alt="Guest Icon"
+                  />
                 </Link>
               </li>
               <li>
                 <Link to={"/VendorList"}>
-                  <img className="menu-icon" src={vendor_icon} alt="Vendor Icon" />
+                  <img
+                    className="menu-icon"
+                    src={vendor_icon}
+                    alt="Vendor Icon"
+                  />
                 </Link>
               </li>
               <li>
                 <Link to={"/BudgetCalculator"}>
-                  <img className="menu-icon" src={calculator_icon} alt="Calculator Icon" />
+                  <img
+                    className="menu-icon"
+                    src={calculator_icon}
+                    alt="Calculator Icon"
+                  />
                 </Link>
               </li>
               <li>
                 <Link to={"/SeatingPlanner"}>
-                  <img className="menu-icon" src={table_icon} alt="Table Icon" />
+                  <img
+                    className="menu-icon"
+                    src={table_icon}
+                    alt="Table Icon"
+                  />
                 </Link>
               </li>
             </ul>

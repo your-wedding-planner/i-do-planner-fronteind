@@ -210,11 +210,25 @@ function SeatingPlanner() {
               <h2 className="table-name">{table.tableName}</h2>
               {table._id !== "-1" && (
                 <div className="table-buttons">
-                  <button className="btn" onClick={() => handleEditClick(table._id)}>
-                    <img className="table-assignment-icons" src={edit_icon} alt="Edit table" />
+                  <button
+                    className="btn"
+                    onClick={() => handleEditClick(table._id)}
+                  >
+                    <img
+                      className="table-assignment-icons"
+                      src={edit_icon}
+                      alt="Edit table"
+                    />
                   </button>
-                  <button className="btn" onClick={() => handleDeleteClick(table)}>
-                    <img className="table-assignment-icons" src={delete_icon} alt="Delete table" />
+                  <button
+                    className="btn"
+                    onClick={() => handleDeleteClick(table)}
+                  >
+                    <img
+                      className="table-assignment-icons"
+                      src={delete_icon}
+                      alt="Delete table"
+                    />
                   </button>
                 </div>
               )}

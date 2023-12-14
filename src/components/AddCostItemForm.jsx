@@ -2,18 +2,18 @@ import React, { useContext, useState } from "react";
 import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
-import { AuthContext } from "../context/auth.context"
-import "../css/add-forms.css"
+import { AuthContext } from "../context/auth.context";
+import "../css/add-forms.css";
 
-function AddCostItemForm({loadCostItems}) {
-  const storedToken = localStorage.getItem('authToken');
-  const {user} = useContext(AuthContext)
+function AddCostItemForm({ loadCostItems }) {
+  const storedToken = localStorage.getItem("authToken");
+  const { user } = useContext(AuthContext);
   const [showCostItems, setShowCostItems] = useState(false);
   const [formData, setFormData] = useState({
     nameVendor: "",
     price: 0,
     description: "",
-    typeOfCost: ""
+    typeOfCost: "",
   });
 
   const handleChange = (e) => {
@@ -23,27 +23,26 @@ function AddCostItemForm({loadCostItems}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    storedToken
+    storedToken;
     axios
       .post(`${import.meta.env.VITE_API_URL}/api/costItems`, formData, {
-        headers: { Authorization: `Bearer ${storedToken}` }
-      } )
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then(() => {
-        console.log("Cost Item created successfully")
-        loadCostItems()
+        console.log("Cost Item created successfully");
+        loadCostItems();
         toast.success("Cost Item created successfully");
-        setShowCostItems(false)
+        setShowCostItems(false);
         setFormData({
           nameVendor: "",
           price: 0,
           description: "",
-          typeOfCost: ""
-          })
+          typeOfCost: "",
+        });
       })
       .catch((error) => {
-        console.log("Error creating cost item..", error)
-      })
-
+        console.log("Error creating cost item..", error);
+      });
   };
 
   const handleButtonClick = () => {
@@ -52,12 +51,15 @@ function AddCostItemForm({loadCostItems}) {
 
   return (
     <div>
-      <button onClick={handleButtonClick} className="btn float-center text-blue-500">
+      <button
+        onClick={handleButtonClick}
+        className="btn float-center text-blue-500"
+      >
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
       {showCostItems && (
         <form onSubmit={handleSubmit} className="add-form-costitem">
-          <label >
+          <label>
             Name of Vendor:
             <input
               type="text"
@@ -69,7 +71,7 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-     
+
           <label>
             Price:
             <input
@@ -82,7 +84,7 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-     
+
           <label>
             Description:
             <input
@@ -95,8 +97,8 @@ function AddCostItemForm({loadCostItems}) {
               onChange={handleChange}
             />
           </label>
-           
-          <label >
+
+          <label>
             Type of cost:
             <select
               name="typeOfCost"
@@ -120,8 +122,10 @@ function AddCostItemForm({loadCostItems}) {
               <option value="Gifts">Gifts</option>
             </select>
           </label>
-         <div>
-          <button className="btn btn-primary" type="submit">Submit</button>
+          <div>
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       )}

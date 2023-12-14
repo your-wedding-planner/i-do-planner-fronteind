@@ -8,65 +8,66 @@ function AuthProviderWrapper(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
-  const storeToken = (token) => { 
-    console.log(token)
-    localStorage.setItem('authToken', token);
-  }
+  const storeToken = (token) => {
+    console.log(token);
+    localStorage.setItem("authToken", token);
+  };
 
   const authenticateUser = () => {
-    const storedToken = localStorage.getItem('authToken');
+    const storedToken = localStorage.getItem("authToken");
 
     if (storedToken) {
-      axios.get(
-        `${import.meta.env.VITE_API_URL}/auth/verify`, 
-        { headers: { Authorization: `Bearer ${storedToken}`} }
-      )
-      //authService.verify()
-      .then((response) => {
-        const user = response.data;
-       
-        setIsLoggedIn(true);
-        setIsLoading(false);
-        setUser(user);        
-      })
-      .catch((error) => {         
-        setIsLoggedIn(false);
-        setIsLoading(false);
-        setUser(null);        
-      });      
+      axios
+        .get(`${import.meta.env.VITE_API_URL}/auth/verify`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
+        //authService.verify()
+        .then((response) => {
+          const user = response.data;
+
+          setIsLoggedIn(true);
+          setIsLoading(false);
+          setUser(user);
+        })
+        .catch((error) => {
+          setIsLoggedIn(false);
+          setIsLoading(false);
+          setUser(null);
+        });
     } else {
-        setIsLoggedIn(false);
-        setIsLoading(false);
-        setUser(null);      
-    }   
-  }
+      setIsLoggedIn(false);
+      setIsLoading(false);
+      setUser(null);
+    }
+  };
 
-  const removeToken = () => { 
+  const removeToken = () => {
     localStorage.removeItem("authToken");
-  }
+  };
 
-  const logOutUser = () => { 
-    removeToken();   
+  const logOutUser = () => {
+    removeToken();
     authenticateUser();
-  }
- 
-  useEffect(() => {                 
-    authenticateUser()
+  };
+
+  useEffect(() => {
+    authenticateUser();
   }, []);
 
   return (
-    <AuthContext.Provider 
-    value={{ 
-        isLoggedIn, 
-        isLoading, 
+    <AuthContext.Provider
+      value={{
+        isLoggedIn,
+        isLoading,
         user,
         storeToken,
         authenticateUser,
-        logOutUser
-         }}>
+        logOutUser,
+      }}
+    >
       {props.children}
     </AuthContext.Provider>
-  )
+  );
 }
 
 export { AuthProviderWrapper, AuthContext };

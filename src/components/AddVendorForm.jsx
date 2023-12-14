@@ -3,12 +3,12 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
-import "../css/add-forms.css"
-import "../css/filter-search.css"
+import "../css/add-forms.css";
+import "../css/filter-search.css";
 
-function AddVendorForm({ loadVendors })  {
-  const {user} = useContext(AuthContext)
-  const storedToken = localStorage.getItem('authToken');
+function AddVendorForm({ loadVendors }) {
+  const { user } = useContext(AuthContext);
+  const storedToken = localStorage.getItem("authToken");
   const [showVendorsForm, setShowVendorsForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -27,9 +27,13 @@ function AddVendorForm({ loadVendors })  {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    storedToken
+    storedToken;
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/vendors`, formData, { headers: { Authorization: `Bearer ${storedToken}`} });
+      await axios.post(
+        `${import.meta.env.VITE_API_URL}/api/vendors`,
+        formData,
+        { headers: { Authorization: `Bearer ${storedToken}` } }
+      );
       console.log("Form submitted successfully");
       loadVendors();
       toast.success("Vendor created succesfully");
@@ -42,7 +46,7 @@ function AddVendorForm({ loadVendors })  {
         typeOfService: "",
         email: "",
         phoneNumber: "",
-      })
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
     }
@@ -55,13 +59,14 @@ function AddVendorForm({ loadVendors })  {
   return (
     <div>
       <div>
-      <button onClick={handleButtonClick} className="btn float-center text-blue-500">
-        <img src={add_icon} alt="Add Icon" className="home"></img>
-      </button>
-      
+        <button
+          onClick={handleButtonClick}
+          className="btn float-center text-blue-500"
+        >
+          <img src={add_icon} alt="Add Icon" className="home"></img>
+        </button>
       </div>
 
-     
       {showVendorsForm && (
         <form onSubmit={handleSubmit} className="add-form-vendor">
           <label>
@@ -75,7 +80,7 @@ function AddVendorForm({ loadVendors })  {
               value={formData.name}
               onChange={handleChange}
             />
-          </label>          
+          </label>
           <label>
             Location:
             <input
@@ -112,13 +117,14 @@ function AddVendorForm({ loadVendors })  {
           </label>
           <label>
             Type of Service:
-            <select 
-            name="typeOfService" 
-            className="select select-bordered w-full max-w-xs"
-            required={true} 
-            value={formData.typeOfService} 
-            onChange={handleChange}>
-            <option disabled selected value="">
+            <select
+              name="typeOfService"
+              className="select select-bordered w-full max-w-xs"
+              required={true}
+              value={formData.typeOfService}
+              onChange={handleChange}
+            >
+              <option disabled selected value="">
                 Select an option
               </option>
               <option value="Decoration">Decoration</option>
@@ -157,7 +163,9 @@ function AddVendorForm({ loadVendors })  {
           </label>
           <br />
           <div>
-          <button className="btn btn-primary" type="submit">Submit</button>
+            <button className="btn btn-primary" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       )}

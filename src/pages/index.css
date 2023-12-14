@@ -1,10 +1,10 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 
 html {
   min-height: 100vh;
@@ -14,44 +14,45 @@ body {
   position: relative;
   flex-direction: column;
   min-height: 100vh;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: "Source Sans 3", sans-serif;
 }
 
 body h1 {
-  font-family: 'Playfair Display', serif;
-  }
+  font-family: "Playfair Display", serif;
+}
 
-  body h2 {
-    font-family: 'Nunito', sans-serif;
-    font-size: 1.7rem;
-    }
+body h2 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.7rem;
+}
 
-  body h3 {
-  font-size:  1.5rem;
-  font-family: 'Nunito', sans-serif;
+body h3 {
+  font-size: 1.5rem;
+  font-family: "Nunito", sans-serif;
   max-width: 100vw;
-  }
+}
 
-  .container {
-    min-height: calc(100vh - 20vh);
-    min-width: 100vw;
-  }
+.container {
+  min-height: calc(100vh - 20vh);
+  min-width: 100vw;
+}
 
 .footer {
   height: 20vh;
   width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;
-  }
+}
 
-  .footer-title {
-    justify-content: flex-end;
-  }
-  
+.footer-title {
+  justify-content: flex-end;
+}
+
 .menu-icon {
   width: 40px;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
 .cover-logo {
@@ -59,23 +60,24 @@ body h1 {
   height: auto;
   text-align: center;
   justify-content: center;
-  display: block; 
-  margin: 0 auto; 
+  display: block;
+  margin: 0 auto;
 }
 
 .home {
   width: 30px;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
-.header{
+.header {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.navbar-start{ 
+.navbar-start {
   margin-left: 4.5vw;
 }
 
@@ -144,13 +146,13 @@ body h1 {
 }
 
 .couple-title {
-  font-family: 'Parisienne', cursive;
+  font-family: "Parisienne", cursive;
   font-size: 5rem;
   text-align: center;
 }
 
 .couple-date {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 500;
   font-size: 1.7rem;
   text-align: center;
@@ -165,8 +167,7 @@ body h1 {
   background-position: center;
   opacity: 0.7;
   padding: 80px;
-} 
-
+}
 
 .countdown-container {
   display: flex;
@@ -189,7 +190,7 @@ body h1 {
 }
 
 .countdown-mssg {
-text-align: center;
+  text-align: center;
 }
 
 .dashboard {
@@ -197,7 +198,7 @@ text-align: center;
   justify-content: space-between;
   align-items: center;
   padding: 10vh 5vw;
-  background-color: #FBFEF9;
+  background-color: #fbfef9;
 }
 
 .left-column,
@@ -208,30 +209,31 @@ text-align: center;
 }
 
 .dashboard-item {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
   white-space: nowrap;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .dashboard-item a {
-  display: flex; 
-  align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 .dashboard-icon {
   width: 4vw;
   height: auto;
   vertical-align: middle;
-  margin-right: 20px; 
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  margin-right: 20px;
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
 .budget-container {
   display: flex;
   justify-content: space-evenly;
   padding: 1em;
-  font-size: medium
+  font-size: medium;
 }
 
 .budget-container h2 {
@@ -239,32 +241,33 @@ text-align: center;
   font-weight: bold;
 }
 
-
-
-.overflow-x-auto{
+.overflow-x-auto {
   padding: 4em;
 }
 
-.remaining-budget{
+.remaining-budget {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-td, th {
+td,
+th {
   font-size: 1rem;
 }
 
-.costitem-icons{
+.costitem-icons {
   width: 25px;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
 .table-assignment-icons {
   width: 1vw;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
   text-align: end;
 }
 
@@ -310,7 +313,8 @@ td, th {
 .details-icons {
   width: 25px;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
 .login {
@@ -330,7 +334,7 @@ td, th {
   grid-template-rows: 3fr 1fr;
 }
 
-.login-container form{
+.login-container form {
   padding-top: 2vh;
 }
 
@@ -340,7 +344,7 @@ section {
 }
 
 #weddingOrganization {
-  background-color: #FBFBFF;
+  background-color: #fbfbff;
   padding-left: 5vw;
   padding-right: 5vw;
 }
@@ -358,7 +362,7 @@ section {
 .image-section {
   order: 1;
   margin-bottom: 5vh;
-  }
+}
 
 .text-section {
   order: 2;
@@ -371,7 +375,7 @@ section {
 }
 
 #contact {
-  background-color: #FBFBFF;
+  background-color: #fbfbff;
 }
 
 .developer-image {
@@ -388,7 +392,7 @@ wedding-organization-container {
 }
 
 .wedding-organization-container h1 {
-  color: #EF7244;
+  color: #ef7244;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -409,10 +413,10 @@ wedding-organization-container {
 }
 
 .functionality-section h3 {
-  color: #BD6F29;
-  font-size:  1.5rem;
+  color: #bd6f29;
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .functionality-section p {
@@ -424,7 +428,7 @@ wedding-organization-container {
 .sign-up-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #EF7244;
+  background-color: #ef7244;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -434,7 +438,7 @@ wedding-organization-container {
 }
 
 .sign-up-button:hover {
-  background-color: #BD6F29;
+  background-color: #bd6f29;
 }
 
 .about-us-container {
@@ -443,7 +447,7 @@ wedding-organization-container {
 }
 
 .about-us-container h1 {
-  color: #EF7244;
+  color: #ef7244;
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
@@ -456,7 +460,7 @@ wedding-organization-container {
 }
 
 .contact-page h1 {
-  color: #EF7244;
+  color: #ef7244;
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -495,7 +499,8 @@ wedding-organization-container {
   margin-right: 8px;
   width: 2vw;
   height: auto;
-  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg) brightness(98%) contrast(89%);
+  filter: invert(35%) sepia(8%) saturate(1054%) hue-rotate(159deg)
+    brightness(98%) contrast(89%);
 }
 
 .table-name {
@@ -514,7 +519,7 @@ wedding-organization-container {
 }
 
 .addtable form {
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .addtable form button {
@@ -538,12 +543,12 @@ wedding-organization-container {
   margin-right: 25px;
 }
 
-.overflow-x-auto{
+.overflow-x-auto {
   margin-left: 5vw;
   margin-right: 5vw;
   padding-left: 0;
   padding-right: 0;
-} 
+}
 
 .filter-list {
   display: flex;
@@ -579,7 +584,6 @@ wedding-organization-container {
 
 .filter-costitems button {
   margin-left: 2vw;
-  
 }
 
 .textAlignedRight {
@@ -587,9 +591,9 @@ wedding-organization-container {
 }
 
 .landing-pg-txt-mgn {
-margin-left: 10vw;
-margin-right: 10vw;
-margin-top: 2vw;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 2vw;
 }
 
 .margin10 {

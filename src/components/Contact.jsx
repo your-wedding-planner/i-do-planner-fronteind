@@ -15,7 +15,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-column">
-        <h2 style={{marginTop:"20px"}}>Elise</h2>
+        <h2 style={{ marginTop: "20px" }}>Elise</h2>
 
         <div style={{ justifyContent: "center", display: "flex" }}>
           <button
@@ -52,7 +52,7 @@ const Contact = () => {
       </div>
 
       <div className="contact-column">
-        <h2 style={{marginTop:"20px"}}>Júlia</h2>
+        <h2 style={{ marginTop: "20px" }}>Júlia</h2>
 
         <div style={{ justifyContent: "center", display: "flex" }}>
           <button

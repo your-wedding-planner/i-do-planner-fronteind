@@ -4,37 +4,41 @@ import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
 
 function TableEdit({ tableId, reloadTables }) {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   const storedToken = localStorage.getItem("authToken");
 
   const [formData, setFormData] = useState({
     tableName: "",
-    createdBy: user._id
-  })
+    createdBy: user._id,
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    storedToken
+    storedToken;
 
     const confirmEdit = window.confirm(
       "Are you sure you want to edit this table?"
     );
 
-    if(confirmEdit) {
-      const requestBody = { ...formData }
+    if (confirmEdit) {
+      const requestBody = { ...formData };
 
-    setLoading(true);
+      setLoading(true);
 
-    axios
-      .put(`${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`, requestBody, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
-      .then(() => {
-        toast.success("Table edited successfully");
-        reloadTables();
-      })
-      .catch((error) => console.log(error));
+      axios
+        .put(
+          `${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`,
+          requestBody,
+          {
+            headers: { Authorization: `Bearer ${storedToken}` },
+          }
+        )
+        .then(() => {
+          toast.success("Table edited successfully");
+          reloadTables();
+        })
+        .catch((error) => console.log(error));
     }
   };
 
@@ -45,7 +49,7 @@ function TableEdit({ tableId, reloadTables }) {
 
   useEffect(() => {
     const getTable = () => {
-      storedToken
+      storedToken;
       console.log(tableId);
       axios
         .get(`${import.meta.env.VITE_API_URL}/api/seatingTables/${tableId}`, {
@@ -64,7 +68,6 @@ function TableEdit({ tableId, reloadTables }) {
 
   return (
     <div>
-
       <form onSubmit={handleSubmit} className="edittable">
         <label>Name:</label>
         <input
@@ -74,11 +77,7 @@ function TableEdit({ tableId, reloadTables }) {
           value={formData.tableName}
           onChange={handleChange}
         />
-        <button
-          disabled={loading}
-          type="submit"
-          className="btn btn-primary"
-          >
+        <button disabled={loading} type="submit" className="btn btn-primary">
           Save
         </button>
       </form>

@@ -2,24 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddVendorForm from "./AddVendorForm";
-import "../css/filter-search.css"
+import "../css/filter-search.css";
 
 function VendorList() {
   const [vendorsList, setVendorsList] = useState([]);
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
   const storedToken = localStorage.getItem("authToken");
 
   const filteredVendors = vendorsList.filter((vendor) => {
-    return vendor.name.toLowerCase().includes(query.toLowerCase())
-  })
+    return vendor.name.toLowerCase().includes(query.toLowerCase());
+  });
 
   const sortByCategory = () => {
-    const toSortCategory = [...vendorsList]
+    const toSortCategory = [...vendorsList];
     const sortedCategory = toSortCategory.sort((a, b) => {
-      return a.typeOfService.localeCompare(b.typeOfService) 
-    })
-    setVendorsList(sortedCategory)
-  }
+      return a.typeOfService.localeCompare(b.typeOfService);
+    });
+    setVendorsList(sortedCategory);
+  };
 
   useEffect(() => {
     loadVendors();
@@ -45,23 +45,22 @@ function VendorList() {
         <AddVendorForm loadVendors={loadVendors} />
       </div>
       <div className="filter-list">
-        <label>
-          Search by name:</label>
-          <input 
-          type="search" 
+        <label>Search by name:</label>
+        <input
+          type="search"
           className="input input-bordered w-full max-w-xs"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          />
-        
+        />
+
         <button
-            className="btn btn-primary"
-            onClick={() => {
-              sortByCategory();
-            }}
-          >
-            Sort by Category
-          </button>
+          className="btn btn-primary"
+          onClick={() => {
+            sortByCategory();
+          }}
+        >
+          Sort by Category
+        </button>
       </div>
       <div className="overflow-x-auto">
         <table className="table table-xs">
@@ -82,18 +81,28 @@ function VendorList() {
                 return (
                   <tr>
                     <td>
-                    <Link to={`/VendorDetails/${vendor._id}`} key={vendor._id}>
-                      {vendor.name}
-                    </Link>
+                      <Link
+                        to={`/VendorDetails/${vendor._id}`}
+                        key={vendor._id}
+                      >
+                        {vendor.name}
+                      </Link>
                     </td>
                     <td>
-                    <Link to={`/VendorDetails/${vendor._id}`} key={vendor._id}>
-                      {vendor.description}
-                    </Link>
-                    </td> <td>
-                    <Link to={`/VendorDetails/${vendor._id}`} key={vendor._id}>
-                      {vendor.typeOfService}
-                    </Link>
+                      <Link
+                        to={`/VendorDetails/${vendor._id}`}
+                        key={vendor._id}
+                      >
+                        {vendor.description}
+                      </Link>
+                    </td>{" "}
+                    <td>
+                      <Link
+                        to={`/VendorDetails/${vendor._id}`}
+                        key={vendor._id}
+                      >
+                        {vendor.typeOfService}
+                      </Link>
                     </td>
                     {/* <td>{vendor.location}</td>
                     <td>{vendor.URL}</td>
@@ -110,7 +119,7 @@ function VendorList() {
           </tbody>
         </table>
       </div>
-</div>
+    </div>
   );
 }
 
