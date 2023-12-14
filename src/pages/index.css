@@ -402,10 +402,6 @@ td, th {
   grid-template-rows: repeat(4, 1fr);
 }
 
-.signup-background {
-  background-image: url("../assets/background-signup.jpeg")
-}
-
 .signup {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
