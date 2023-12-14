@@ -12,6 +12,7 @@ function BudgetCalculator() {
   const { user } = useContext(AuthContext);
   const storedToken = localStorage.getItem("authToken");
   const [costItemList, setCostItemList] = useState([]);
+  const [itemsBackup, setItemsBackup] = useState();
   const [query, setQuery] = useState("");
   const [budget, setBudget] = useState(user.weddingBudget);
   const [totalCosts, setTotalCosts] = useState(0);
@@ -23,22 +24,60 @@ function BudgetCalculator() {
     description: "",
     typeOfCost: "",
   });
+  const [filterCost, setFilterCost] = useState("");
 
-  const filteredCostItems = costItemList.filter((costItem) => {
-    return costItem.nameVendor.toLowerCase().includes(query.toLowerCase());
+  useEffect(() => {
+  //  switch(query, filterCost) {
+  //   case true, true: 
+  //   break
+  //   case true, false:
+  //  }
+    const filtered = query
+      ? filterCost
+        ? 
+            itemsBackup.filter(
+              (costItem) =>
+                costItem.nameVendor
+                  .toLowerCase()
+                  .includes(query.toLowerCase()) &&
+                costItem.typeOfCost.toLowerCase() === filterCost.toLowerCase()
+            )
+          
+        : 
+            itemsBackup.filter((costItem) =>
+              costItem.nameVendor.toLowerCase().includes(query.toLowerCase())
+            )
+          
+      : setCostItemList(itemsBackup);
+   
 
-  });
+    setCostItemList(filtered)
 
-  function costItemSelect (event) {
-    console.log(event.target.value)
+    !query && filterCost &&
+       setCostItemList(
+          itemsBackup.filter(
+            (cost) => cost.typeOfCost.toLowerCase() === filterCost.toLowerCase()
+          )
+        )
+
+
+        !query && !filterCost && setCostItemList(itemsBackup)
+      
+  }, [query, filterCost]);
+
+
+  
+  function costItemSelect(e) {
+    e.preventDefault();
+    console.log(e.target.value);
+    setFilterCost(e.target.value);
     const selectedList = costItemList.filter((costItem) => {
-      return costItem.typeOfCost === event.target.value
-    })
+      return costItem.typeOfCost === e.target.value;
+    });
 
-    setCostItemList(selectedList)
-  } 
-
-
+    setCostItemList(selectedList); //not setCostItemList??
+    //If we click after this, CostItemList will only have the filtered type as we clicked before. So it will never show other types
+  }
 
   const sortCostLow = () => {
     const toSortLow = [...costItemList];
@@ -56,8 +95,6 @@ function BudgetCalculator() {
     setCostItemList(sortedHigh);
   };
 
-  
-
   const loadCostItems = () => {
     storedToken;
     axios
@@ -66,6 +103,7 @@ function BudgetCalculator() {
       })
       .then((response) => {
         setCostItemList(response.data);
+        setItemsBackup(response.data);
       })
       .catch((error) => {
         console.error("Error fetching cost items: ", error);
@@ -199,7 +237,7 @@ function BudgetCalculator() {
             className="select select-bordered w-full max-w-xs"
             onChange={costItemSelect}
           >
-            <option value={"All"}>All types</option>
+            <option value={""}>All types</option>
             <option value={"Decoration"}>Decoration</option>
             <option value={"Photographer"}>Photographer</option>
             <option value={"Music"}>Music</option>
@@ -227,8 +265,8 @@ function BudgetCalculator() {
             </tr>
           </thead>
           <tbody>
-            {filteredCostItems?.length > 0 ? (
-              filteredCostItems?.map((costItem) => {
+            {costItemList?.length > 0 ? (
+              costItemList?.map((costItem) => {
                 return (
                   <tr>
                     <td>{costItem.nameVendor}</td>
