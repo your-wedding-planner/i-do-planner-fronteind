@@ -23,7 +23,7 @@ function Footer() {
       </aside> 
       <div>
         <header className="footer-title">Services</header> 
-        <button onClick={() => handleLinkClick('weddingOrganization')} classNamse="link link-hover">Wedding Organization</button>
+        <button onClick={() => handleLinkClick('weddingOrganization')} className="link link-hover">Wedding Organization</button>
       </div> 
       <div>
         <header className="footer-title">Company</header> 
