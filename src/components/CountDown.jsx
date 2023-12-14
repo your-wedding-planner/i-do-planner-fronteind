@@ -39,7 +39,7 @@ function CountDown({ weddingDate }) {
         <div className="countdown-digit">{countdown[2]}</div>
         <div className="countdown-digit">{countdown[3]}</div>
       </div>
-      <h1 className="countdown-mssg">{countDownMessage}</h1>
+      <h2 className="countdown-mssg">{countDownMessage}</h2>
     </div>
   );
 }
