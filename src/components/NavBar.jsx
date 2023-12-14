@@ -59,6 +59,11 @@ function NavBarTest() {
                     <img className="menu-icon" src={calculator_icon} alt="Calculator Icon" />
                   </Link>
                 </li>
+                <li>
+                <Link to={"/SeatingPlanner"}>
+                  <img className="menu-icon" src={table_icon} alt="Table Icon" />
+                </Link>
+              </li>
               </ul>
             </div>
             <div className="btn btn-ghost text-xl">
