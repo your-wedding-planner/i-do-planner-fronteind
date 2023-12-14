@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import AddVendorForm from "./AddVendorForm";
+import "../css/filter-search.css"
 
 function VendorList() {
   const [vendorsList, setVendorsList] = useState([]);

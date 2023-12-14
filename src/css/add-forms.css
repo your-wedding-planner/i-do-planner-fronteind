@@ -1,0 +1,236 @@
+  /* Responsive CSS add costitem form */
+  @media (max-width: 480px) {
+    .add-form-costitem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .add-form-costitem label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .add-form-costitem input, select {
+        margin-bottom: 1vh;
+      }
+      
+      .add-form-costitem div {
+        display: flex;
+        justify-content: center;
+      }
+
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px){
+    .add-form-costitem {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .add-form-costitem label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .add-form-costitem input, select {
+      margin-bottom: 1vh;
+    }
+    
+    .add-form-costitem div {
+      display: flex;
+      justify-content: center;
+      grid-column: 1 / span 2;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .add-form-costitem {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 5vh;
+      }
+      
+      .add-form-costitem label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .add-form-costitem div{
+        display: flex;
+        align-items: end; 
+      }
+  }
+
+  /* Responsive CSS add guest form */
+  @media (max-width: 480px) {
+    .add-form-guest {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(8, 1fr);
+    }
+
+    .add-form-guest label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2vh;
+    }
+
+    .add-form-guest div{
+      display: flex;
+      justify-content: center;
+      margin-top: 2vh;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    .add-form-guest{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 20px;
+      padding: 20px;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+
+    .add-form-guest label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .add-form-guest div{
+      display: grid;
+      grid-column: 1 / span 2;
+      padding-left: 38vw;
+      padding-right: 38vw;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .add-form-guest{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 20px;
+      padding: 20px;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+    
+    .add-form-guest label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .add-form-guest div{
+      display: flex;
+      justify-content: end;
+    }
+    
+  }
+
+ /* Responsive CSS add vendor form */
+  @media (max-width: 480px) {
+    .add-form-vendor {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(7, 1fr); 
+    }
+
+    .add-form-vendor label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 2vh;
+    }
+
+    .add-form-vendor div{
+     display: flex;
+     justify-content: center;
+    }
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+    .add-form-vendor{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 20px;
+      padding: 20px;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+
+    .add-form-vendor label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .add-form-vendor div{
+      display: grid;
+      grid-column: 1 / span 2;
+      padding-left: 38vw;
+      padding-right: 38vw;
+    }
+
+  }
+
+  @media (min-width: 1025px) {
+    .add-form-vendor {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr); 
+      grid-column-gap: 100px;
+      grid-row-gap: 20px;
+      padding: 50px;
+      margin-left: 5vw;
+      margin-right: 5vw;
+    }
+    
+    .add-form-vendor label{
+      display: flex;
+      justify-content: space-between;
+      align-items: center; 
+    }
+    
+    .add-form-vendor div{
+      display: flex;
+      justify-content: end;
+    }
+
+  }
+
+
+   /* Responsive for form */
+  @media (max-width: 480px) {
+
+  }
+
+  @media (min-width: 481px) and (max-width: 1024px) {
+
+  }
+
+  @media (min-width: 1025px) {
+
+  }
+
+  
+
+
+

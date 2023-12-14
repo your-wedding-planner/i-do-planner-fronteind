@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AddGuestForm from "./AddGuestForm";
 import { Link } from "react-router-dom";
+import "../css/filter-search.css"
 
 function GuestList() {
   const [guestsList, setGuestsList] = useState([]);

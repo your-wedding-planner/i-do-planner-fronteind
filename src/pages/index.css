@@ -237,22 +237,7 @@ text-align: center;
   font-weight: bold;
 }
 
-.add-form-costitem {
-  display: flex;
-  justify-content: space-evenly;
-}
 
-.add-form-costitem label {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.add-form-costitem div{
-  display: flex;
-  align-items: end;
-  
-}
 
 .overflow-x-auto{
   padding: 4em;
@@ -290,50 +275,6 @@ td, th {
   width: 5vw;
   height: auto;
   bottom: 0;
-}
-
-.add-form-vendor {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr); 
-  grid-column-gap: 100px;
-  grid-row-gap: 20px;
-  padding: 50px;
-  margin-left: 5vw;
-  margin-right: 5vw;
-}
-
-.add-form-vendor label{
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-}
-
-.add-form-vendor div{
-  display: flex;
-  justify-content: end;
-}
-
-.add-form-guest{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 20px;
-  padding: 20px;
-  margin-left: 5vw;
-  margin-right: 5vw;
-}
-
-.add-form-guest label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.add-form-guest div{
-  display: flex;
-  justify-content: end;
 }
 
 .details-container {
@@ -434,32 +375,7 @@ td, th {
   grid-column-end: 3;
 }
 
-.signup-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-}
 
-.signup {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin: 5vh 0px;
-}
-
-.signup label {
-  display: flex;  
-  flex-direction: column;
-  padding: 10px;
-}
-
-.signup-btn-link {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
 
 .login {
   background-image: url("../assets/background-signup-blurred.png");
@@ -667,41 +583,4 @@ wedding-organization-container {
   padding-left: 0;
   padding-right: 0;
 } 
-
-.filter-list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  margin-top: 3vh;
-}
-
-.filter-list input {
-  margin-right: 20vw;
-  margin-left: 3vw;
-}
-
-.filter-costitems {
-  margin-right: 5vw;
-  margin-left: 5vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.filter-costitems input {
-  margin-left: 1vw;
-  margin-right: 2vw;
-}
-
-.filter-costitems select {
-  margin-left: 1vw;
-  margin-right: 5vw;
-}
-
-.filter-costitems button {
-  margin-left: 2vw;
-  
-}
 

@@ -3,6 +3,8 @@ import axios from "axios";
 import add_icon from "../assets/add-icon.png";
 import toast from "react-hot-toast";
 import { AuthContext } from "../context/auth.context";
+import "../css/add-forms.css"
+
 
 function AddVendorForm({ loadVendors })  {
   const {user} = useContext(AuthContext)

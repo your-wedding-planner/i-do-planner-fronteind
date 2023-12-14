@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import background_signup from "../assets/background-signup.jpeg"
+import "../css/signup.css"
 //import authService from "../services/auth.service";
 
 function Signup(props) {
