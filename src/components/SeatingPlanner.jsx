@@ -207,7 +207,7 @@ function SeatingPlanner() {
         {tablesList.map((table) => (
           <div className="seatingPlanner" key={table.id}>
             <div className="table-header">
-              <h1 className="table-name">{table.tableName}</h1>
+              <h2 className="table-name">{table.tableName}</h2>
               {table._id !== "-1" && (
                 <div className="table-buttons">
                   <button className="btn" onClick={() => handleEditClick(table._id)}>

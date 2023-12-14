@@ -33,13 +33,19 @@ body h1 {
   }
 
   .container {
-    min-height: calc(100vh - 178px);
+    min-height: calc(100vh - 20vh);
     min-width: 100vw;
   }
 
 .footer {
-  height: 178px;
+  height: 20vh;
   width: 100%;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  }
+
+  .footer-title {
+    justify-content: flex-end;
   }
   
 .menu-icon {
@@ -67,6 +73,14 @@ body h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navbar-start{ 
+  margin-left: 4.5vw;
+}
+
+.navbar-end {
+  margin-right: 5vw;
 }
 
 .seatingPlanner {
@@ -151,6 +165,7 @@ body h1 {
   padding: 80px;
 } 
 
+
 .countdown-container {
   display: flex;
   justify-content: center;
@@ -179,7 +194,7 @@ text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 50px; 
+  padding: 10vh 5vw;
   background-color: #FBFEF9;
 }
 
@@ -279,11 +294,13 @@ td, th {
 
 .add-form-vendor {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(4, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
   grid-column-gap: 100px;
   grid-row-gap: 20px;
   padding: 50px;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .add-form-vendor label{
@@ -294,7 +311,7 @@ td, th {
 
 .add-form-vendor div{
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 .add-form-guest{
@@ -302,8 +319,10 @@ td, th {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-row-gap: 20px;
   padding: 20px;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 
 .add-form-guest label {
@@ -314,7 +333,7 @@ td, th {
 
 .add-form-guest div{
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
 
 .details-container {
@@ -445,7 +464,6 @@ td, th {
 .login {
   background-image: url("../assets/background-signup-blurred.png");
   height: 100vh;
-  margin-top: 5vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -642,4 +660,11 @@ wedding-organization-container {
   margin-left: 25px;
   margin-right: 25px;
 }
+
+.overflow-x-auto{
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding-left: 0;
+  padding-right: 0;
+} 
 

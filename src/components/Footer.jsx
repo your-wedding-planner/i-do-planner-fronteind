@@ -16,7 +16,7 @@ function Footer() {
   };
 
   return (
-    <footer className="footer p-10 bg-secondary text-base-content">
+    <footer className="footer p-10 bg-secondary text-base-content " style={{ margin: '0' }}>
       <aside>
         <img src={flowers_icon} alt="Flowers icon" width="50" height="auto"></img>
         <p>I do planner<br/>Copyright © 2023 - All rights reserved</p>

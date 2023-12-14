@@ -53,12 +53,13 @@ function AddVendorForm({ loadVendors })  {
   return (
     <div>
       <div>
-        <h2>Add new Vendor</h2>
-      </div>
-
-      <button onClick={handleButtonClick} className="btn">
+      <button onClick={handleButtonClick} className="btn fixed bottom-3 right-14 text-blue-500">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
+      
+      </div>
+
+     
       {showVendorsForm && (
         <form onSubmit={handleSubmit} className="add-form-vendor">
           <label>
@@ -152,6 +153,7 @@ function AddVendorForm({ loadVendors })  {
               onChange={handleChange}
             />
           </label>
+          <br />
           <div>
           <button className="btn btn-primary" type="submit">Submit</button>
           </div>

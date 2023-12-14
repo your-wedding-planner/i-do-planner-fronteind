@@ -98,12 +98,12 @@ function AddGuestForm({ loadGuests }) {
     <div>
     <div>
       <div>
-        <h2>Add new Guest</h2>
-      </div>
-
-      <button onClick={handleButtonClick} className="btn">
+      <button onClick={handleButtonClick} className="btn fixed bottom-3 right-14 text-blue-500">
         <img src={add_icon} alt="Add Icon" className="home"></img>
       </button>
+      </div>
+
+     
       {showGuests && (
         <form onSubmit={handleSubmit} className="add-form-guest">
           <label>

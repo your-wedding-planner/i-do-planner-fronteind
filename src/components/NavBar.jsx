@@ -17,7 +17,7 @@ function NavBarTest() {
   return (
     <nav>
       {isLoggedIn && (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100" style={{ margin: '0' }}>
           <div className="navbar-start">
             <div className="dropdown">
               <div
