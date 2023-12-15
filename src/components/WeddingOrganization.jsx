@@ -63,7 +63,7 @@ const WeddingOrganization = () => {
           <h2>Unparalleled Organization, Tailored for You</h2>
 
           <div className="organization-section flex justify-around">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid gap-4 definition-cards">
               <div className="card card-compact w-96 bg-base-100 shadow-xl p-6">
                 <h3 className="mb-4">Guest List Efficiency</h3>
                 <ul className="list-none">

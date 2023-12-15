@@ -38,10 +38,43 @@ body h3 {
 }
 
 .footer {
-  height: 20vh;
+  min-height: 20vh;
   width: 100%;
   padding-left: 5vw;
   padding-right: 5vw;
+  padding-bottom: 3vh;
+  padding-top: 3vh;
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    height: 55vh;
+    width: 100vw;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .footer {
+    height: 60vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    height: 24vh;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .dashboard {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .dashboard {
+    flex-direction: column;
+  }
 }
 
 .footer-title {
@@ -56,7 +89,8 @@ body h3 {
 }
 
 .cover-logo {
-  width: 18%;
+  width: 220px;
+  min-width: 20vw;
   height: auto;
   text-align: center;
   justify-content: center;
@@ -598,4 +632,34 @@ wedding-organization-container {
 
 .margin10 {
   margin: 10px;
+}
+
+.definition-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 885px) {
+  .definition-cards {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+.about-us-cards {
+  flex-direction: row;
+}
+
+@media screen and (max-width: 885px) {
+  .about-us-cards {
+    flex-direction: column;
+  }
+}
+
+.about-us-content {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media screen and (max-width: 885px) {
+  .about-us-content {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 }

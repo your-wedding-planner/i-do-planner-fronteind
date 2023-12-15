@@ -19,9 +19,9 @@ const AboutUs = () => {
         </p>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center about-us-cards">
         <div
-          className="card w-full bg-base-100 shadow-xl grid grid-cols-2"
+          className="card w-full bg-base-100 shadow-xl grid about-us-content"
           style={{ margin: "20px", padding: "20px", paddingBottom: "60px" }}
         >
           <figure className="px-10 pt-10 col-span-1">
@@ -45,7 +45,7 @@ const AboutUs = () => {
         </div>
 
         <div
-          className="card w-full bg-base-100 shadow-xl grid grid-cols-2"
+          className="card w-full bg-base-100 shadow-xl grid about-us-content"
           style={{ margin: "20px", padding: "20px", paddingBottom: "60px" }}
         >
           <div className="card-body col-span-1 flex flex-col justify-center">
