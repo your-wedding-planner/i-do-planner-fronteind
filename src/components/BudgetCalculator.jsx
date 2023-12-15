@@ -154,7 +154,7 @@ function BudgetCalculator() {
   return (
     <div className="container">
       <div className="budget-container">
-        <h3>
+        <h3 className="textAlignedCenter">
           Budget:{" "}
           {budget.toLocaleString("en-US", {
             style: "currency",
@@ -162,7 +162,7 @@ function BudgetCalculator() {
           })}
         </h3>
         <div className="remaining-budget">
-          <h2>
+          <h2 className="textAlignedCenter">
             Remaining:{" "}
             {remainingBudget.toLocaleString("en-US", {
               style: "currency",
@@ -177,7 +177,7 @@ function BudgetCalculator() {
             {remainingBudgetPercentage}%
           </div>
         </div>
-        <h3>
+        <h3 className="textAlignedCenter">
           Total costs:{" "}
           {totalCosts.toLocaleString("en-US", {
             style: "currency",
