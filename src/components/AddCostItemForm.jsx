@@ -99,7 +99,7 @@ function AddCostItemForm({ loadCostItems }) {
           </label>
 
           <label>
-            Type of cost:
+            Type of Cost:
             <select
               name="typeOfCost"
               className="select select-bordered w-full max-w-xs"

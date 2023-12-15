@@ -76,9 +76,9 @@ function GuestDetails() {
           <p>Attending: {guest.attending}</p>
         </div>
         <div className="details-text">
-          <h3>Contact information:</h3>
+          <h3>Contact Information:</h3>
           <p>Email: {guest.email}</p>
-          <p>Phone number: {guest.phoneNumber}</p>
+          <p>Phone Number: {guest.phoneNumber}</p>
         </div>
 
         <div className="details-btn">

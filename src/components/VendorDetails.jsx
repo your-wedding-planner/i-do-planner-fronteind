@@ -102,14 +102,14 @@ function VendorDetails() {
         <div className="details-text">
           <p>Location: {vendor.location}</p>
           <p>Description: {vendor.description}</p>
-          <p>Type of service: {vendor.typeOfService}</p>
+          <p>Type of Service: {vendor.typeOfService}</p>
         </div>
 
         <div className="details-text">
-          <h3>Contact information:</h3>
-          <p>{vendor.email}</p>
-          <p>{vendor.phoneNumber}</p>
-          <p>{vendor.URL}</p>
+          <h3>Contact Information:</h3>
+          <p>Email: {vendor.email}</p>
+          <p>Phone Number: {vendor.phoneNumber}</p>
+          <p>Website: {vendor.URL}</p>
         </div>
 
         <div className="details-btn">

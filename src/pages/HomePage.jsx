@@ -117,7 +117,7 @@ function HomePage() {
           <div className="budget-container">
             <div className="remaining-budget">
               <h2>
-                Remaining: <br></br>
+                Remaining Budget: <br></br>
                 {remainingBudget.toLocaleString("en-US", {
                   style: "currency",
                   currency: "EUR",

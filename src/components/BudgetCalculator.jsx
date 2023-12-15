@@ -163,7 +163,7 @@ function BudgetCalculator() {
         </h3>
         <div className="remaining-budget">
           <h2 className="textAlignedCenter">
-            Remaining:{" "}
+            Remaining Budget:{" "}
             {remainingBudget.toLocaleString("en-US", {
               style: "currency",
               currency: "EUR",
@@ -178,7 +178,7 @@ function BudgetCalculator() {
           </div>
         </div>
         <h3 className="textAlignedCenter">
-          Total costs:{" "}
+          Total Costs:{" "}
           {totalCosts.toLocaleString("en-US", {
             style: "currency",
             currency: "EUR",
@@ -190,7 +190,7 @@ function BudgetCalculator() {
       </div>
 
       <div className="filter-costitems">
-        <label>Search by name:</label>
+        <label>Search by Name:</label>
         <input
           type="search"
           className="input input-bordered w-full max-w-xs"
@@ -198,7 +198,7 @@ function BudgetCalculator() {
           onChange={(e) => setQuery(e.target.value)}
         />
 
-        <label>Filter by type of cost:</label>
+        <label>Type of Cost:</label>
         <select
           name="typeOfCost"
           className="select select-bordered w-full max-w-xs"
@@ -233,31 +233,6 @@ function BudgetCalculator() {
           Sort high-low
         </button>
       </div>
-
-      {/* <div>
-          
-        </div>
-
-        <div>
-          <label>Filter by type of cost:</label>
-          <select
-            name="typeOfCost"
-            className="select select-bordered w-full max-w-xs"
-            onChange={costItemSelect}
-          >
-            <option value={""}>All types</option>
-            <option value={"Decoration"}>Decoration</option>
-            <option value={"Photographer"}>Photographer</option>
-            <option value={"Music"}>Music</option>
-            <option value={"Food"}>Food</option>
-            <option value={"Beauty & Health"}>Beauty & Health</option>
-            <option value={"Officials"}>Officials</option>
-            <option value={"Location"}>Location</option>
-            <option value={"Dress & Accessories"}>Dress & Accessories</option>
-            <option value={"Invitations"}>Invitations</option>
-            <option value={"Gifts"}>Gifts</option>
-          </select>
-        </div> */}
 
       <div className="overflow-x-auto">
         <table className="table table-xs">

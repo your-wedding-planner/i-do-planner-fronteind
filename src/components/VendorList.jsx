@@ -45,7 +45,7 @@ function VendorList() {
         <AddVendorForm loadVendors={loadVendors} />
       </div>
       <div className="filter-list">
-        <label>Search by name:</label>
+        <label>Search by Name:</label>
         <input
           type="search"
           className="input input-bordered w-full max-w-xs"

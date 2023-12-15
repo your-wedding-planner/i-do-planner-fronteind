@@ -113,7 +113,7 @@ function Signup(props) {
             />
           </label>
           <label className="card-actions">
-            Wedding Budget
+            Wedding budget
             <input
               type="number"
               name="weddingBudget"

@@ -56,6 +56,7 @@ function AddTableForm({ reloadTables }) {
           <input
             type="text"
             name="tableName"
+            placeholder="Type here"
             className="input input-bordered w-full max-w-xs"
             required={true}
             value={formData.tableName}

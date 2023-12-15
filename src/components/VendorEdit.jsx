@@ -127,7 +127,7 @@ function VendorEdit() {
         </label>
 
         <label>
-          TypeOfService:
+          Type of Service:
           <select
             name="typeOfService"
             className="select select-bordered w-full max-w-xs"
