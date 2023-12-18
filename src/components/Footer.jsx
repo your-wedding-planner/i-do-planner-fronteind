@@ -17,7 +17,7 @@ function Footer() {
 
   return (
     <footer
-      className="footer p-10 bg-secondary text-base-content "
+      className="footer p-10  text-base-content "
       style={{ margin: "0" }}
     >
       <aside>

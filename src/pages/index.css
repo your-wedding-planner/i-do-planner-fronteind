@@ -44,6 +44,7 @@ body h3 {
   padding-right: 5vw;
   padding-bottom: 3vh;
   padding-top: 3vh;
+  background-color: #E5C6BB;
 }
 
 @media screen and (max-width: 480px) {
